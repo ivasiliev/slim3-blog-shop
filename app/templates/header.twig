@@ -1,15 +1,17 @@
 <div class="header">
-        <div class="menu_but" onclick="menu_action('open');"><i class="fa fa-bars"></i></div>
-        <div class="logo">
-                <a href="/">
-                        <span>Name</span>
-                        <font>Descr</font>
-                </a>
-        </div>
-        <div class="menu">
-                <div class="nav">
-                        <a{% if nav_current == "home" %} class="active"{% else %} href="/"{% endif %}>Home</a>
-                        <a{% if nav_current == "shop" %} class="active"{% else %} href="/shop"{% endif %}>Shop</a>
+        <div class="table">
+                <div class="menu_but" onclick="menu_action('open');"><i class="fa fa-bars"></i></div>
+                <div class="logo">
+                        <a href="/">
+                                <span>Name</span>
+                                <font>Descr</font>
+                        </a>
+                </div>
+                <div class="menu">
+                        <div class="nav">
+                                <a{% if nav_current == "home" %} class="active"{% else %} href="/"{% endif %}>Home</a>
+                                <a{% if nav_current == "shop" %} class="active"{% else %} href="/shop"{% endif %}>Shop</a>
+                        </div>
                 </div>
         </div>
 </div>

@@ -52,3 +52,10 @@ a {
 .links a i {
         transition-duration: 0s;
 }
+.table {
+        display: table;
+        width: 100%;
+}
+.table-row {
+        display: table-row;
+}
