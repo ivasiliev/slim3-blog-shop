@@ -6,6 +6,9 @@
         background: #222d4b;
         height: 70px;
 }
+.header > div {
+        display: table-cell;
+}
 .header .menu a {
         color: #a9b7df;
         line-height: 70px;
