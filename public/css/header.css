@@ -22,3 +22,12 @@
         color: #fff;
         cursor: default;
 }
+
+.header .menu_but {
+        display: none;
+}
+
+.header .logo>span {
+        display: block;
+        color: #fff;
+}

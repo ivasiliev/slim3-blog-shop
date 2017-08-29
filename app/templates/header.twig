@@ -1,16 +1,23 @@
 <div class="header">
         <div class="table">
                 <div class="menu_but" onclick="menu_action('open');"><i class="fa fa-bars"></i></div>
-                <div class="logo">
-                        <a href="/">
-                                <span>Name</span>
-                                <font>Descr</font>
-                        </a>
-                </div>
                 <div class="menu">
                         <div class="nav">
-                                <a{% if nav_current == "home" %} class="active"{% else %} href="/"{% endif %}>Home</a>
+                                <a{% if nav_current == "home" %} class="active"{% else %} href="/"{% endif %}>Главная</a>
+                                <a{% if nav_current == "categories" %} class="active"{% else %} href="/"{% endif %}>Статьи</a>
+                                <a{% if nav_current == "authors" %} class="active"{% else %} href="/"{% endif %}>Авторы</a>
                                 <a{% if nav_current == "shop" %} class="active"{% else %} href="/shop"{% endif %}>Shop</a>
+                        </div>
+                </div>
+                <div class="right_controls">
+                        <div class="search">
+                                <div class="search_cont"></div>
+                                <i class="fa fa-search"></i>
+                        </div>
+                        <div class="userdata">
+                                <i class="fa fa-sign-in"></i>
+                                <div class="userinfo">
+                                </div>
                         </div>
                 </div>
         </div>
