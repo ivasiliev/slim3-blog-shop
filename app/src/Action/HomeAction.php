@@ -27,7 +27,7 @@ final class HomeAction {
 
                 $this->view->render($response, 'main.twig', array(
                     "nav_current" => "home",
-                    "records" => array(1, 2, 3, 4, 5, 6, 7, 8, 9)
+                    "records" => array("list" => array(1, 2, 3, 4, 5, 6, 7, 8, 9))
                 ));
                 return $response;
         }
