@@ -25,7 +25,7 @@ final class HomeAction {
 
 	$data = json_decode(file_get_contents(__DIR__ . "/json/main.json"), true);
 
-	$this->view->render($response, 'main.twig', array());
+	$this->view->render($response, 'main.twig', array("nav_current"=>"home"));
 	return $response;
     }
 }
