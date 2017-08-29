@@ -6,7 +6,7 @@
         background: #222d4b;
         height: 70px;
 }
-.header > div {
+.header .table>div {
         display: table-cell;
 }
 .header .menu a {
