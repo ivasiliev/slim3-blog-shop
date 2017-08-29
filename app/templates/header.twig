@@ -1,0 +1,35 @@
+<div class="header">
+        <div class="menu_but" onclick="menu_action('open');"><i class="fa fa-bars"></i></div>
+        <div class="logo"><img src="/css/img/logo-b.png" alt="" /></div>
+        <div class="right">
+                <div class="links">
+                        <a href="{{ data.links.instagram }}"><i class="fa fa-facebook"></i></a>
+                        <a href="{{ data.links.twitter }}"><i class="fa fa-twitter"></i></a>
+                        <a href="{{ data.links.youtube }}"><i class="fa fa-youtube"></i></a>
+                </div>
+                <div class="nav">
+                        <span{% if nav_current == "home" %} class="active"{% else %} onclick="location.href = '/';"{% endif %}>Home</span>
+                        <span{% if nav_current == "portfolio" %} class="active"{% else %} onclick="location.href = '/portfolio/';"{% endif %}>Портфолио</span>
+                        {#<span{% if nav_current == "video" %} class="active"{% else %} onclick="location.href = '/video/';"{% endif %}>Видео</span>#}
+                        <span{% if nav_current == "blog" %} class="active"{% else %} onclick="location.href = '/blog/';"{% endif %}>Блог</span>
+                        <span{% if nav_current == "instagram" %} class="active"{% else %} onclick="location.href = '/instagram/';"{% endif %}>Инстаграм</span>
+                        <span{% if nav_current == "contacts" %} class="active"{% else %} onclick="location.href = '/contacts/';"{% endif %}>Контакты</span>
+                </div>
+        </div>
+</div>
+<div class="m_nav">
+        <div class="menu_but" onclick="menu_action('close');"><i class="fa fa-bars"></i></div>
+        <div class="links">
+                <a href=""><i class="fa fa-facebook"></i></a>
+                <a href=""><i class="fa fa-twitter"></i></a>
+                <a href=""><i class="fa fa-youtube"></i></a>
+        </div>
+        <div class="nav">
+                <span{% if nav_current == "home" %} class="active"{% else %} onclick="location.href = '/';"{% endif %}>Home</span>
+                <span{% if nav_current == "portfolio" %} class="active"{% else %} onclick="location.href = '/portfolio/';"{% endif %}>Портфолио</span>
+                {#<span{% if nav_current == "video" %} class="active"{% else %} onclick="location.href = '/video/';"{% endif %}>Видео</span>#}
+                <span{% if nav_current == "blog" %} class="active"{% else %} onclick="location.href = '/blog/';"{% endif %}>Блог</span>
+                <span{% if nav_current == "instagram" %} class="active"{% else %} onclick="location.href = '/instagram/';"{% endif %}>Инстаграм</span>
+                <span{% if nav_current == "contacts" %} class="active"{% else %} onclick="location.href = '/contacts/';"{% endif %}>Контакты</span>
+        </div>
+</div>

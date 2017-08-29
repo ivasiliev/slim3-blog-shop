@@ -1,0 +1,12 @@
+{% extends "base.twig" %}
+
+{% block title %}Блог{% endblock %}
+
+{% block container %}
+        <h2><a href="/blog/">Блог</a></h2>
+        {% if blog and blog|length > 0 %}
+                <div>Запись в блоге</div>
+        {% else %}
+                <div style="text-align: center;">В блоге пока нет записей</div>
+        {% endif %}
+{% endblock %}
