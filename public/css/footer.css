@@ -5,4 +5,7 @@
         top: -55px;
         overflow: hidden;
         background: #344a88;
+        text-align: center;
+        line-height: 55px;
+        color: #fff;
 }
