@@ -3,4 +3,11 @@
 {% block title %}Главная{% endblock %}
 
 {% block container %}
+        <div class="records_cont_results">
+        {% include 'blog/list.twig' with records %}
+        </div>
+{% endblock %}
+
+{% block styles %}
+        <link href='/css/blog/main.css' rel='stylesheet' type='text/css'>
 {% endblock %}
