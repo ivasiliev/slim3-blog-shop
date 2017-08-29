@@ -1,30 +1,32 @@
 {% if list and list|length > 0 %}
-        <div class="record_box">
-                <div class="record_preview_img" style="background-image: url(/api/img/get/?img=599498de23bc7_c.jpg);">
-                        <div>
-                                <span>
-                                        <a href="/record/?idv=5322827">
-                                                Занятие: Подготовка к ЕГЭ по английскому языку
-                                        </a>
-                                </span>
-                                <font></font>
+        {% for curr in list %}
+                <div class="record_box">
+                        <div class="record_preview_img" style="background-image: url(/api/img/get/?img=599498de23bc7_c.jpg);">
+                                <div>
+                                        <span>
+                                                <a href="/record/?idv=5322827">
+                                                        Занятие: Подготовка к ЕГЭ по английскому языку
+                                                </a>
+                                        </span>
+                                        <font></font>
+                                </div>
+                        </div>
+                        <div class="record_preview_subcont">
+                                <div class="ages">
+                                        от 15
+                                        до 16
+                                        лет
+                                        , 
+                                        для всех
+                                </div>
+                                <div class="keyskills">
+                                        Разговаривать по-английски
+                                        ,                                                 Воспринимать на слух английскую рeчь
+                                </div>
+                                <a href="/record/?idv=5322827" class="link_to_record">подробнее</a>
                         </div>
                 </div>
-                <div class="record_preview_subcont">
-                        <div class="ages">
-                                от 15
-                                до 16
-                                лет
-                                , 
-                                для всех
-                        </div>
-                        <div class="keyskills">
-                                Разговаривать по-английски
-                                ,                                                 Воспринимать на слух английскую рeчь
-                        </div>
-                        <a href="/record/?idv=5322827" class="link_to_record">подробнее</a>
-                </div>
-        </div>
+        {% endfor %}
 {% else %}
         <h4>К сожалению, в блоге пока нет записей</h4>
 {%endif%}

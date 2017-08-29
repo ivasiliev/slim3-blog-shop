@@ -3,8 +3,10 @@
 {% block title %}Главная{% endblock %}
 
 {% block container %}
-        <div class="records_cont_results cont">
-        {% include 'blog/list.twig' with records %}
+        <div class="cont">
+                <div class="records_cont_results">
+                        {% include 'blog/list.twig' with records %}
+                </div>
         </div>
 {% endblock %}
 
