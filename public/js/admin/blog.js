@@ -20,15 +20,15 @@ var blog = {
                 return this;
         },
 
-        open_create: function () {
+        open_form: function (id) {
                 var self = this;
-                this.send('GET', null, this.api_url_categories_form, null, null, function (data, elem) {
+                this.send('GET', null, this.api_url_categories_form + (id ? '/' + id : ''), null, null, function (data, elem) {
                         var obj = self;
-                        obj.open_create_modal(data, elem);
+                        obj.open_form_modal(data, elem);
                 });
         },
 
-        open_create_modal: function (data, elem) {
+        open_form_modal: function (data, elem) {
                 modal.show(data);
         },
 
