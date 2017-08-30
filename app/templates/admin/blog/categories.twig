@@ -4,16 +4,22 @@
                 <thead>
                         <tr>
                                 <td>#</td>
-                                <td>test</td>
-                                <td>test</td>
+                                <td>Название</td>
+                                <td>Описание</td>
+                                <td>&nbsp;</td>
                         </tr>
                 </thead>
                 <tbody>
                         {% for curr in categories %}
                                 <tr>
-                                        <td>id</td>
-                                        <td>title</td>
-                                        <td>actions</td>
+                                        <td>{{ curr.id }}</td>
+                                        <td>{{ curr.name }}</td>
+                                        <td>{{ curr.descr }}</td>
+                                        <td>
+                                                <i class="fa fa-eye"></i>
+                                                <i class="fa fa-edit"></i>
+                                                <i class="fa fa-trash"></i>
+                                        </td>
                                 </tr>
                         {% endfor %}
                 </tbody>

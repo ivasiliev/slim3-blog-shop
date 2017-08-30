@@ -33,6 +33,7 @@ class DataService {
                 file_put_contents($filename, json_encode(array()));
                 return array();
         }
+        
         private function __saveDatafile($name, $data) {
                 if (!$name) {
                         throw new Exception('create datafile: name is empty');
