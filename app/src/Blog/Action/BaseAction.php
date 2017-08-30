@@ -82,7 +82,8 @@ final class BaseAction extends DataService {
                 $list[$curr_id] = $elem;
                 
                 // save datafile
-                $this->saveCategoryData($list);
+                print_r($this->saveCategoryData($list));
+                exit;
                 
                 // return rendered data
                 return $this->AdminCategoriesView($request, $response, $args);

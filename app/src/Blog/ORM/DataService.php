@@ -37,14 +37,9 @@ class DataService {
                 if (!$name) {
                         throw new Exception('create datafile: name is empty');
                 }
-                $filename = Settings::dataPath() . $name . ".json";
-                
-                print_r($data);
-                print($filename);
-                exit;
-                
-                file_put_contents($filename, json_encode($data));
-                return $data;
+                $filename = Settings::dataPath() . $name . ".json";                
+                //file_put_contents($filename, json_encode($data));
+                return file_put_contents($filename, json_encode($data));
         }
 
         private function __getData($datafile, $id = 0) {
