@@ -1,29 +1,22 @@
 <div class="header">
-        <div class="menu_but" onclick="menu_action('open');"><i class="fa fa-bars"></i></div>
-        <div class="logo"><img src="{{ base_url() }}/css/img/logo-b.png" alt="" /></div>
-        <div class="right">
-                <div class="links">
-                        <a href="/?logout"><i class="fa fa-sign-out"></i></a>
+        <div class="cont table">
+                <div class="menu_but" onclick="menu_action('open');"><i class="fa fa-bars"></i></div>
+                <div class="menu">
+                        <div class="nav">
+                                <a href="/">Главная</a>
+                                <span onclick="">Главная</span>
+                        </div>
                 </div>
-                <div class="nav">
-                        <span class="active" nav_elem="main" onclick="tabs_handler.open(this.getAttribute('nav_elem'));">Основное</span>
-                        <span nav_elem="photo" onclick="tabs_handler.open(this.getAttribute('nav_elem'));">Фото</span>
-                        <span nav_elem="groups" onclick="tabs_handler.open(this.getAttribute('nav_elem'));">Группы</span>
-                        <span nav_elem="video" onclick="tabs_handler.open(this.getAttribute('nav_elem'));">Видео</span>
-                        <span nav_elem="blog" onclick="tabs_handler.open(this.getAttribute('nav_elem'));">Блог</span>
+                <div class="right_controls">
+                        <div class="search">
+                                <div class="search_cont"></div>
+                                <i class="fa fa-search"></i>
+                        </div>
+                        <div class="userdata">
+                                <i class="fa fa-sign-in"></i>
+                                <div class="userinfo">
+                                </div>
+                        </div>
                 </div>
-        </div>
-</div>
-<div class="m_nav">
-        <div class="menu_but" onclick="menu_action('close');"><i class="fa fa-bars"></i></div>
-        <div class="links">
-                <a href="/?logout"><i class="fa fa-sign-out"></i></a>
-        </div>
-        <div class="nav">
-                <span class="active" nav_elem="main" onclick="tabs_handler.open(this.getAttribute('nav_elem'));">Основное</span>
-                <span nav_elem="photo" onclick="tabs_handler.open(this.getAttribute('nav_elem'));">Фото</span>
-                <span nav_elem="groups" onclick="tabs_handler.open(this.getAttribute('nav_elem'));">Группы</span>
-                <span nav_elem="video" onclick="tabs_handler.open(this.getAttribute('nav_elem'));">Видео</span>
-                <span nav_elem="blog" onclick="tabs_handler.open(this.getAttribute('nav_elem'));">Блог</span>
         </div>
 </div>

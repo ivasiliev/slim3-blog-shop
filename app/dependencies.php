@@ -48,3 +48,7 @@ $container[App\Action\HomeAction::class] = function ($c) {
 $container[App\Action\Imgs::class] = function ($c) {
     return new App\Action\Imgs($c->get('view'), $c->get('logger'));
 };
+
+$container[App\Action\AdminAction::class] = function ($c) {
+    return new App\Action\AdminAction($c->get('view'), $c->get('logger'));
+};

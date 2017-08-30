@@ -12,7 +12,7 @@
         display: table-cell;
         vertical-align: top;
 }
-.header .menu a {
+.header .menu a, .header .menu span {
         color: rgba(0, 0, 0, 0.5);
         line-height: 70px;
         display: inline-block;
@@ -21,11 +21,11 @@
         padding: 0 20px;
         font-size: 16px;
 }
-.header .menu a:hover {
+.header .menu a:hover, .header .menu span:hover {
         color: rgba(0, 0, 0, 0.8);
         background: rgba(0, 0, 0, 0.15);
 }
-.header .menu a.active {
+.header .menu a.active, .header .menu span.active {
         color: rgba(0, 0, 0, 0.8);
         background: rgba(0, 0, 0, 0.15);
         cursor: default;

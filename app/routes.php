@@ -10,6 +10,14 @@ $app->get('/', App\Action\HomeAction::class)
 	->setName('homepage');
 
 
+//------------------------------------------------------------------------------
+// ADMIN routes
+//------------------------------------------------------------------------------
+
+$app->get('/account', App\Action\AdminAction::class)
+	->setName('adminpage');
+
+
 
 
 
