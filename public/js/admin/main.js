@@ -679,11 +679,31 @@ var blog = {
         arr: [],
         tagname: "blog_data",
         add_tagname: "blog_add_data",
-        update_tagname: "blog_upd_data",
-        show: function (elem) {
-                menu_action(elem);
-                this.send('GET', null, this.api_url_info, true);
-        }
+        update_tagname: "blog_upd_data"
+};
+
+var shop = {
+        __proto__: data_proto,
+        api_url_create: '/api/blog/save',
+        api_url_update: '/api/blog/update',
+        api_url_info: '/api/blog/info',
+        api_url_drop: '/api/blog/drop',
+        arr: [],
+        tagname: "blog_data",
+        add_tagname: "blog_add_data",
+        update_tagname: "blog_upd_data"
+};
+
+var users = {
+        __proto__: data_proto,
+        api_url_create: '/api/blog/save',
+        api_url_update: '/api/blog/update',
+        api_url_info: '/api/blog/info',
+        api_url_drop: '/api/blog/drop',
+        arr: [],
+        tagname: "blog_data",
+        add_tagname: "blog_add_data",
+        update_tagname: "blog_upd_data"
 };
 
 var load_list = {
