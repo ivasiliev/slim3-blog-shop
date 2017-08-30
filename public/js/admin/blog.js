@@ -11,9 +11,6 @@ var blog = {
         api_url_categories_drop: '/api/blog/categories/drop/',
 
         arr: [],
-        tagname: "blog_data",
-        add_tagname: "blog_add_data",
-        update_tagname: "blog_upd_data",
 
         showCategories: function (elem) {
                 if (elem) {
