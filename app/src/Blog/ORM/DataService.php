@@ -53,7 +53,7 @@ class DataService {
         /**
          * @return array full main data array
          */
-        protected function getMainData() {
+        public function getMainData() {
                 return $this->__getData(Settings::MAIN, 0);
         }
 
@@ -61,7 +61,7 @@ class DataService {
          * @return array - if isset $id - current elem array. else - all elems array
          * @param integer $id - id elem in datafile
          */
-        protected function getRecordData($id = 0) {
+        public function getRecordData($id = 0) {
                 return $this->__getData(Settings::RECORDS, $id);
         }
 
@@ -69,7 +69,7 @@ class DataService {
          * @return array - if isset $id - current elem array. else - all elems array
          * @param integer $id - id elem in datafile
          */
-        protected function getCommentData($id = 0) {
+        public function getCommentData($id = 0) {
                 return $this->__getData(Settings::COMMENTS, $id);
         }
 
@@ -77,7 +77,7 @@ class DataService {
          * @return array - if isset $id - current elem array. else - all elems array
          * @param integer $id - id elem in datafile
          */
-        protected function getAuthorData($id = 0) {
+        public function getAuthorData($id = 0) {
                 return $this->__getData(Settings::AUTHORS, $id);
         }
 
@@ -85,7 +85,7 @@ class DataService {
          * @return array - if isset $id - current elem array. else - all elems array
          * @param integer $id - id elem in datafile
          */
-        protected function getCategoryData($id = 0) {
+        public function getCategoryData($id = 0) {
                 return $this->__getData(Settings::CATEGORY, $id);
         }
 
