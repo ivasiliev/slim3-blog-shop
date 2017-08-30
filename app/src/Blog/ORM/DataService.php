@@ -38,6 +38,10 @@ class DataService {
                 if (!$datafile) {
                         throw new Exception('get data: datafile name is empty');
                 }
+                // check if dir not exists
+                if (!file_exists(Settings::dataPath())) {
+                        mkdir(Settings::dataPath(), 0777, true);
+                }
                 // check if file not exists
                 if (!file_exists(Settings::dataPath() . $datafile)) {
                         return $this->__createDatafile($datafile);
