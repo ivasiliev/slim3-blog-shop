@@ -31,37 +31,197 @@ span.loader {
 }
 
 .loader {
-    display: block;
-    font-size: 14px;
-    color: #fff;
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+        display: block;
+        font-size: 14px;
+        color: #fff;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
 }
 
 .loader i {
-    display: inline-block;
-    font-size: 28px;
+        display: inline-block;
+        font-size: 28px;
 }
 
 .loader.main {
-    display: block!important;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
-    width: auto;
-    height: auto;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.55);
+        display: block!important;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        width: auto;
+        height: auto;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.55);
 }
 
 .loader.main i {
-    display: inline-block;
-    vertical-align: middle;
+        display: inline-block;
+        vertical-align: middle;
+}
+
+.modal_cont {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: auto;
+        width: auto;
+        z-index: 9999;
+        text-align: center;
+}
+
+.modal_shadow {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.55);
+        cursor: pointer;
+}
+
+.modal_img_view {
+        display: inline-block;
+        vertical-align: middle;
+        max-width: 100%;
+        max-height: 100%;
+}
+
+.modal_content {
+        display: inline-block;
+        width: 465px;
+        background: #fff;
+        vertical-align: middle;
+        position: relative;
+        padding: 70px 50px 60px;
+        box-sizing: border-box;
+        text-align: left;
+        max-height: 80%;
+        overflow-y: auto;
+        overflow-x: hidden;
+}
+
+.modal_content.big {
+        width: 90%;
+}
+
+.modal_content.big .modal_inputs label {
+        width: 49%;
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 1%;
+}
+
+
+.modal_header {
+        margin-bottom: 30px;
+}
+
+.modal_header div {
+        color: #000000;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 30px;
+}
+
+.modal_header span {
+        color: #777777;
+        font-size: 12px;
+}
+
+.modal_inputs {
+}
+
+.modal_inputs label {
+        display: block;
+        width: 100%;
+        padding: 12px 14px;
+        box-sizing: border-box;
+        border: solid 1px #cccccc;
+        margin: 5px 0px;
+        color: #64656e;
+}
+
+.modal_inputs span {
+        display: block;
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: 300;
+}
+
+.modal_inputs input {
+        width: 100%;
+        padding: 0px;
+        font-size: 18px;
+        color: #64656e;
+        border: none;
+        margin: 10px 0px 4px;
+        outline: none;
+}
+
+.modal_inputs input::-webkit-input-placeholder {color:#b4bcc2;}
+.modal_inputs input::-moz-placeholder          {color:#b4bcc2;}/* Firefox 19+ */
+.modal_inputs input:-moz-placeholder           {color:#b4bcc2;}/* Firefox 18- */
+.modal_inputs input:-ms-input-placeholder      {color:#b4bcc2;}
+
+.modal_close_but {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 55px;
+        cursor: pointer;
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        text-align: center;
+        transform: rotate(45deg);
+}
+
+.modal_close_but i {
+        line-height: 20px;
+        vertical-align: top;
+}
+
+button.modal_button {
+        font-family: 'MyriadProRegular';
+        display: block;
+        font-size: 20px;
+        color: #fff;
+        background: #26b7aa;
+        border: none;
+        width: 100%;
+        line-height: 70px;
+        border-radius: 5px;
+        margin: 30px 0;
+        text-transform: uppercase;
+        cursor: pointer;
+}
+
+button.modal_button.small {
+        font-family: 'MyriadProRegular';
+        display: block;
+        font-size: 18px;
+        color: #fff;
+        background: #26b7aa;
+        border: none;
+        width: auto;
+        padding: 0 50px;
+        line-height: 50px;
+        border-radius: 5px;
+        margin: 30px auto;
+        text-transform: uppercase;
+        cursor: pointer;
+}
+
+button.modal_button:hover {
+        background: #009688;
 }

@@ -86,3 +86,11 @@ button:hover {
         background: rgba(0, 0, 0, 0.15);
         color: rgba(0, 0, 0, 0.8);
 }
+
+.helper {
+        display: inline-block;
+        height: 100%;
+        width: 0px;
+        background: transparent;
+        vertical-align: middle;
+}
