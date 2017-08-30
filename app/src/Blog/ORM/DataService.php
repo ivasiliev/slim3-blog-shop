@@ -75,8 +75,8 @@ class DataService {
          * @return array - if isset $id - current elem array. else - all elems array
          * @param integer $id - id elem in datafile
          */
-        public function getRecordData($id = 0) {
-                return $this->__getData(Settings::RECORDS, $id);
+        public function getPostsData($id = 0) {
+                return $this->__getData(Settings::POSTS, $id);
         }
 
         /**

@@ -32,8 +32,9 @@ var blog = {
         },
         
         drop: function (id) {
-                this.send('GET', null, this.api_url_drop + id, this.get_subcontent_elem());
-                return this;
+                if (confirm("Вы уверены в удалении?")){
+                        this.send('GET', null, this.api_url_drop + id, this.get_subcontent_elem());
+                }
         }
 };
 
