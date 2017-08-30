@@ -66,3 +66,23 @@ h4 {
         font-weight: normal;
         color: rgba(0, 0, 0, 0.7);
 }
+button {
+        display: block;
+        background: #fff;
+        border: solid 2px rgba(0, 0, 0, 0.5);
+        color: rgba(0, 0, 0, 0.5);
+        padding: 8px 16px;
+        margin: 20px auto;
+        border-radius: 18px;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        font-weight: 700;
+}
+
+button:hover {
+        border: solid 2px rgba(0, 0, 0, 0.8);
+        background: rgba(0, 0, 0, 0.15);
+        color: rgba(0, 0, 0, 0.8);
+}
