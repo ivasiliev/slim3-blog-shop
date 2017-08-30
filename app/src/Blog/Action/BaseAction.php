@@ -9,14 +9,13 @@ use Slim\Http\Response;
 use App\Action\Imgs;
 use App\Blog\ORM\DataService;
 
-final class BaseAction {
+final class BaseAction extends DataService {
 
         private $view;
         private $logger;
-        private $data;
 
         public function __construct(Twig $view, LoggerInterface $logger) {
-                $this->data = new DataService($view, $logger);
+                parent::__construct($view, $logger);
                 $this->view = $view;
                 $this->logger = $logger;
         }
@@ -39,7 +38,7 @@ final class BaseAction {
         }
         
         public function AdminCategoriesView(Request $request, Response $response, $args) {
-                $categories = $this->data->getCategoryData();
+                $categories = $this->getCategoryData();
                 $this->view->render($response, 'admin/blog/categories.twig', array(
                     "categories"=>$categories
                 ));

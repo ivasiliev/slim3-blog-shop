@@ -25,7 +25,7 @@ class DataService {
          * @return array empty array
          * @throws Exception
          */
-        private function __createDatafile(string $name) {
+        private function __createDatafile($name) {
                 if (!$name) {
                         throw new Exception('create datafile: name is empty');
                 }
