@@ -45,3 +45,17 @@
 .datalist tbody tr:hover {
         background: rgba(0, 0, 0, 0.1);
 }
+.datalist i {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 18px;
+        color: rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+        line-height: 18px;
+        width: 18px;
+        margin: 0 10px;
+}
+
+.datalist i:hover {
+        color: rgba(0, 0, 0, 0.8);
+}
