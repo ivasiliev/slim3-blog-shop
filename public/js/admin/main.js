@@ -521,7 +521,7 @@ var data_proto = {
         arr: [],
         add_tagname: "",
         list_cont_path: '.admin_content',
-        list_subcont_path: list_cont_path + ' .content',
+        list_subcont_path: '.admin_content .content',
         first: true,
 
         show: function (elem) {
