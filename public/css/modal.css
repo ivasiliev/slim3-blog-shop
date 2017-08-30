@@ -236,3 +236,10 @@ button.modal_button:hover {
         outline: none;
         resize: vertical;
 }
+
+.required {
+        display: inline-block;
+        vertical-align: middle;
+        color: red;
+        margin: 0 10px;
+}
