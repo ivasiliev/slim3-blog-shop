@@ -5,10 +5,10 @@ var blog = {
         api_url_info: '/api/blog/info',
         api_url_drop: '/api/blog/drop',
 
-        api_url_categories_create: '/api/blog/categories/save',
-        api_url_categories_update: '/api/blog/categories/update',
+        api_url_categories_form: '/api/blog/categories/form/',
+        api_url_categories_save: '/api/blog/categories/save',
         api_url_categories_info: '/api/blog/categories/info',
-        api_url_categories_drop: '/api/blog/categories/drop',
+        api_url_categories_drop: '/api/blog/categories/drop/',
 
         arr: [],
         tagname: "blog_data",

@@ -44,5 +44,19 @@ final class BaseAction extends DataService {
                 ));
                 return $response;
         }
+        
+        public function AdminCategoriesForm(Request $request, Response $response, $args) {
+                if (isset($args["curr_id"]) && $args["curr_id"] !== ""){
+                        $categories = $this->getCategoryData($args["curr_id"]);
+                }
+                else {
+                        $categories = array();
+                }
+                $categories = $this->getCategoryData();
+                $this->view->render($response, 'admin/blog/categories_form.twig', array(
+                    "data"=>$categories
+                ));
+                return $response;
+        }
 
 }
