@@ -37,8 +37,10 @@ var blog = {
                 if (elem) {
                         menu_action(elem);
                 }
-                this.send('POST', this.create_reqdata(cont), this.api_url_categories_save, this.get_subcontent_elem(), cont);
-                return this;
+                var form = this.create_reqdata(cont);
+                if (form) {
+                        this.send('POST', form, this.api_url_categories_save, this.get_subcontent_elem(), cont);
+                }
         }
 
 
