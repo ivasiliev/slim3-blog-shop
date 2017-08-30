@@ -253,4 +253,5 @@ button.modal_button:hover {
 .mce-tinymce button {
         border: none;
         background: transparent;
+        display: inline;
 }
