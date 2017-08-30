@@ -8,7 +8,7 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 use App\Settings\Settings;
 
-final class DataService {
+class DataService {
 
         private $view;
         private $logger;
