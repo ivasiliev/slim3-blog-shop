@@ -1,0 +1,23 @@
+<button>Добавить</button>
+{% if categories and categories|length > 0 %}
+        <table class="datalist">
+                <thead>
+                        <tr>
+                                <td>#</td>
+                                <td>test</td>
+                                <td>test</td>
+                        </tr>
+                </thead>
+                <tbody>
+                        {% for curr in categories %}
+                                <tr>
+                                        <td>id</td>
+                                        <td>title</td>
+                                        <td>actions</td>
+                                </tr>
+                        {% endfor %}
+                </tbody>
+        </table>
+{% else %}
+        <h4>Тут пока пусто...</h4>
+{% endif %}

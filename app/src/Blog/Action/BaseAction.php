@@ -36,5 +36,13 @@ final class BaseAction extends DataService {
                 $this->view->render($response, 'admin/blog/main.twig', array());
                 return $response;
         }
+        
+        public function AdminCategoriesView(Request $request, Response $response, $args) {
+                $categories = $this->getCategoryData();
+                $this->view->render($response, 'admin/blog/categories.twig', array(
+                    "categories"=>$categories
+                ));
+                return $response;
+        }
 
 }

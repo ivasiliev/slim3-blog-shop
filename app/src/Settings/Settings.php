@@ -5,7 +5,7 @@ namespace App\Settings;
 final class Settings {
         
         const MAIN = "main";
-        const RECORDS = "records";
+        const POSTS = "posts";
         const AUTHORS = "authors";
         const COMMENTS = "comments";
         const CATEGORY = "category";
