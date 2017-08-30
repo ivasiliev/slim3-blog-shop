@@ -521,6 +521,7 @@ var data_proto = {
         arr: [],
         add_tagname: "",
         list_cont_path: '.admin_content',
+        list_subcont_path: list_cont_path + ' .content',
         first: true,
 
         show: function (elem) {
@@ -588,6 +589,10 @@ var data_proto = {
 
                 return cont.parentNode.parentNode;
         },
+        
+        get_subcontent_elem: function(){
+                return document.querySelector(this.list_subcont_path);
+        },
 
         send: function (method, form, backend, cont, modal_elem, func) {
                 var self = this;
@@ -625,9 +630,9 @@ var data_proto = {
         send_after: function (data, cont) {
                 this.render(data, cont);
         },
-        render: function(data, cont){
+        render: function (data, cont) {
                 console.log(data);
-                if (!cont){
+                if (!cont) {
                         cont = document.querySelector(this.list_cont_path);
                 }
                 cont.innerHTML = data;

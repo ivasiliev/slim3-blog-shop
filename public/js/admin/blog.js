@@ -19,7 +19,7 @@ var blog = {
                 if (elem){
                         menu_action(elem);
                 }
-                this.send('GET', null, this.api_url_categories_info);
+                this.send('GET', null, this.api_url_categories_info, this.get_subcontent_elem());
                 return this;
         }
         
