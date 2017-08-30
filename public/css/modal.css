@@ -115,7 +115,7 @@ span.loader {
 }
 
 .modal_content.big .modal_inputs label {
-        width: 49%;
+        width: 100%;
         display: inline-block;
         vertical-align: top;
         margin-right: 1%;
@@ -244,4 +244,13 @@ button.modal_button:hover {
         vertical-align: top;
         color: red;
         margin: 0 5px;
+}
+
+.mce-tinymce, .mce-tinymce *, .mce-widget, mce-widget * {
+        transition-duration: 0s;
+}
+
+.mce-tinymce button {
+        border: none;
+        background: transparent;
 }
