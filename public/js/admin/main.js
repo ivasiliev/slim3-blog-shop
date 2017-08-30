@@ -612,6 +612,7 @@ var data_proto = {
                         } else {
                                 console.log("error " + this.status);
                                 alert('error request: ' + this.status);
+                                return false;
                         }
 
                         if (func) {
