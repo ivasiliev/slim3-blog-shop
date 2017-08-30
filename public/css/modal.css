@@ -161,7 +161,7 @@ span.loader {
 .modal_inputs input {
         width: 100%;
         padding: 0px;
-        font-size: 18px;
+        font-size: 16px;
         color: #64656e;
         border: none;
         margin: 10px 0px 4px;
@@ -239,7 +239,9 @@ button.modal_button:hover {
 
 .required {
         display: inline-block;
-        vertical-align: middle;
+        vertical-align: top;
         color: red;
-        margin: 0 10px;
+        margin: 0 5px;
+        font-size: 16px;
+        color: #64656e;
 }
