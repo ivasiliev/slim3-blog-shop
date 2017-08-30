@@ -22,7 +22,7 @@ var blog = {
 
         open_form: function (id) {
                 var self = this;
-                this.send('GET', null, this.api_url_categories_form + (id ? '/' + id : ''), null, null, function (data, elem) {
+                this.send('GET', null, this.api_url_categories_form + (id ? id : ''), null, null, function (data, elem) {
                         var obj = self;
                         obj.open_form_modal(data, elem);
                 });
