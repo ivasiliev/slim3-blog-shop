@@ -524,7 +524,9 @@ var data_proto = {
         first: true,
 
         show: function (elem) {
-                menu_action(elem);
+                if (elem) {
+                        menu_action(elem);
+                }
                 this.send('GET', null, this.api_url_info, true);
                 return this;
         },
@@ -587,21 +589,15 @@ var data_proto = {
                 return cont.parentNode.parentNode;
         },
 
-        send: function (method, form, backend, list_all, modal_elem, func) {
+        send: function (method, form, backend, cont, modal_elem, func) {
                 var self = this;
-                if (!list_all) {
-                        loader.show();
-                }
+                loader.show();
                 this.last_formdata = form;
                 var xhr = new XMLHttpRequest();
                 xhr.open(method, backend, true);
                 xhr.onload = xhr.onerror = function () {
                         console.log(this.getResponseHeader('content-type'));
-                        if (list_all) {
-                                load_list.next(self.type);
-                        } else {
-                                loader.remove();
-                        }
+                        loader.remove();
                         if (Number(this.status) === 200) {
                                 /*
                                  var data = JSON.parse(this.responseText);
@@ -617,20 +613,23 @@ var data_proto = {
                         }
 
                         if (func) {
-                                func(data);
+                                func(data, cont);
                         } else {
-                                self.send_after(data, list_all);
+                                self.send_after(data, cont);
                         }
-
-                        if (!list_all) {
-                                modal.remove(modal_elem);
-                        }
+                        modal.remove(modal_elem);
                 };
                 xhr.send(form);
         },
 
-        send_after: function (data, list_all) {
-
+        send_after: function (data, cont) {
+                this.render(data, cont);
+        },
+        render: function(data, cont){
+                if (!cont){
+                        cont = document.querySelector(this.list_cont_path);
+                }
+                cont.innerHTML = data;
         },
         get_curr_data: function (id) {
                 for (var x = 0; x < this.arr.length; x++) {
@@ -668,42 +667,6 @@ var data_proto = {
         check_val: function (val) {
                 return val && val.value;
         }
-};
-
-var blog = {
-        __proto__: data_proto,
-        api_url_create: '/api/blog/save',
-        api_url_update: '/api/blog/update',
-        api_url_info: '/api/blog/info',
-        api_url_drop: '/api/blog/drop',
-        arr: [],
-        tagname: "blog_data",
-        add_tagname: "blog_add_data",
-        update_tagname: "blog_upd_data"
-};
-
-var shop = {
-        __proto__: data_proto,
-        api_url_create: '/api/blog/save',
-        api_url_update: '/api/blog/update',
-        api_url_info: '/api/blog/info',
-        api_url_drop: '/api/blog/drop',
-        arr: [],
-        tagname: "blog_data",
-        add_tagname: "blog_add_data",
-        update_tagname: "blog_upd_data"
-};
-
-var users = {
-        __proto__: data_proto,
-        api_url_create: '/api/blog/save',
-        api_url_update: '/api/blog/update',
-        api_url_info: '/api/blog/info',
-        api_url_drop: '/api/blog/drop',
-        arr: [],
-        tagname: "blog_data",
-        add_tagname: "blog_add_data",
-        update_tagname: "blog_upd_data"
 };
 
 var load_list = {

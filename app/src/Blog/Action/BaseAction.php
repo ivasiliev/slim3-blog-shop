@@ -13,13 +13,11 @@ final class BaseAction extends DataService {
 
         private $view;
         private $logger;
-        private $path;
 
         public function __construct(Twig $view, LoggerInterface $logger) {
                 parent::__construct($view, $logger);
                 $this->view = $view;
                 $this->logger = $logger;
-                $this->path = __DIR__ . "/../../../public/css/photo/";
         }
         
         /**
@@ -35,6 +33,14 @@ final class BaseAction extends DataService {
                 $data = json_decode(file_get_contents(__DIR__ . "/json/main.json"), true);
                 
                 $this->view->render($response, 'main.twig', array());
+                return $response;
+        }
+        
+        public function AdminMainView(Request $request, Response $response, $args) {
+                
+                $data = json_decode(file_get_contents(__DIR__ . "/json/main.json"), true);
+                
+                $this->view->render($response, 'admin/blog/main.twig', array());
                 return $response;
         }
 

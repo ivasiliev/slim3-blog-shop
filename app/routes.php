@@ -33,7 +33,8 @@ $app->get('/blog/c/{curr_id}[/]', 'App\Action\HomeAction:BlogCurrPage')
 	->setName('blogpage');
 
 // api
-
+$app->get('/api/blog/info[/]', 'App\Blog\Action\BaseAction:AdminMainView')
+	->setName('bloglist');
 
 //------------------------------------------------------------------------------
 // SHOP module routes
