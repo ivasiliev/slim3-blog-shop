@@ -30,9 +30,9 @@ var blog = {
                         this.send('POST', form, this.api_url_save, this.get_subcontent_elem(), cont);
                 }
         },
-        
+
         drop: function (id) {
-                if (confirm("Вы уверены в удалении?")){
+                if (confirm("Вы уверены в удалении?")) {
                         this.send('GET', null, this.api_url_drop + id, this.get_subcontent_elem());
                 }
         }
@@ -73,5 +73,39 @@ var posts = {
                 }
                 this.send('GET', null, this.api_url_info, this.get_subcontent_elem());
                 return this;
+        },
+
+        open_form_modal: function (data, elem) {
+                var self = this;
+                modal.show(data, true, function () {
+                        var obj = self;
+                        if (typeof tinymce !== 'undefined') {
+                                var params = {
+                                        selector: '',
+                                        height: 300,
+                                        plugins: 'lists advlist',
+                                        toolbar: 'undo redo | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist',
+                                        menubar: false,
+                                        gecko_spellcheck: true,
+                                        toolbar_items_size: 'small',
+                                        setup: function (editor) {
+                                                editor.on("change keyup", function (e) {
+                                                        //console.log('saving');
+                                                        //tinyMCE.triggerSave(); // updates all instances
+                                                        editor.save(); // updates this instance's textarea
+                                                        $(editor.getElement()).trigger('change'); // for garlic to detect change
+                                                });
+                                        }
+                                };
+
+                                params.selector = '[' + obj.tagname + '="post_content"]';
+                                tinymce.init(params);
+                        }
+
+                        var category = document.querySelector('[' + service.add_tagname + '="category"]');
+                        if (category) {
+                                category.onchange();
+                        }
+                });
         }
 };
