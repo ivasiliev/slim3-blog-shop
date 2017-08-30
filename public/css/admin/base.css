@@ -1,0 +1,30 @@
+.submenu {
+        display: table-cell;
+        width: 20%;
+        padding-top: 50px;
+        vertical-align: top;
+}
+
+.content {
+        display: table-cell;
+        vertical-align: top;
+}
+
+.submenu span {
+        display: block;
+        padding: 8px 16px;
+        color: rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+        font-size: 14px;
+}
+
+.submenu span:hover {
+        color: rgba(0, 0, 0, 0.8);
+        background: rgba(0, 0, 0, 0.15);
+}
+
+.submenu span.active {
+        color: rgba(0, 0, 0, 0.8);
+        background: rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+}
