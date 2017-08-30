@@ -28,18 +28,11 @@ final class BaseAction extends DataService {
          * @return Response - Twig
          */
         public function __invoke(Request $request, Response $response, $args) {
-                //$this->logger->info("Home page action dispatched");
-                
-                $data = json_decode(file_get_contents(__DIR__ . "/json/main.json"), true);
-                
                 $this->view->render($response, 'main.twig', array());
                 return $response;
         }
         
         public function AdminMainView(Request $request, Response $response, $args) {
-                
-                $data = json_decode(file_get_contents(__DIR__ . "/json/main.json"), true);
-                
                 $this->view->render($response, 'admin/blog/main.twig', array());
                 return $response;
         }
