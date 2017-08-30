@@ -540,7 +540,7 @@ var data_proto = {
                 }
 
                 var form = new FormData();
-                form.append('id_version', document.querySelector('input[user="id_version"]').value);
+                //form.append('id_version', document.querySelector('input[user="id_version"]').value);
 
                 var arr = cont.querySelectorAll('[' + this.tagname + ']');
                 var value = null;
