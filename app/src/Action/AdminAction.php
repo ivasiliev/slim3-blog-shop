@@ -9,20 +9,15 @@ use Slim\Http\Response;
 use App\Action\Imgs;
 
 final class AdminAction {
-        
-        private $path;
+        private $view;
+        private $logger;
 
         public function __construct(Twig $view, LoggerInterface $logger) {
                 $this->view = $view;
                 $this->logger = $logger;
-                $this->path = __DIR__ . "/../../../public/css/photo/";
         }
 
         public function __invoke(Request $request, Response $response, $args) {
-                $this->logger->info("Home page action dispatched");
-
-                $data = json_decode(file_get_contents(__DIR__ . "/json/main.json"), true);
-
                 $this->view->render($response, 'admin/main.twig', array(
                 ));
                 return $response;
