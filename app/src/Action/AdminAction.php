@@ -8,12 +8,13 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 use App\Action\Imgs;
 
-final class AdminAction extends HomeAction {
+final class AdminAction {
         
         private $path;
 
         public function __construct(Twig $view, LoggerInterface $logger) {
-                parent::__construct($view, $logger);
+                $this->view = $view;
+                $this->logger = $logger;
                 $this->path = __DIR__ . "/../../../public/css/photo/";
         }
 
