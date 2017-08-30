@@ -246,7 +246,7 @@ button.modal_button:hover {
         margin: 0 5px;
 }
 
-.mce-tinymce, .mce-tinymce *, .mce-widget, mce-widget * {
+.mce-tinymce, .mce-tinymce *, .mce-widget, mce-widget *, .mce-container, .mce-container * {
         transition-duration: 0s;
 }
 
