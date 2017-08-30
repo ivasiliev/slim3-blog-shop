@@ -33,6 +33,14 @@ class DataService {
                 file_put_contents($filename, json_encode(array()));
                 return array();
         }
+        private function __saveDatafile($name, $data) {
+                if (!$name) {
+                        throw new Exception('create datafile: name is empty');
+                }
+                $filename = Settings::dataPath() . $name . ".json";
+                file_put_contents($filename, json_encode($data));
+                return $data;
+        }
 
         private function __getData($datafile, $id = 0) {
                 if (!$datafile) {
@@ -91,6 +99,10 @@ class DataService {
          */
         public function getCategoryData($id = 0) {
                 return $this->__getData(Settings::CATEGORY, $id);
+        }
+        
+        public function saveCategoryData($data) {
+                return $this->__saveDatafile(Settings::CATEGORY, $data);
         }
 
 }

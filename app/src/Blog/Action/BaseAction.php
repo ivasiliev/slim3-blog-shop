@@ -52,11 +52,40 @@ final class BaseAction extends DataService {
                 else {
                         $categories = array();
                 }
-                $categories = $this->getCategoryData();
                 $this->view->render($response, 'admin/blog/categories_form.twig', array(
                     "data"=>$categories
                 ));
                 return $response;
+        }
+        
+        public function AdminCategoriesSave(Request $request, Response $response, $args) {
+                $params = $request->getParsedBody();
+                if (!$params){
+                        return $response->withStatus(400, "empty request");
+                }
+                
+                $curr_id = null;
+                if (isset($params["curr_id"]) && $params["curr_id"]){
+                        $curr_id = $params["curr_id"];
+                }
+                
+                if (!$curr_id){
+                        $curr_id = uniqid();
+                }
+                $elem = array(
+                    "id" => $curr_id,
+                    "name" => $params["name"],
+                    "descr" => $params["descr"],
+                );
+                
+                $list = $this->getCategoryData();
+                $list[$curr_id] = $elem;
+                
+                // save datafile
+                $this->saveCategoryData($list);
+                
+                // return rendered data
+                return $this->AdminCategoriesView($request, $response, $args);
         }
 
 }

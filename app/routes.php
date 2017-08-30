@@ -37,6 +37,7 @@ $app->get('/api/blog/info[/]', 'App\Blog\Action\BaseAction:AdminMainView');
 $app->get('/api/blog/categories/info[/]', 'App\Blog\Action\BaseAction:AdminCategoriesView');
 $app->get('/api/blog/categories/form[/]', 'App\Blog\Action\BaseAction:AdminCategoriesForm');
 $app->get('/api/blog/categories/form/{curr_id}[/]', 'App\Blog\Action\BaseAction:AdminCategoriesForm');
+$app->get('/api/blog/categories/save[/]', 'App\Blog\Action\BaseAction:AdminCategoriesSave');
 
 //------------------------------------------------------------------------------
 // SHOP module routes
