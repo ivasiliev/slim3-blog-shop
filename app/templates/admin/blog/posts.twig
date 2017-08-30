@@ -1,24 +1,26 @@
-<button onclick="category.open_form();">Добавить</button>
-{% if categories and categories|length > 0 %}
+<button onclick="posts.open_form();">Добавить</button>
+{% if list and list|length > 0 %}
         <table class="datalist">
                 <thead>
                         <tr>
                                 <td>#</td>
                                 <td>Название</td>
-                                <td>Описание</td>
+                                <td>Дата создания</td>
+                                <td>Дата модификации</td>
                                 <td>&nbsp;</td>
                         </tr>
                 </thead>
                 <tbody>
-                        {% for curr in categories %}
+                        {% for curr in list %}
                                 <tr>
                                         <td>{{ curr.id }}</td>
                                         <td>{{ curr.name }}</td>
-                                        <td>{{ curr.descr }}</td>
+                                        <td>{{ curr.dt_create }}</td>
+                                        <td>{{ curr.dt_modific }}</td>
                                         <td style="text-align: right;">
                                                 <i class="fa fa-eye"></i>
-                                                <i class="fa fa-edit" onclick="category.open_form('{{ curr.id }}');"></i>
-                                                <i class="fa fa-trash" onclick="category.drop('{{ curr.id }}');"></i>
+                                                <i class="fa fa-edit" onclick="posts.open_form('{{ curr.id }}');"></i>
+                                                <i class="fa fa-trash" onclick="posts.drop('{{ curr.id }}');"></i>
                                         </td>
                                 </tr>
                         {% endfor %}

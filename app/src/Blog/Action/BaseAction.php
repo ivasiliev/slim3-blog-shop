@@ -37,6 +37,9 @@ final class BaseAction extends DataService {
                 return $response;
         }
         
+        //----------------------------------------------------------------------
+        // categories
+        
         public function AdminCategoriesView(Request $request, Response $response, $args) {
                 $categories = $this->getCategoryData();
                 $this->view->render($response, 'admin/blog/categories.twig', array(
@@ -107,5 +110,82 @@ final class BaseAction extends DataService {
                 // return rendered data
                 return $this->AdminCategoriesView($request, $response, $args);
         }
-
+        
+        //----------------------------------------------------------------------
+        
+        //----------------------------------------------------------------------
+        // posts
+        
+        public function AdminPostsView(Request $request, Response $response, $args) {
+                $list = $this->getPostsData();
+                $this->view->render($response, 'admin/blog/posts.twig', array(
+                    "list"=>$list
+                ));
+                return $response;
+        }
+        
+        public function AdminPostsForm(Request $request, Response $response, $args) {
+                if (isset($args["curr_id"]) && $args["curr_id"] !== ""){
+                        $list = $this->getCategoryData($args["curr_id"]);
+                }
+                else {
+                        $list = array();
+                }
+                $this->view->render($response, 'admin/blog/posts_form.twig', array(
+                    "data"=>$list
+                ));
+                return $response;
+        }
+        
+        public function AdminPostsSave(Request $request, Response $response, $args) {
+                $params = $request->getParsedBody();
+                if (!$params){
+                        return $response->withStatus(400, "empty request");
+                }
+                
+                $curr_id = null;
+                if (isset($params["curr_id"]) && $params["curr_id"]){
+                        $curr_id = $params["curr_id"];
+                }
+                
+                if (!$curr_id){
+                        $curr_id = uniqid();
+                }
+                $elem = array(
+                    "id" => $curr_id,
+                    "name" => $params["name"],
+                    "descr" => $params["descr"],
+                );
+                
+                $list = $this->getCategoryData();
+                $list[$curr_id] = $elem;
+                
+                // save datafile
+                $this->saveCategoryData($list);
+                
+                // return rendered data
+                return $this->AdminPostsView($request, $response, $args);
+        }
+        
+        public function AdminPostsDrop(Request $request, Response $response, $args) {
+                if (!(isset($args["curr_id"]) && $args["curr_id"] !== "")){
+                        return $response->withStatus(400, "empty request");
+                }
+                
+                $curr_id = $args["curr_id"];
+                
+                $list = $this->getCategoryData();
+                if (isset($list[$curr_id])){
+                        // remove current data
+                        unset($list[$curr_id]);
+                }
+                
+                // save datafile
+                $this->saveCategoryData($list);
+                
+                // return rendered data
+                return $this->AdminPostsView($request, $response, $args);
+        }
+        
+        //----------------------------------------------------------------------
 }
