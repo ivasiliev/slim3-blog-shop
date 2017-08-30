@@ -30,9 +30,18 @@ var blog = {
                         obj.open_create_modal(data, elem);
                 });
         },
-        
-        open_create_modal: function(data, elem){
+
+        open_create_modal: function (data, elem) {
                 modal.show(data);
+        },
+
+        category_save: function (elem) {
+                var cont = elem.parentNode.parentNode;
+                if (elem) {
+                        menu_action(elem);
+                }
+                this.send('POST', this.create_reqdata(cont), this.api_url_categories_save, this.get_subcontent_elem(), cont);
+                return this;
         }
 
 

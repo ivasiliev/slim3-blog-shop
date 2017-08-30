@@ -519,6 +519,7 @@ var data_proto = {
         api_url_info: '',
         api_url_drop: '',
         arr: [],
+        tagname: "formdata",
         add_tagname: "",
         list_cont_path: '.admin_content',
         list_subcont_path: '.admin_content .content',
@@ -532,12 +533,8 @@ var data_proto = {
                 return this;
         },
 
-        create: function () {
-                this.send('POST', this.create_reqdata(this.add_tagname), this.api_url_create, false, this.get_modal(this.add_tagname));
-        },
-
-        create_reqdata: function (tagname) {
-                var cont = document.querySelector('div.modal_inputs[' + tagname + '="cont"]');
+        create_reqdata: function (elem) {
+                var cont = elem.querySelector('div.modal_inputs');
                 if (!cont) {
                         return false;
                 }
@@ -545,7 +542,7 @@ var data_proto = {
                 var form = new FormData();
                 form.append('id_version', document.querySelector('input[user="id_version"]').value);
 
-                var arr = cont.querySelectorAll('[' + tagname + ']');
+                var arr = cont.querySelectorAll('[' + this.tagname + ']');
                 var value = null;
                 var error_flag = false;
                 var error_f = null;
@@ -570,7 +567,7 @@ var data_proto = {
                                 error_elem ? error_elem.parentNode.removeChild(error_elem) : true;
                                 arr[x].parentNode.setAttribute('style', '');
                         }
-                        form.append(arr[x].getAttribute(tagname), value);
+                        form.append(arr[x].getAttribute(this.tagname), value);
                 }
                 if (error_flag) {
                         return false;

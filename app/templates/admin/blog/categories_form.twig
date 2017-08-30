@@ -1,7 +1,7 @@
 <div class="modal_close_but">+</div>
 <div class="modal_header">{% if data and data.id %}Редактирование категории{% else %}Новая категория{% endif %}</div>
 <div class="modal_inputs">
-        <input type="hidden" value="{% if data.id %}{{ data.id }}{% endif %}">
+        <input type="hidden" formdata="curr_id" value="{% if data.id %}{{ data.id }}{% endif %}">
         <label class="inputs_cont">
                 <span>Название<font class="required">*</font></span>
                 <input type="text" formdata="name" data-required="required" value="{% if data.name %}{{ data.name }}{% endif %}">
@@ -11,4 +11,4 @@
                 <textarea formdata="descr">{% if data.descr %}{{ data.descr }}{% endif %}</textarea>
         </label>
 </div>
-<button>Сохранить</button>
+<button onclick="blog.category_save(this);">Сохранить</button>
