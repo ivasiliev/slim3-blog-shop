@@ -1,4 +1,4 @@
-<button onclick="blog.open_form();">Добавить</button>
+<button onclick="category.open_form();">Добавить</button>
 {% if categories and categories|length > 0 %}
         <table class="datalist">
                 <thead>
@@ -17,8 +17,8 @@
                                         <td>{{ curr.descr }}</td>
                                         <td style="text-align: right;">
                                                 <i class="fa fa-eye"></i>
-                                                <i class="fa fa-edit" onclick="blog.open_form('{{ curr.id }}');"></i>
-                                                <i class="fa fa-trash"></i>
+                                                <i class="fa fa-edit" onclick="category.open_form('{{ curr.id }}');"></i>
+                                                <i class="fa fa-trash" onclick="category.drop('{{ curr.id }}');"></i>
                                         </td>
                                 </tr>
                         {% endfor %}

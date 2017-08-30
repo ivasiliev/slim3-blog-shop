@@ -87,5 +87,25 @@ final class BaseAction extends DataService {
                 // return rendered data
                 return $this->AdminCategoriesView($request, $response, $args);
         }
+        
+        public function AdminCategoriesDrop(Request $request, Response $response, $args) {
+                if (!(isset($args["curr_id"]) && $args["curr_id"] !== "")){
+                        return $response->withStatus(400, "empty request");
+                }
+                
+                $curr_id = $args["curr_id"];
+                
+                $list = $this->getCategoryData();
+                if (isset($list[$curr_id])){
+                        // remove current data
+                        unset($list[$curr_id]);
+                }
+                
+                // save datafile
+                $this->saveCategoryData($list);
+                
+                // return rendered data
+                return $this->AdminCategoriesView($request, $response, $args);
+        }
 
 }
