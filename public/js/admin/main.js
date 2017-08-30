@@ -629,7 +629,6 @@ var data_proto = {
                 this.render(data, cont);
         },
         render: function (data, cont) {
-                console.log(data);
                 if (!cont) {
                         cont = document.querySelector(this.list_cont_path);
                 }
