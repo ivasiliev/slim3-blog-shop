@@ -102,7 +102,7 @@ span.loader {
         background: #fff;
         vertical-align: middle;
         position: relative;
-        padding: 70px 50px 60px;
+        padding: 25px 20px 10px;
         box-sizing: border-box;
         text-align: left;
         max-height: 80%;
@@ -224,4 +224,15 @@ button.modal_button.small {
 
 button.modal_button:hover {
         background: #009688;
+}
+
+.inputs_cont textarea {
+        width: 100%;
+        min-height: 150px;
+        border: none;
+        font-size: 14px;
+        font-family: inherit;
+        margin: 10px 0px 4px;
+        outline: none;
+        resize: vertical;
 }
