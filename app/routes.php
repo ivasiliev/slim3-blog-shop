@@ -41,6 +41,12 @@ $app->get('/api/blog/categories/form/{curr_id}[/]', 'App\Blog\Action\BaseAction:
 $app->post('/api/blog/categories/save[/]', 'App\Blog\Action\BaseAction:AdminCategoriesSave');
 $app->get('/api/blog/categories/drop/{curr_id}[/]', 'App\Blog\Action\BaseAction:AdminCategoriesDrop');
 
+$app->get('/api/blog/posts/info[/]', 'App\Blog\Action\BaseAction:AdminPostsView');
+$app->get('/api/blog/posts/form[/]', 'App\Blog\Action\BaseAction:AdminPostsForm');
+$app->get('/api/blog/posts/form/{curr_id}[/]', 'App\Blog\Action\BaseAction:AdminPostsForm');
+$app->post('/api/blog/posts/save[/]', 'App\Blog\Action\BaseAction:AdminPostsSave');
+$app->get('/api/blog/posts/drop/{curr_id}[/]', 'App\Blog\Action\BaseAction:AdminPostsDrop');
+
 //------------------------------------------------------------------------------
 // SHOP module routes
 //------------------------------------------------------------------------------

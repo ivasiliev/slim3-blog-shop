@@ -55,3 +55,22 @@ var category = {
                 return this;
         }
 };
+
+var posts = {
+        __proto__: blog,
+
+        api_url_form: '/api/blog/posts/form/',
+        api_url_save: '/api/blog/posts/save',
+        api_url_info: '/api/blog/posts/info',
+        api_url_drop: '/api/blog/posts/drop/',
+
+        arr: [],
+
+        show: function (elem) {
+                if (elem) {
+                        menu_action(elem);
+                }
+                this.send('GET', null, this.api_url_info, this.get_subcontent_elem());
+                return this;
+        }
+};
