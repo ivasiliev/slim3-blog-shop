@@ -15,3 +15,53 @@
 .shadow.active {
         display: block;
 }
+
+span.loader {
+        position: absolute;
+        height: 32px;
+        width: 32px;
+        top: 50%;
+        margin-top: -16px;
+        left: 50%;
+        margin-left: -16px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url('img/ajax-loader.gif');
+        z-index: -1;
+}
+
+.loader {
+    display: block;
+    font-size: 14px;
+    color: #fff;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.loader i {
+    display: inline-block;
+    font-size: 28px;
+}
+
+.loader.main {
+    display: block!important;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    width: auto;
+    height: auto;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.loader.main i {
+    display: inline-block;
+    vertical-align: middle;
+}
