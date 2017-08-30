@@ -14,7 +14,7 @@ class DataService {
         private $logger;
         private $path;
 
-        protected function __construct(Twig $view, LoggerInterface $logger) {
+        public function __construct(Twig $view, LoggerInterface $logger) {
                 $this->view = $view;
                 $this->logger = $logger;
         }
