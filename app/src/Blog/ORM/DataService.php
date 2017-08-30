@@ -39,7 +39,7 @@ class DataService {
                         throw new Exception('get data: datafile name is empty');
                 }
                 // check if file not exists
-                if (!file_exists(Settings::dataPath())) {
+                if (!file_exists($datafile)) {
                         return $this->__createDatafile($datafile);
                 }
                 $data = json_decode(file_get_contents(Settings::dataPath() . $datafile), true);
@@ -54,7 +54,7 @@ class DataService {
          * @return array full main data array
          */
         protected function getMainData() {
-                return $this->__getData(0, Settings::MAIN);
+                return $this->__getData(Settings::MAIN, 0);
         }
 
         /**
