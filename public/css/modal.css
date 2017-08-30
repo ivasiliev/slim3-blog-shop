@@ -235,6 +235,8 @@ button.modal_button:hover {
         margin: 10px 0px 4px;
         outline: none;
         resize: vertical;
+        font-size: 16px;
+        color: #64656e;
 }
 
 .required {
@@ -242,6 +244,4 @@ button.modal_button:hover {
         vertical-align: top;
         color: red;
         margin: 0 5px;
-        font-size: 16px;
-        color: #64656e;
 }
