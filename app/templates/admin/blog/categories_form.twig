@@ -1,5 +1,5 @@
 <div class="modal_close_but">+</div>
-<div class="modal_header">Новая категория</div>
+<div class="modal_header">{% if data and data.id %}Редактирование категории{% else %}Новая категория{% endif %}</div>
 <div class="modal_inputs">
         <input type="hidden" value="{% if data.id %}{{ data.id }}{% endif %}">
         <label class="inputs_cont">
