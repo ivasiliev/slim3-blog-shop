@@ -8,14 +8,6 @@ var blog = {
 
         arr: [],
 
-        show: function (elem) {
-                if (elem) {
-                        menu_action(elem);
-                }
-                this.send('GET', null, this.api_url_info, this.get_subcontent_elem());
-                return this;
-        },
-
         open_form: function (id) {
                 var self = this;
                 this.send('GET', null, this.api_url_form + (id ? id : ''), null, null, function (data, elem) {
