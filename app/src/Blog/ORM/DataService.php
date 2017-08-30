@@ -50,7 +50,7 @@ class DataService {
                         mkdir(Settings::dataPath(), 0777, true);
                 }
                 // check if file not exists
-                if (!file_exists(Settings::dataPath() . $datafile)) {
+                if (!file_exists(Settings::dataPath() . $datafile . ".json")) {
                         return $this->__createDatafile($datafile);
                 }
                 $data = json_decode(file_get_contents(Settings::dataPath() . $datafile), true);
