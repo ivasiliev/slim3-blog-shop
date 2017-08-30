@@ -101,11 +101,6 @@ var posts = {
                                 params.selector = '[' + obj.tagname + '="post_content"]';
                                 tinymce.init(params);
                         }
-
-                        var category = document.querySelector('[' + service.add_tagname + '="category"]');
-                        if (category) {
-                                category.onchange();
-                        }
                 });
         }
 };
