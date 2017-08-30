@@ -618,15 +618,11 @@ var data_proto = {
                         if (func) {
                                 func(data, cont);
                         } else {
-                                self.send_after(data, cont);
+                                self.render(data, cont);
                         }
                         modal.remove(modal_elem);
                 };
                 xhr.send(form);
-        },
-
-        send_after: function (data, cont) {
-                this.render(data, cont);
         },
         render: function (data, cont) {
                 if (!cont) {
@@ -647,25 +643,6 @@ var data_proto = {
                 cont.className = 'error_txt';
                 cont.innerHTML = txt;
                 return cont;
-        },
-        drop: function (elem) {
-                var id_version = elem.getAttribute('item');
-                var self = this;
-                this.send('GET', '', this.api_url_drop + '?idv=' + id_version, false, '', function () {
-                        var curr_object = self;
-                        var curr_id = id_version;
-                        var target = elem;
-                        curr_object.drop_after(target, curr_id);
-                });
-        },
-        drop_after: function (elem, id) {
-                for (var x = 0; x < this.arr.length; x++) {
-                        if (this.arr[x].id === Number(id)) {
-                                this.arr.splice(x, 1);
-                                break;
-                        }
-                }
-                elem.parentNode.removeChild(elem);
         },
         check_val: function (val) {
                 return val && val.value;
