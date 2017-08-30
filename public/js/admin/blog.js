@@ -25,7 +25,7 @@ var blog = {
 
         open_create: function () {
                 var self = this;
-                this.send('GET', null, this.api_url_categories_info, function (data, elem) {
+                this.send('GET', null, this.api_url_categories_form, null, null, function (data, elem) {
                         var obj = self;
                         obj.open_create_modal(data, elem);
                 });
