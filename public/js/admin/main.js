@@ -527,7 +527,7 @@ var data_proto = {
                 if (elem) {
                         menu_action(elem);
                 }
-                this.send('GET', null, this.api_url_info, true);
+                this.send('GET', null, this.api_url_info);
                 return this;
         },
 
@@ -626,6 +626,7 @@ var data_proto = {
                 this.render(data, cont);
         },
         render: function(data, cont){
+                console.log(data);
                 if (!cont){
                         cont = document.querySelector(this.list_cont_path);
                 }
