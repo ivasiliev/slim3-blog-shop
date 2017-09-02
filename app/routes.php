@@ -17,6 +17,9 @@ $app->get('/', App\Action\HomeAction::class)
 $app->get('/account', App\Action\AdminAction::class)
 	->setName('adminpage');
 
+// admin stub
+$app->get('/api/stub[/]', 'App\Action\HomeAction:StubView');
+
 
 
 

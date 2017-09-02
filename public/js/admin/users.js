@@ -1,9 +1,9 @@
 var users = {
         __proto__: data_proto,
-        api_url_create: '/api/blog/save',
-        api_url_update: '/api/blog/update',
-        api_url_info: '/api/blog/info',
-        api_url_drop: '/api/blog/drop',
+        api_url_create: '/api/stub',
+        api_url_update: '/api/stub',
+        api_url_info: '/api/stub',
+        api_url_drop: '/api/stub',
         arr: [],
         tagname: "blog_data",
         add_tagname: "blog_add_data",
