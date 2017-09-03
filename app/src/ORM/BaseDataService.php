@@ -67,7 +67,7 @@ class BaseDataService {
 		$filename = Settings::dataPath() . $datafile . ".json";
 		// check if file not exists
 		if (!file_exists($filename)) {
-			return $this->__createDatafile($datafile);
+			return self::__createDatafile($datafile);
 		}
 		$data = json_decode(file_get_contents($filename), true);
 		if ($id) {
