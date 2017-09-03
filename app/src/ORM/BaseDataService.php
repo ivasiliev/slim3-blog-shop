@@ -32,7 +32,14 @@ class BaseDataService {
 		file_put_contents($filename, json_encode(array()));
 		return array();
 	}
-
+	
+	/**
+	 * 
+	 * @param string $name
+	 * @param mixed $data
+	 * @return boolean
+	 * @throws Exception
+	 */
 	protected function __saveDatafile($name, $data) {
 		if (!$name) {
 			throw new Exception('create datafile: name is empty');
@@ -40,7 +47,14 @@ class BaseDataService {
 		$filename = Settings::dataPath() . $name . ".json";
 		return file_put_contents($filename, json_encode($data));
 	}
-
+	
+	/**
+	 * 
+	 * @param type $datafile
+	 * @param type $id
+	 * @return type
+	 * @throws Exception
+	 */
 	protected function __getData($datafile, $id = 0) {
 		if (!$datafile) {
 			throw new Exception('get data: datafile name is empty');
