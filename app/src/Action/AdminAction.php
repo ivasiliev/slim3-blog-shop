@@ -27,6 +27,11 @@ class AdminAction {
         }
 
         public function __invoke(Request $request, Response $response, $args) {
+		if (!$this->user->Info()){
+			header('Location: /login');
+			exit;
+		}
+		
                 $this->view->render($response, 'admin/main.twig', array(
                 ));
                 return $response;
