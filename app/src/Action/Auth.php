@@ -8,7 +8,7 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 use App\ORM\DataService;
 
-final class Auth extends DataService {
+class Auth extends DataService {
 
 	private $view;
 	private $logger;
@@ -19,24 +19,24 @@ final class Auth extends DataService {
 		$this->logger = $logger;
 	}
 
-	public static function Info() {
+	protected static function Info() {
 		$user_session = filter_input(INPUT_COOKIE, '_evtfs');
 		return $this->getUserDataBySession($user_session);
 	}
 
-	public static function Reg() {
+	protected static function Reg() {
 		
 	}
 
-	public static function RegOverULogin() {
+	protected static function RegOverULogin() {
 		
 	}
 
-	public static function Login() {
+	protected static function Login() {
 		
 	}
 
-	public static function Drop() {
+	protected static function Drop() {
 		
 	}
 
