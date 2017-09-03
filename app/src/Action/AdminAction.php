@@ -19,6 +19,10 @@ class AdminAction {
 		$this->view = $view;
 		$this->logger = $logger;
 		$user = new Auth($this->view, $this->logger);
+		if (!$user->Info()) {
+			header('Location: /login');
+			exit;
+		}
 	}
 
 	public function __invoke(Request $request, Response $response, $args) {
