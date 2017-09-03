@@ -44,7 +44,15 @@ final class HomeAction {
 	
 	public function LoginView(Request $request, Response $response, $args){
 		$this->user->logout();
-		$this->view->render($response, 'stub.twig', array(
+		$this->view->render($response, 'login.twig', array(
+		    "nav_current" => ""
+		));
+		return $response;
+	}
+	
+	public function RegView(Request $request, Response $response, $args){
+		$this->user->logout();
+		$this->view->render($response, 'reg.twig', array(
 		    "nav_current" => ""
 		));
 		return $response;
