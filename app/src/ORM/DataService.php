@@ -21,19 +21,19 @@ class DataService extends BaseDataService {
 	}
 
 	public function getUsersData($id = 0) {
-		return parent::__getData(Settings::USERS, $id);
+		return $this->__getData(Settings::USERS, $id);
 	}
 
 	public function getUserDataBySession($session = 0) {
 		$sdata = parent::__getData(Settings::USERSESSIONS, $session);
 		if ($sdata && count($sdata) > 0) {
-			return parent::getUsersData($sdata["user_id"]);
+			return $this->getUsersData($sdata["user_id"]);
 		}
 		return array();
 	}
 
 	public function saveUsersData($data) {
-		return parent::__saveDatafile(Settings::CATEGORY, $data);
+		return $this->__saveDatafile(Settings::CATEGORY, $data);
 	}
 
 }
