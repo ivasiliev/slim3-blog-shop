@@ -9,7 +9,7 @@
 $app->get('/', App\Action\HomeAction::class)
 	->setName('homepage');
 
-$app->get('/login', 'App\Action\HomeAction::LoginView');
+$app->get('/login', 'App\Action\HomeAction:LoginView');
 
 
 //------------------------------------------------------------------------------
