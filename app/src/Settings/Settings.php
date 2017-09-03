@@ -3,7 +3,9 @@
 namespace App\Settings;
 
 final class Settings {
-
+	
+	// ---------------------------------------------------------------------
+	// datafile name consts
 	const MAIN = "main";
 	const POSTS = "posts";
 	const AUTHORS = "authors";
@@ -11,6 +13,10 @@ final class Settings {
 	const CATEGORY = "category";
 	const USERS = "users";
 	const USERSESSIONS = "user_sessions";
+	
+	// ---------------------------------------------------------------------
+	// session cookie name
+	const SESSIONCOOKIE = '_evtfs';
 
 	public function __construct() {
 		

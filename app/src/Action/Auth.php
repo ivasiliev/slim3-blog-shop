@@ -7,12 +7,13 @@ use Psr\Log\LoggerInterface;
 use Slim\Http\Request;
 use Slim\Http\Response;
 use App\ORM\DataService;
+use App\Settings\Settings;
 
 final class Auth extends DataService {
 
 	private $view;
 	private $logger;
-		
+
 	public function __construct(Twig $view, LoggerInterface $logger) {
 		parent::__construct($view, $logger);
 		$this->view = $view;
@@ -20,7 +21,7 @@ final class Auth extends DataService {
 	}
 
 	public static function Info() {
-		$user_session = filter_input(INPUT_COOKIE, '_evtfs');
+		$user_session = filter_input(INPUT_COOKIE, Settings::SESSIONCOOKIE);
 		return parent::getUserDataBySession($user_session);
 	}
 
@@ -34,6 +35,10 @@ final class Auth extends DataService {
 
 	public static function Login() {
 		
+	}
+
+	public static function Logout() {
+		setcookie(Settings::SESSIONCOOKIE, "", time() - 1);
 	}
 
 	public static function Drop() {
