@@ -20,8 +20,8 @@ class AdminAction {
 		$this->logger = $logger;
 		$this->user = new Auth($this->view, $this->logger);
 		if (!$this->user->info()) {
-			header('Location: /login');
-			exit;
+			//header('Location: /login');
+			//exit;
 		}
 	}
 
