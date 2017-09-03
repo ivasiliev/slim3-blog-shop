@@ -13,16 +13,19 @@ class AdminAction {
 
 	private $view;
 	private $logger;
-	//private $user;
+	private $user;
+	
+	private $test;
 
 	public function __construct(Twig $view, LoggerInterface $logger) {
 		$this->view = $view;
 		$this->logger = $logger;
-		$user = new Auth($this->view, $this->logger);
-		if (!$user->Info()) {
-			header('Location: /login');
-			exit;
-		}
+		
+		$this->user = new Auth($this->view, $this->logger);
+		
+		$this->test = new AdminAction($view, $logger);
+		
+		print_r($this->test->user->Info());
 	}
 
 	public function __invoke(Request $request, Response $response, $args) {
