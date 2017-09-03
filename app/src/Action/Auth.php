@@ -33,8 +33,37 @@ final class Auth extends DataService {
 		
 	}
 
-	public function login() {
-		
+	public function login($login, $pass) {
+		$user = $this->checkLogin($login, $pass);
+		if ($user) {
+			$s_id = session_id();
+			if (!$s_id) {
+				// if session not exists
+				return array();
+			}
+			// create user session
+			$u_sessions = $this->getUsersSessions();
+			$u_sessions[$s_id] = array(
+			    "user_id" => $user["id"],
+			    "time_start" => time()
+			);
+			$this->saveUsersSessions($u_sessions);
+			return array(
+			    "user" => $user,
+			    "session_id" => $s_id
+			);
+		}
+		return array();
+	}
+
+	public function checkLogin($login, $pass) {
+		$users = $this->getUsersData();
+		foreach ($users as $curr) {
+			if ($curr["login"] === $login && $curr["pass"] === $pass) {
+				return $curr;
+			}
+		}
+		return array();
 	}
 
 	public function logout() {

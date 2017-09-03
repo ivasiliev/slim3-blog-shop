@@ -425,8 +425,8 @@
 		    xhr.send(form);
 	    },
 	    send_after: function (data) {
-		    if (data === 'success') {
-			    createCookie('_pilotpi_id_v', '111', 365);
+		    if (data.type === 'success') {
+			    createCookie('_pilotpi_id_v', '111', 1);
 			    location.href = "/admin/lk";
 			    return;
 		    }

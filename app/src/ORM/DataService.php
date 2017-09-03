@@ -34,7 +34,15 @@ class DataService extends BaseDataService {
 	}
 
 	public function saveUsersData($data) {
-		return $this->__saveDatafile(Settings::CATEGORY, $data);
+		return $this->__saveDatafile(Settings::USERS, $data);
+	}
+	
+	public function getUsersSessions($id = 0) {
+		return $this->__getData(Settings::USERSESSIONS, $id);
+	}
+	
+	public function saveUsersSessions($data) {
+		return $this->__saveDatafile(Settings::USERSESSIONS, $data);
 	}
 
 }

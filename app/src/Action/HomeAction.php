@@ -34,28 +34,45 @@ final class HomeAction {
 		));
 		return $response;
 	}
-	
-	public function StubView(Request $request, Response $response, $args){
+
+	public function StubView(Request $request, Response $response, $args) {
 		$this->view->render($response, 'stub.twig', array(
 		    "nav_current" => ""
 		));
 		return $response;
 	}
-	
-	public function LoginView(Request $request, Response $response, $args){
+
+	public function LoginView(Request $request, Response $response, $args) {
 		$this->user->logout();
 		$this->view->render($response, 'login.twig', array(
 		    "nav_current" => ""
 		));
 		return $response;
 	}
-	
-	public function RegView(Request $request, Response $response, $args){
+
+	public function RegView(Request $request, Response $response, $args) {
 		$this->user->logout();
 		$this->view->render($response, 'reg.twig', array(
 		    "nav_current" => ""
 		));
 		return $response;
+	}
+
+	public function LoginCheck(Request $request, Response $response, $args) {
+		$params = $request->getParsedBody();
+
+		$params['login'];
+		$params['pass'];
+
+		$userdata = $this->user->login($params['login'], $params['pass']);
+
+		if ($userdata) {
+			return $response->withJson;
+
+			print(json_encode(array("result" => 200, "content" => "success", "sid" => $userdata["session_id"])));
+		} else {
+			print(json_encode(array("result" => 400, "content" => "unknown")));
+		}
 	}
 
 }
