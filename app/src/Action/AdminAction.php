@@ -9,7 +9,7 @@ use Slim\Http\Response;
 use App\Action\Imgs;
 use App\Action\Auth;
 
-class AdminAction extends Auth {
+class AdminAction {
 
 	private $view;
 	private $logger;

@@ -21,7 +21,7 @@ final class Auth extends DataService {
 
 	public static function Info() {
 		$user_session = filter_input(INPUT_COOKIE, '_evtfs');
-		return $this->getUserDataBySession($user_session);
+		return parent::getUserDataBySession($user_session);
 	}
 
 	public static function Reg() {
