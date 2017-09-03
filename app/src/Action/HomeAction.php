@@ -20,7 +20,7 @@ final class HomeAction {
 		$this->view = $view;
 		$this->logger = $logger;
 		$this->path = __DIR__ . "/../../../public/css/photo/";
-		$this->user = new Auth($this->view, $this->logger);
+		//$this->user = new Auth($this->view, $this->logger);
 	}
 
 	public function __invoke(Request $request, Response $response, $args) {
