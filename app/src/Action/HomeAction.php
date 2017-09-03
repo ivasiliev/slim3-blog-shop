@@ -20,7 +20,7 @@ final class HomeAction {
 		$this->view = $view;
 		$this->logger = $logger;
 		$this->path = __DIR__ . "/../../../public/css/photo/";
-		//$this->user = new Auth($this->view, $this->logger);
+		$this->user = new Auth($this->view, $this->logger);
 	}
 
 	public function __invoke(Request $request, Response $response, $args) {
@@ -42,8 +42,8 @@ final class HomeAction {
 		return $response;
 	}
 	
-	public function loginView(Request $request, Response $response, $args){
-		//$this->user->logout();
+	public function LoginView(Request $request, Response $response, $args){
+		$this->user->logout();
 		$this->view->render($response, 'stub.twig', array(
 		    "nav_current" => ""
 		));
