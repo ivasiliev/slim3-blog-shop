@@ -1,0 +1,32 @@
+.login_cont {
+	width: 80%;
+	max-width: 500px;
+	margin: 70px auto;
+}
+
+.inputs_cont {
+	display: block;
+	width: 100%;
+	padding: 12px 14px;
+	box-sizing: border-box;
+	border: solid 1px #cccccc;
+	margin: 5px 0px;
+	color: #64656e;
+}
+
+.inputs_cont span {
+	display: block;
+	font-size: 12px;
+	text-transform: uppercase;
+	font-weight: 300;
+}
+
+.inputs_cont input {
+	width: 100%;
+	padding: 0px;
+	font-size: 16px;
+	color: #64656e;
+	border: none;
+	margin: 10px 0px 4px;
+	outline: none;
+}
