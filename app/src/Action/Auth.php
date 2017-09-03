@@ -6,8 +6,13 @@ use App\ORM\DataService;
 
 final class Auth extends DataService {
 
-	protected function __construct() {
-		
+	private $view;
+	private $logger;
+	
+	public function __construct(Twig $view, LoggerInterface $logger) {
+		parent::__construct($view, $logger);
+		$this->view = $view;
+		$this->logger = $logger;
 	}
 
 	public static function Info() {
