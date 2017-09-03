@@ -26,7 +26,7 @@ final class Settings {
 	protected static function MainAdminTemplate() {
 		$arr = self::AdminDataTemplate();
 		$arr["login"] = "admin";
-		$arr["pass"] = "Qwer123";
+		$arr["pass"] = "";
 		return $arr;
 	}
 
