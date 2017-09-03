@@ -11,7 +11,7 @@ $app->get('/', App\Action\HomeAction::class)
 
 $app->get('/login', 'App\Action\HomeAction:LoginView');
 $app->get('/reg', 'App\Action\HomeAction:RegView');
-$app->post('/checklogin', 'App\Action\Auth:login');
+$app->post('/checklogin', 'App\Action\HomeAction:LoginCheck');
 
 
 //------------------------------------------------------------------------------
