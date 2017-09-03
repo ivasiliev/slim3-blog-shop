@@ -16,12 +16,10 @@ class AdminAction {
 	private $user;
 
 	public function __construct(Twig $view, LoggerInterface $logger) {
-		$this = new AdminAction($view, $logger);
-		
 		$this->view = $view;
 		$this->logger = $logger;
 		$this->user = new Auth($this->view, $this->logger);
-		if (!$this->user->Info()) {
+		if (!$this->user->info()) {
 			header('Location: /login');
 			exit;
 		}
@@ -31,6 +29,10 @@ class AdminAction {
 		$this->view->render($response, 'admin/main.twig', array(
 		));
 		return $response;
+	}
+	
+	public function loginForm(){
+		
 	}
 
 }

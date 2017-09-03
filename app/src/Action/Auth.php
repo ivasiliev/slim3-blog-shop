@@ -20,28 +20,28 @@ final class Auth extends DataService {
 		$this->logger = $logger;
 	}
 
-	public static function Info() {
+	public static function info() {
 		$user_session = filter_input(INPUT_COOKIE, Settings::SESSIONCOOKIE);
 		return parent::getUserDataBySession($user_session);
 	}
 
-	public static function Reg() {
+	public static function reg() {
 		
 	}
 
-	public static function RegOverULogin() {
+	public static function regOverULogin() {
 		
 	}
 
-	public static function Login() {
+	public static function login() {
 		
 	}
 
-	public static function Logout() {
+	public static function logout() {
 		setcookie(Settings::SESSIONCOOKIE, "", time() - 1);
 	}
 
-	public static function Drop() {
+	public static function drop() {
 		
 	}
 

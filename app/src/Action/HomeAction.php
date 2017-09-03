@@ -7,17 +7,20 @@ use Psr\Log\LoggerInterface;
 use Slim\Http\Request;
 use Slim\Http\Response;
 use App\Action\Imgs;
+use App\Action\Auth;
 
 final class HomeAction {
 
 	private $view;
 	private $logger;
 	private $path;
+	private $user;
 
 	public function __construct(Twig $view, LoggerInterface $logger) {
 		$this->view = $view;
 		$this->logger = $logger;
 		$this->path = __DIR__ . "/../../../public/css/photo/";
+		$this->user = new Auth($this->view, $this->logger);
 	}
 
 	public function __invoke(Request $request, Response $response, $args) {
