@@ -12,25 +12,25 @@ final class Settings {
 	const USERS = "users";
 	const USERSESSIONS = "user_sessions";
 
-	protected function __construct() {
+	public function __construct() {
 		
 	}
 
 	/**
 	 * @return string path to data files
 	 */
-	protected static function dataPath() {
+	public static function dataPath() {
 		return __DIR__ . "/../Data/";
 	}
 
-	protected static function MainAdminTemplate() {
+	public static function MainAdminTemplate() {
 		$arr = self::AdminDataTemplate();
 		$arr["login"] = "admin";
 		$arr["pass"] = "";
 		return $arr;
 	}
 
-	protected static function UserDataTemplate() {
+	public static function UserDataTemplate() {
 		$arr = self::UserBaseData();
 		$arr["access"]["blog"] = self::BlogAccessUser();
 		$arr["access"]["shop"] = self::ShopAccessUser();
@@ -38,7 +38,7 @@ final class Settings {
 		return $arr;
 	}
 
-	protected static function AdminDataTemplate() {
+	public static function AdminDataTemplate() {
 		$arr = self::UserBaseData();
 		$arr["access"]["blog"] = self::BlogAccessAuthor();
 		$arr["access"]["shop"] = self::ShopAccessAdmin();
@@ -46,7 +46,7 @@ final class Settings {
 		return $arr;
 	}
 
-	protected static function UserBaseData() {
+	public static function UserBaseData() {
 		return array(
 		    "settings" => array(
 			"name" => "",
@@ -66,7 +66,7 @@ final class Settings {
 
 	// ---------------------------------------------------------------------
 	// blog access
-	protected static function BlogAccessUser() {
+	public static function BlogAccessUser() {
 		return array(
 		    "access" => 0,
 		    "view" => 0,
@@ -76,7 +76,7 @@ final class Settings {
 		);
 	}
 
-	protected static function BlogAccessAuthor() {
+	public static function BlogAccessAuthor() {
 		return array(
 		    "access" => 1,
 		    "view" => 1,
@@ -88,13 +88,13 @@ final class Settings {
 
 	// ---------------------------------------------------------------------
 	// shop access
-	protected static function ShopAccessUser() {
+	public static function ShopAccessUser() {
 		return array(
 		    "access" => 1
 		);
 	}
 
-	protected static function ShopAccessAdmin() {
+	public static function ShopAccessAdmin() {
 		return array(
 		    "access" => 1
 		);
@@ -102,7 +102,7 @@ final class Settings {
 
 	// ---------------------------------------------------------------------
 	// administrate access
-	protected static function AdministrateAccessUser() {
+	public static function AdministrateAccessUser() {
 		return array(
 		    "blog" => 0,
 		    "shop" => 0,
@@ -110,7 +110,7 @@ final class Settings {
 		);
 	}
 
-	protected static function AdministrateAccessAdmin() {
+	public static function AdministrateAccessAdmin() {
 		return array(
 		    "blog" => 1,
 		    "shop" => 1,
