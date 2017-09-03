@@ -2,6 +2,10 @@
 
 namespace App\Action;
 
+use Slim\Views\Twig;
+use Psr\Log\LoggerInterface;
+use Slim\Http\Request;
+use Slim\Http\Response;
 use App\ORM\DataService;
 
 final class Auth extends DataService {
