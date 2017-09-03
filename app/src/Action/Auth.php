@@ -8,7 +8,7 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 use App\ORM\DataService;
 
-class Auth extends DataService {
+final class Auth extends DataService {
 
 	private $view;
 	private $logger;

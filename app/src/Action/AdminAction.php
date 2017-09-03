@@ -18,15 +18,14 @@ class AdminAction {
 	public function __construct(Twig $view, LoggerInterface $logger) {
 		$this->view = $view;
 		$this->logger = $logger;
-	}
-
-	public function __invoke(Request $request, Response $response, $args) {
 		$this->user = new Auth($this->view, $this->logger);
 		if (!$this->user->Info()) {
 			header('Location: /login');
 			exit;
 		}
+	}
 
+	public function __invoke(Request $request, Response $response, $args) {
 		$this->view->render($response, 'admin/main.twig', array(
 		));
 		return $response;
