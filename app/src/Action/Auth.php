@@ -8,35 +8,35 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 use App\ORM\DataService;
 
-class Auth extends DataService {
+final class Auth extends DataService {
 
 	private $view;
 	private $logger;
-	
+		
 	public function __construct(Twig $view, LoggerInterface $logger) {
 		parent::__construct($view, $logger);
 		$this->view = $view;
 		$this->logger = $logger;
 	}
 
-	protected static function Info() {
+	public static function Info() {
 		$user_session = filter_input(INPUT_COOKIE, '_evtfs');
-		return $this->getUserDataBySession($user_session);
+		return parent::getUserDataBySession($user_session);
 	}
 
-	protected static function Reg() {
+	public static function Reg() {
 		
 	}
 
-	protected static function RegOverULogin() {
+	public static function RegOverULogin() {
 		
 	}
 
-	protected static function Login() {
+	public static function Login() {
 		
 	}
 
-	protected static function Drop() {
+	public static function Drop() {
 		
 	}
 
