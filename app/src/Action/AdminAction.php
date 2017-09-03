@@ -30,9 +30,5 @@ class AdminAction {
 		));
 		return $response;
 	}
-	
-	public function loginForm(){
-		
-	}
 
 }

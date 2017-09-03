@@ -41,5 +41,13 @@ final class HomeAction {
 		));
 		return $response;
 	}
+	
+	public function loginView(Request $request, Response $response, $args){
+		$this->user->logout();
+		$this->view->render($response, 'stub.twig', array(
+		    "nav_current" => ""
+		));
+		return $response;
+	}
 
 }
