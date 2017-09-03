@@ -8,7 +8,7 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 use App\ORM\DataService;
 
-final class Auth extends DataService {
+class Auth extends DataService {
 
 	private $view;
 	private $logger;
@@ -21,7 +21,7 @@ final class Auth extends DataService {
 
 	public static function Info() {
 		$user_session = filter_input(INPUT_COOKIE, '_evtfs');
-		return parent::getUserDataBySession($user_session);
+		return $this->getUserDataBySession($user_session);
 	}
 
 	public static function Reg() {
