@@ -10,31 +10,26 @@ use App\Action\Imgs;
 use App\Action\Auth;
 
 class AdminAction {
-        private $view;
-        private $logger;
-        private $user;
 
-        public function __construct(Twig $view, LoggerInterface $logger) {
-                $this->view = $view;
-                $this->logger = $logger;
-		$this->user = new Auth($view, $logger);
-		/*
-		if (!$this->user->Info()){
+	private $view;
+	private $logger;
+	private $user;
+
+	public function __construct(Twig $view, LoggerInterface $logger) {
+		$this->view = $view;
+		$this->logger = $logger;
+	}
+
+	public function __invoke(Request $request, Response $response, $args) {
+		$this->user = new Auth($this->view, $this->logger);
+		if (!$this->user->Info()) {
 			header('Location: /login');
 			exit;
 		}
-		 */
-        }
 
-        public function __invoke(Request $request, Response $response, $args) {
-		if (!$this->user->Info()){
-			header('Location: /login');
-			exit;
-		}
-		
-                $this->view->render($response, 'admin/main.twig', array(
-                ));
-                return $response;
-        }
+		$this->view->render($response, 'admin/main.twig', array(
+		));
+		return $response;
+	}
 
 }
