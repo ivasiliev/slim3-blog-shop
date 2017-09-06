@@ -64,7 +64,7 @@ final class HomeAction {
                 $userdata = $this->user->login($params['login'], $params['pass']);
 
                 if ($userdata) {
-                        return $response->withJson(array("result" => 200, "content" => "success", "sid" => $userdata["session_id"]));
+                        return $response->withJson(array("result" => 200,"content" => array("type" => "success","sid" => $userdata["session_id"])));
                 } else {
                         return $response->withJson(array("result" => 400, "content" => "unknown"));
                 }
@@ -77,15 +77,9 @@ final class HomeAction {
 
                 if ($userdata) {
                         if (isset($userdata["error"]) && $userdata["error"] !== "") {
-                                return $response->withJson(array(
-                                            "result" => 400,
-                                            "content" => array(
-                                                "type" => "error",
-                                                "message" => $userdata["error"]
-                                            )
-                                ));
+                                return $response->withJson(array("result" => 400,"content" => array("type" => "error","message" => $userdata["error"])));
                         }
-                        return $response->withJson(array("result" => 200, "content" => "success", "sid" => $userdata["session_id"]));
+                        return $response->withJson(array("result" => 200,"content" => array("type" => "success","sid" => $userdata["session_id"])));
                 }
                 return $response->withJson(array("result" => 400, "content" => "unknown"));
         }
