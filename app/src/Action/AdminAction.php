@@ -27,6 +27,7 @@ class AdminAction {
 
 	public function __invoke(Request $request, Response $response, $args) {
 		$this->view->render($response, 'admin/main.twig', array(
+                    "user"=> $this->user->info()
 		));
 		return $response;
 	}
