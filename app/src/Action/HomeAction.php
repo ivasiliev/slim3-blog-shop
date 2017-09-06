@@ -61,9 +61,6 @@ final class HomeAction {
         public function LoginCheck(Request $request, Response $response, $args) {
                 $params = $request->getParsedBody();
 
-                $params['login'];
-                $params['pass'];
-
                 $userdata = $this->user->login($params['login'], $params['pass']);
 
                 print_r($userdata);
@@ -78,13 +75,21 @@ final class HomeAction {
         public function RegClient(Request $request, Response $response, $args) {
                 $params = $request->getParsedBody();
 
-                $params['email'];
-                $params['pass'];
-                $params['name'];
-
                 $userdata = $this->user->reg($params['email'], $params['pass'], $params['name']);
 
-                return $response->withJson($userdata);
+                if ($userdata) {
+                        if (isset($userdata["error"]) && $userdata["error"] !== "") {
+                                return $response->withJson(array(
+                                            "result" => 400,
+                                            "content" => array(
+                                                "type" => "error",
+                                                "message" => $userdata["error"]
+                                            )
+                                ));
+                        }
+                        return $response->withJson(array("result" => 200, "content" => "success", "sid" => $userdata["session_id"]));
+                }
+                return $response->withJson(array("result" => 400, "content" => "unknown"));
         }
 
 }

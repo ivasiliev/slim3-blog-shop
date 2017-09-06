@@ -36,7 +36,7 @@ final class Auth extends DataService {
                 foreach ($users as $$curr) {
                         if ($curr["login"] === $email) {
                                 // user already registered
-                                return array("result" => 400, "error" => "user already created", "content" => array("email" => $email));
+                                return array("error" => "user already created");
                         }
                 }
                 $user_id = uniqid();
