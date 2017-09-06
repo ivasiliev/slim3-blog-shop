@@ -65,3 +65,7 @@ $container[App\Action\AdminAction::class] = function ($c) {
 $container[App\Blog\Action\BaseAction::class] = function ($c) {
     return new App\Blog\Action\BaseAction($c->get('view'), $c->get('logger'));
 };
+
+$container[App\Action\UserAction::class] = function ($c) {
+    return new App\Action\UserAction($c->get('view'), $c->get('logger'));
+};
