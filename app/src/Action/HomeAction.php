@@ -63,8 +63,6 @@ final class HomeAction {
 
                 $userdata = $this->user->login($params['login'], $params['pass']);
 
-                print_r($userdata);
-
                 if ($userdata) {
                         return $response->withJson(array("result" => 200, "content" => "success", "sid" => $userdata["session_id"]));
                 } else {
