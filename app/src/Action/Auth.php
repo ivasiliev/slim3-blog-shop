@@ -33,7 +33,7 @@ final class Auth extends DataService {
         public function reg($email, $pass, $name) {
                 $users = $this->getUsersData();
                 // check if user email is exists
-                foreach ($users as $$curr) {
+                foreach ($users as $curr) {
                         if ($curr["login"] === $email) {
                                 // user already registered
                                 return array("error" => "user already created");
