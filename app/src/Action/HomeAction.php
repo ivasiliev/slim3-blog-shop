@@ -83,7 +83,7 @@ final class HomeAction {
                 $params['name'];
 
                 $userdata = $this->user->reg($params['email'], $params['pass'], $params['name']);
-                
+
                 return $response->withJson($userdata);
         }
 
