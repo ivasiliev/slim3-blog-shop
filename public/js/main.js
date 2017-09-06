@@ -386,7 +386,7 @@
 // new actions
 
     var login = {
-	    api_url_create: '/checklogin',
+	    api_url_create: '/api/checklogin',
 	    api_url_info: '',
 	    api_url_account: '/account',
 	    arr: [],
@@ -435,8 +435,9 @@
     };
 
     var regclient = {
-	    api_url_create: '/regclient',
+	    api_url_create: '/api/regclient',
 	    api_url_info: '',
+            api_url_account: '/account',
 	    arr: [],
 	    tagname: "reg_data",
 	    check: function () {
@@ -474,7 +475,7 @@
 	    },
 	    send_after: function (data) {
 		    if (data.type === 'success') {
-			    location.href = "/account";
+			    location.href = this.api_url_account;
 			    return;
 		    }
 	    }
