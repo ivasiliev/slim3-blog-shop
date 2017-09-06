@@ -19,6 +19,11 @@ $container['view'] = function ($c) {
     return $view;
 };
 
+// 404 page handler
+$container['notFoundHandler'] = function ($c) {
+        return new App\Action\NotFoundHandler($c->get('view'), '404.twig');
+};
+
 // Flash messages
 $container['flash'] = function ($c) {
     return new Slim\Flash\Messages;

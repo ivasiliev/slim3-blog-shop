@@ -1,0 +1,17 @@
+{% extends "base.twig" %}
+
+{% block title %}404 - страница не найдена{% endblock %}
+
+{% block container %}
+	<div class="cont">
+		{% include 'header.twig' %}
+                <h4>К сожалению, данной страницы не существует.</h4>
+                <a href="/">На главную</a>
+	</div>
+{% endblock %}
+
+{% block styles %}
+{% endblock %}
+{% block scripts %}
+	<script async type="text/javascript" src="/js/main.js"></script>
+{% endblock %}
