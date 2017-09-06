@@ -65,6 +65,22 @@
         color: rgba(0, 0, 0, 0.8);
 }
 
+a.log_button {
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+}
+
+.userinfo {
+        padding: 0 70px 0 10px;
+        font-size: 16px;
+        line-height: 70px;
+        color: rgba(0, 0, 0, 0.5);
+        cursor: default;
+}
+
 .header .menu .nav {
         font-size: 0;
 }
