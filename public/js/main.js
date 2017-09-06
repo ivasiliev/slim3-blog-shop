@@ -388,6 +388,7 @@
     var login = {
 	    api_url_create: '/checklogin',
 	    api_url_info: '',
+	    api_url_account: '/account',
 	    arr: [],
 	    tagname: "login_data",
 	    check: function () {
@@ -426,8 +427,54 @@
 	    },
 	    send_after: function (data) {
 		    if (data.type === 'success') {
-			    createCookie('_pilotpi_id_v', '111', 1);
-			    location.href = "/admin/lk";
+			    //createCookie('_pilotpi_id_v', '111', 1);
+			    location.href = this.api_url_account;
+			    return;
+		    }
+	    }
+    };
+
+    var regclient = {
+	    api_url_create: '/regclient',
+	    api_url_info: '',
+	    arr: [],
+	    tagname: "reg_data",
+	    check: function () {
+		    this.send('POST', this.create_reqdata(this.tagname), this.api_url_create);
+	    },
+	    create_reqdata: function (tagname) {
+		    var form = new FormData();
+
+		    var arr = document.querySelectorAll('[' + tagname + ']');
+		    for (var x = 0; x < arr.length; x++) {
+			    form.append(arr[x].getAttribute(tagname), (arr[x].getAttribute('type') && arr[x].getAttribute('type') === 'file' ? arr[x].file[0] : arr[x].value));
+		    }
+
+		    return form;
+	    },
+	    send: function (method, form, backend) {
+		    var self = this;
+		    var xhr = new XMLHttpRequest();
+		    xhr.open(method, backend, true);
+		    xhr.onload = xhr.onerror = function () {
+			    if (Number(this.status) === 200) {
+				    var data = JSON.parse(this.responseText);
+				    if (data[0] === false) {
+					    alert('error answer');
+					    return false;
+				    }
+			    } else {
+				    console.log("error " + this.status);
+				    alert('error request: ' + this.status);
+			    }
+
+			    self.send_after(data.content);
+		    };
+		    xhr.send(form);
+	    },
+	    send_after: function (data) {
+		    if (data.type === 'success') {
+			    location.href = "/account";
 			    return;
 		    }
 	    }

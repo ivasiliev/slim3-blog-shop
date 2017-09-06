@@ -4,8 +4,14 @@
         position: relative;
         margin-top: -55px;
         overflow: hidden;
-        background: rgba(0, 0, 0, 0.4);
+        background: #111111;
         text-align: center;
         line-height: 55px;
         color: #fff;
+}
+
+.subfooter {
+        width: 100%;
+        background-color: #000;
+        color: rgba(255,255,255,0.55);
 }

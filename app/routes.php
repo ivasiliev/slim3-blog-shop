@@ -9,13 +9,14 @@
 $app->get('/', App\Action\HomeAction::class)
 	->setName('homepage');
 
-$app->get('/login', 'App\Action\HomeAction:LoginView');
-$app->get('/reg', 'App\Action\HomeAction:RegView');
-
 //------------------------------------------------------------------------------
 // Login & Registration URLs
 //------------------------------------------------------------------------------
-$app->post('/checklogin', 'App\Action\HomeAction:LoginCheck');
+$app->get('/login[/]', 'App\Action\HomeAction:LoginView');
+$app->get('/reg[/]', 'App\Action\HomeAction:RegView');
+
+$app->post('/api/checklogin[/]', 'App\Action\HomeAction:LoginCheck');
+$app->post('/api/regclient[/]', 'App\Action\HomeAction:RegClient');
 
 
 //------------------------------------------------------------------------------
