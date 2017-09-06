@@ -25,6 +25,9 @@ class DataService extends BaseDataService {
 	}
 
 	public function getUserDataBySession($session = 0) {
+                if (!$session){
+                        return array();
+                }
 		$sdata = $this->__getData(Settings::USERSESSIONS, $session);
 		if ($sdata && count($sdata) > 0) {
 			return $this->getUsersData($sdata["user_id"]);
