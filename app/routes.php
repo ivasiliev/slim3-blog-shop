@@ -29,6 +29,14 @@ $app->get('/account', App\Action\AdminAction::class)
 // admin stub
 $app->get('/api/stub[/]', 'App\Action\HomeAction:StubView');
 
+//------------------------------------------------------------------------------
+// USERS routes
+//------------------------------------------------------------------------------
+$app->get('/api//info[/]', 'App\Action\UserAction:AdminView');
+$app->get('/api//form[/]', 'App\Action\UserAction:AdminForm');
+$app->get('/api//form/{curr_id}[/]', 'App\Action\UserAction:AdminForm');
+$app->post('/api//save[/]', 'App\Action\UserAction:AdminSave');
+$app->get('/api//{curr_id}[/]', 'App\Action\UserAction:AdminDrop');
 
 
 
