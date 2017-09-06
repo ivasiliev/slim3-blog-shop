@@ -11,68 +11,80 @@ use App\Action\Auth;
 
 final class HomeAction {
 
-	private $view;
-	private $logger;
-	private $path;
-	private $user;
+        private $view;
+        private $logger;
+        private $path;
+        private $user;
 
-	public function __construct(Twig $view, LoggerInterface $logger) {
-		$this->view = $view;
-		$this->logger = $logger;
-		$this->path = __DIR__ . "/../../../public/css/photo/";
-		$this->user = new Auth($this->view, $this->logger);
-	}
+        public function __construct(Twig $view, LoggerInterface $logger) {
+                $this->view = $view;
+                $this->logger = $logger;
+                $this->path = __DIR__ . "/../../../public/css/photo/";
+                $this->user = new Auth($this->view, $this->logger);
+        }
 
-	public function __invoke(Request $request, Response $response, $args) {
-		$this->logger->info("Home page action dispatched");
+        public function __invoke(Request $request, Response $response, $args) {
+                $this->logger->info("Home page action dispatched");
 
-		$data = json_decode(file_get_contents(__DIR__ . "/json/main.json"), true);
+                $data = json_decode(file_get_contents(__DIR__ . "/json/main.json"), true);
 
-		$this->view->render($response, 'main.twig', array(
-		    "nav_current" => "home",
-		    "records" => array("list" => array(1, 2, 3, 4, 5, 6, 7, 8, 9))
-		));
-		return $response;
-	}
+                $this->view->render($response, 'main.twig', array(
+                    "nav_current" => "home",
+                    "records" => array("list" => array(1, 2, 3, 4, 5, 6, 7, 8, 9))
+                ));
+                return $response;
+        }
 
-	public function StubView(Request $request, Response $response, $args) {
-		$this->view->render($response, 'stub.twig', array(
-		    "nav_current" => ""
-		));
-		return $response;
-	}
+        public function StubView(Request $request, Response $response, $args) {
+                $this->view->render($response, 'stub.twig', array(
+                    "nav_current" => ""
+                ));
+                return $response;
+        }
 
-	public function LoginView(Request $request, Response $response, $args) {
-		$this->user->logout();
-		$this->view->render($response, 'login.twig', array(
-		    "nav_current" => ""
-		));
-		return $response;
-	}
+        public function LoginView(Request $request, Response $response, $args) {
+                $this->user->logout();
+                $this->view->render($response, 'login.twig', array(
+                    "nav_current" => ""
+                ));
+                return $response;
+        }
 
-	public function RegView(Request $request, Response $response, $args) {
-		$this->user->logout();
-		$this->view->render($response, 'reg.twig', array(
-		    "nav_current" => ""
-		));
-		return $response;
-	}
+        public function RegView(Request $request, Response $response, $args) {
+                $this->user->logout();
+                $this->view->render($response, 'reg.twig', array(
+                    "nav_current" => ""
+                ));
+                return $response;
+        }
 
-	public function LoginCheck(Request $request, Response $response, $args) {
-		$params = $request->getParsedBody();
+        public function LoginCheck(Request $request, Response $response, $args) {
+                $params = $request->getParsedBody();
 
-		$params['login'];
-		$params['pass'];
+                $params['login'];
+                $params['pass'];
 
-		$userdata = $this->user->login($params['login'], $params['pass']);
-                
+                $userdata = $this->user->login($params['login'], $params['pass']);
+
                 print_r($userdata);
 
-		if ($userdata) {
-			return $response->withJson(array("result" => 200, "content" => "success", "sid" => $userdata["session_id"]));
-		} else {
-			return $response->withJson(array("result" => 400, "content" => "unknown"));
-		}
-	}
+                if ($userdata) {
+                        return $response->withJson(array("result" => 200, "content" => "success", "sid" => $userdata["session_id"]));
+                } else {
+                        return $response->withJson(array("result" => 400, "content" => "unknown"));
+                }
+        }
+
+        public function RegClient(Request $request, Response $response, $args) {
+                $params = $request->getParsedBody();
+
+                $params['email'];
+                $params['pass'];
+                $params['name'];
+
+                $userdata = $this->user->reg($params['email'], $params['pass'], $params['name']);
+                
+                return $response->withJson($userdata);
+        }
 
 }
