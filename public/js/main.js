@@ -399,7 +399,7 @@
 		    var arr = document.querySelectorAll('[' + tagname + ']');
 		    for (var x = 0; x < arr.length; x++) {
 			    form.append(arr[x].getAttribute(tagname), (arr[x].getAttribute('type') && arr[x].getAttribute('type') === 'file' ? arr[x].file[0] : arr[x].value));
-			    arr[x].value = '';
+			    //arr[x].value = '';
 		    }
 
 		    return form;
@@ -432,6 +432,7 @@
 		    }
 	    }
     };
+    
     function createCookie(name, value, days) {
 	    var expires = "";
 	    if (days) {
