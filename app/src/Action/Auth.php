@@ -25,9 +25,13 @@ final class Auth extends DataService {
                         $user_session = $_SESSION[Settings::SESSIONCOOKIE];
                         setcookie(Settings::SESSIONCOOKIE, $user_session, time() + Settings::SESSION_COOKIE_LIFETIME);
                         unset($_SESSION[Settings::SESSIONCOOKIE]);
+                        print_r($user_session);
                 } else {
                         $user_session = filter_input(INPUT_COOKIE, Settings::SESSIONCOOKIE);
                 }
+                print_r($this->getUserDataBySession($user_session));
+                exit;
+                
                 return $this->getUserDataBySession($user_session);
         }
 
