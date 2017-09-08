@@ -14,7 +14,7 @@
         {# short entry text #}
         <label class="inputs_cont">
                 <span>Вступление (краткий текст)</span>
-                <textarea style='height: 100px;' formdata="short_content">{% if data.content.short %}{{ data.content.short }}{% endif %}</textarea>
+                <textarea formdata="short_content">{% if data.content.short %}{{ data.content.short }}{% endif %}</textarea>
         </label>
         {# post body #}
         <label class="inputs_cont">

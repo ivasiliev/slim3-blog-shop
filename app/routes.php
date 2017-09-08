@@ -2,12 +2,11 @@
 
 // Routes
 // pages
-
 //------------------------------------------------------------------------------
 // BASE project view routes (pages)
 //------------------------------------------------------------------------------
 $app->get('/', App\Action\HomeAction::class)
-	->setName('homepage');
+        ->setName('homepage');
 
 //------------------------------------------------------------------------------
 // Login & Registration URLs
@@ -24,7 +23,7 @@ $app->post('/api/regclient[/]', 'App\Action\UserAction:RegClient');
 //------------------------------------------------------------------------------
 
 $app->get('/account', App\Action\AdminAction::class)
-	->setName('adminpage');
+        ->setName('adminpage');
 
 // admin stub
 $app->get('/api/stub[/]', 'App\Action\HomeAction:StubView');
@@ -42,15 +41,25 @@ $app->get('/api/users/{curr_id}[/]', 'App\Action\UserAction:AdminDrop');
 
 
 //------------------------------------------------------------------------------
+// IMG routes
+//------------------------------------------------------------------------------
+$app->post('/api/img/save[/]', 'App\Action\Imgs:Save');
+$app->post('/api/img/drop[/]', 'App\Action\Imgs:Drop');
+$app->get('/api/img/get[/]', 'App\Action\Imgs:Get');
+$app->get('/api/img/getlist[/]', 'App\Action\Imgs:GetList');
+$app->get('/api/img/info[/]', 'App\Action\Imgs:GetList');
+$app->get('/api/img/geturl[/]', 'App\Action\Imgs:GetUrl');
+$app->get('/api/img/list/init[/]', 'App\Action\Imgs:__createPhotosArr');
+
+//------------------------------------------------------------------------------
 // BLOG module routes
 //------------------------------------------------------------------------------
-
 // view
 $app->get('/blog[/]', 'App\Action\HomeAction:BlogPage')
-	->setName('blogpage');
+        ->setName('blogpage');
 
 $app->get('/blog/c/{curr_id}[/]', 'App\Action\HomeAction:BlogCurrPage')
-	->setName('blogpage');
+        ->setName('blogpage');
 
 // api
 $app->get('/api/blog/info[/]', 'App\Blog\Action\BaseAction:AdminMainView');

@@ -92,9 +92,9 @@ var posts = {
                                 var params = {
                                         selector: '',
                                         height: 500,
-                                        plugins: 'lists advlist image imagetools',
-                                        toolbar: 'undo redo | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist | image',
-                                        menubar: false,
+                                        plugins: 'lists advlist image imagetools code',
+                                        toolbar: 'undo redo | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist | image | code',
+                                        menubar: "tools",
                                         gecko_spellcheck: true,
                                         toolbar_items_size: 'small',
                                         setup: function (editor) {
