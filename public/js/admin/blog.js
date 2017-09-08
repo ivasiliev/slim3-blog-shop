@@ -82,9 +82,9 @@ var posts = {
                         if (typeof tinymce !== 'undefined') {
                                 var params = {
                                         selector: '',
-                                        height: 700,
-                                        plugins: 'lists advlist',
-                                        toolbar: 'undo redo | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist',
+                                        height: 500,
+                                        plugins: 'lists advlist image imagetools',
+                                        toolbar: 'undo redo | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist | image',
                                         menubar: false,
                                         gecko_spellcheck: true,
                                         toolbar_items_size: 'small',
