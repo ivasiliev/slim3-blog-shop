@@ -39,6 +39,17 @@ class DataService extends BaseDataService {
 	public function saveUsersData($data) {
 		return $this->__saveDatafile(Settings::USERS, $data);
 	}
+        
+        public function updateUserData($userdata) {
+                if (!($userdata && $userdata["id"])) {
+                        return false;
+                }
+                $users = $this->getUsersData();
+                $users[$userdata["id"]] = $userdata;
+                $this->saveUsersData($users);
+
+                return true;
+        }
 	
 	public function getUsersSessions($id = 0) {
 		return $this->__getData(Settings::USERSESSIONS, $id);
@@ -47,5 +58,24 @@ class DataService extends BaseDataService {
 	public function saveUsersSessions($data) {
 		return $this->__saveDatafile(Settings::USERSESSIONS, $data);
 	}
+        
+	public function getImgsData($id = 0) {
+		return $this->__getData(Settings::IMGSLIST, $id);
+	}
+        
+	public function saveImgsData($data) {
+		return $this->__saveDatafile(Settings::IMGSLIST, $data);
+	}
+        
+        public function updateImgsData($data) {
+                if (!($data && $data["id"])) {
+                        return false;
+                }
+                $list = $this->getImgsData();
+                $list[$data["id"]] = $data;
+                $this->saveImgsData($list);
+
+                return true;
+        }
 
 }

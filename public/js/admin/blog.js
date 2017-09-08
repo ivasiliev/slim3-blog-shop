@@ -94,7 +94,7 @@ var posts = {
                                         height: 500,
                                         plugins: 'lists advlist image imagetools code',
                                         toolbar: 'undo redo | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist | image | code',
-                                        menubar: "tools",
+                                        menubar: false,
                                         gecko_spellcheck: true,
                                         toolbar_items_size: 'small',
                                         setup: function (editor) {

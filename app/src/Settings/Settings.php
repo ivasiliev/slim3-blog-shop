@@ -6,6 +6,7 @@ final class Settings {
 
         // ---------------------------------------------------------------------
         // datafile name consts
+        //----------------------------------------------------------------------
         const MAIN = "main";
         const POSTS = "posts";
         const AUTHORS = "authors";
@@ -13,11 +14,16 @@ final class Settings {
         const CATEGORY = "category";
         const USERS = "users";
         const USERSESSIONS = "user_sessions";
+        const IMGSLIST = "imgslist";
         // ---------------------------------------------------------------------
         // session cookie settings
         // ---------------------------------------------------------------------
         const SESSIONCOOKIE = '_evtfs';
         const SESSION_COOKIE_LIFETIME = 86400;
+        //----------------------------------------------------------------------
+        // IMGs files path
+        //----------------------------------------------------------------------
+        const IMGS_PATH = __DIR__ . "/../../../public/userimgs/";
 
         public function __construct() {
                 

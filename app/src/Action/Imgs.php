@@ -6,18 +6,27 @@ use Slim\Views\Twig;
 use Psr\Log\LoggerInterface;
 use Slim\Http\Request;
 use Slim\Http\Response;
-use App\Utils\User;
+use App\ORM\DataService;
+use App\Settings\Settings;
+use App\Action\Auth;
 
-final class Imgs {
+final class Imgs extends DataService {
 
         private $view;
         private $logger;
         private $path;
+        private $user;
+        private $userdata;
 
-        public function __construct($container) {
-                //$this->view = $container->get('view');
-                //$this->logger = $container->get('logger');
-                $this->path = __DIR__ . "/../../../public/css/photo/";
+        public function __construct(Twig $view, LoggerInterface $logger) {
+                parent::__construct($view, $logger);
+                $this->view = $view;
+                $this->logger = $logger;
+                $this->path = Settings::IMGS_PATH;
+                $this->user = new Auth($this->view, $this->logger);
+                $this->userdata = $this->user->info();
+                // check needed folder
+                $this->create_dir_if_need($this->path);
         }
 
         public function __invoke(Request $request, Response $response, $args) {
@@ -79,19 +88,18 @@ final class Imgs {
         }
 
         public function GetList(\Slim\Http\Request $request, \Slim\Http\Response $response, $args) {
-
-                $data = json_decode(file_get_contents(__DIR__ . "/json/main.json"), true);
-
-                if (!isset($data["photos"])) {
-                        $photos = $this->__createPhotosArr($request, $response, $args);
-                        if ($photos) {
-                                return $response->withJson(array("result" => 200, "content" => $photos));
-                        } else {
-                                return $response->withJson(array("result" => 400, "content" => null));
+                $data = $response->withJson($this->getImgsData());
+                $result = array();
+                if (isset($args["user_id"])) {
+                        foreach ($data as $key => $value) {
+                                if ($value["user"] === $args["user_id"]) {
+                                        $result[$key] = $value;
+                                }
                         }
                 } else {
-                        return $response->withJson(array("result" => 200, "content" => $data["photos"]));
+                        $result = $data;
                 }
+                return $response->withJson($result);
         }
 
         public function __createPhotosArr(\Slim\Http\Request $request, \Slim\Http\Response $response, $args) {
@@ -122,39 +130,24 @@ final class Imgs {
         }
 
         private function __addImgToList($url) {
-                $data = json_decode(file_get_contents(__DIR__ . "/json/main.json"), true);
-
+                $data = $this->getImgsData();
                 $filedata = explode(".", $url);
-                $data["photos"][$filedata[0]] = array(
+                $data[$filedata[0]] = array(
                     "type" => $filedata[1],
                     "url" => $url,
-                    "title" => "",
-                    "txt" => ""
+                    "user" => $this->userdata ? $this->userdata["id"] : "",
+                    "create_dt" => time()
                 );
-                
-                // sort imgs list by key - revers sorting
-                krsort($data["photos"]);
-
-                if (file_put_contents(__DIR__ . "/json/main.json", json_encode($data))) {
-                        return $data["photos"];
-                } else {
-                        return false;
-                }
+                $this->saveImgsData($data);
         }
 
         private function __deleteImgFromList($url) {
-                $data = json_decode(file_get_contents(__DIR__ . "/json/main.json"), true);
-
+                $data = $this->getImgsData();
                 $filedata = explode(".", $url);
-                if (isset($data["photos"][$filedata[0]])) {
-                        unset($data["photos"][$filedata[0]]);
+                if (isset($data[$filedata[0]])) {
+                        unset($data[$filedata[0]]);
                 }
-
-                if (file_put_contents(__DIR__ . "/json/main.json", json_encode($data))) {
-                        return $data["photos"];
-                } else {
-                        return false;
-                }
+                $this->saveImgsData($data);
         }
 
         public function scan_dir() {
@@ -337,9 +330,9 @@ final class Imgs {
                 $result = null;
                 if (isset($data["photos"]) && isset($data["photos"][$args["curr_id"]])) {
                         $result = $data["photos"][$args["curr_id"]];
-			if (isset($data["main_photo"]) && $data["main_photo"] == $args["curr_id"]){
-			    $result["is_main"] = true;
-			}
+                        if (isset($data["main_photo"]) && $data["main_photo"] == $args["curr_id"]) {
+                                $result["is_main"] = true;
+                        }
                 }
 
                 return $response->withJson(array("result" => 200, "content" => $result));
@@ -357,10 +350,10 @@ final class Imgs {
                         $data["photos"][$params["curr_id"]]["txt"] = $params["txt"];
                         $data["photos"][$params["curr_id"]]["dt_upd"] = time();
                 }
-		
-		if (isset($params["main"]) && $params["main"]){
-		    $data["main_photo"] = $params["curr_id"];
-		}
+
+                if (isset($params["main"]) && $params["main"]) {
+                        $data["main_photo"] = $params["curr_id"];
+                }
 
                 if (file_put_contents(__DIR__ . "/json/main.json", json_encode($data))) {
                         return $response->withJson(array("result" => 200, "content" => "success"));
