@@ -47,7 +47,7 @@ var load_imgs = {
                 var cw = this._get_cw(elem.clientWidth);
 
                 var fileinfo = elem.getAttribute('data-img').split('.');
-                var curr_src = '/css/photo/' + fileinfo[0] + cw + '.' + fileinfo[1];
+                var curr_src = '/userimgs/' + fileinfo[0] + cw + '.' + fileinfo[1];
 
                 var imgBg = new Image();
                 imgBg.onload = function () {
