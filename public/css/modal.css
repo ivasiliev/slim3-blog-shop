@@ -257,3 +257,72 @@ button.modal_button:hover {
         border: none!important;
         background: inherit;
 }
+.img_elem {
+        min-height: 102px;
+        position: relative;
+        background: #f7f7f7;
+        padding: 12px 14px 0;
+}
+
+.img_elem input[type="file"] {
+        display: block;
+        position: absolute;
+        top: 0;
+        height: 100px;
+        right: 0;
+        left: 0;
+        z-index: 99;
+        margin: 0;
+        opacity: 0;
+        cursor: pointer;
+}
+
+.img_elem .titles {
+        display: none;
+        position: absolute;
+        top: 0;
+        height: 100px;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        background: #f7f7f7;
+        text-align: center;
+}
+
+.img_elem span {
+        position: relative;
+        z-index: 2;
+}
+
+.img_elem .titles div {
+        display: inline-block;
+        vertical-align: middle;
+}
+
+.img_elem .titles.img_upload_main {
+        display: initial;
+}
+
+.img_elem .img_upload_preview {
+        display: block;
+        margin-top: 71px;
+}
+
+.img_elem .img_upload_preview img {
+        display: inline-block;
+        width: 18%;
+        margin: 1%;
+        vertical-align: middle;
+}
+
+.img_elem:hover .titles.img_upload_main {
+        background: #fff;
+}
+
+.img_elem.loading .titles.img_upload_load {
+        display: initial;
+}
+
+.img_elem.success .titles.img_upload_success {
+        display: initial;
+}
