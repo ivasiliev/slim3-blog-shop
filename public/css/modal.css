@@ -250,8 +250,10 @@ button.modal_button:hover {
         transition-duration: 0s;
 }
 
-.mce-tinymce button {
+.mce-tinymce button, .mce-container button {
         border: none;
         background: transparent;
         display: inline;
+        border: none!important;
+        background: inherit;
 }
