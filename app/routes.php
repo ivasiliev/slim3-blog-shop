@@ -46,7 +46,7 @@ $app->get('/api/users/{curr_id}[/]', 'App\Action\UserAction:AdminDrop');
 $app->post('/api/img/save[/]', 'App\Action\Imgs:Save');
 $app->post('/api/img/drop[/]', 'App\Action\Imgs:Drop');
 $app->get('/api/img/get[/]', 'App\Action\Imgs:Get');
-$app->get('/api/img/getlist[/]', 'App\Action\Imgs:GetList');
+$app->get('/api/img/getlist/{user_id}[/]', 'App\Action\Imgs:GetList');
 $app->get('/api/img/info[/]', 'App\Action\Imgs:GetList');
 $app->get('/api/img/geturl[/]', 'App\Action\Imgs:GetUrl');
 $app->get('/api/img/list/init[/]', 'App\Action\Imgs:__createPhotosArr');
