@@ -82,7 +82,7 @@ var posts = {
                         if (typeof tinymce !== 'undefined') {
                                 var params = {
                                         selector: '',
-                                        height: 300,
+                                        //height: 300,
                                         plugins: 'lists advlist',
                                         toolbar: 'undo redo | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist',
                                         menubar: false,
