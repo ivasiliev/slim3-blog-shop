@@ -88,7 +88,7 @@ final class Imgs extends DataService {
         }
 
         public function GetList(\Slim\Http\Request $request, \Slim\Http\Response $response, $args) {
-                $data = $response->withJson($this->getImgsData());
+                $data = $this->getImgsData();
                 $result = array();
                 if (isset($args["user_id"])) {
                         foreach ($data as $key => $value) {
