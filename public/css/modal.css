@@ -326,3 +326,13 @@ button.modal_button:hover {
 .img_elem.success .titles.img_upload_success {
         display: initial;
 }
+
+.img_elem .img_upload_preview .img_preview_div {
+        display: inline-block;
+        width: 18%;
+        height: auto;
+        margin: 1%;
+        vertical-align: middle;
+        border: solid 1px #d0d0cf;
+        text-align: right;
+}

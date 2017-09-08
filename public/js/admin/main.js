@@ -445,27 +445,22 @@ var file_img = {
                 }
 
                 if (img_preview_cont) {
-                        var img_preview = document.createElement('div');
-                        img_preview.className = 'img_elem_show';
-                        img_preview.setAttribute('data-img', data.file);
-                        img_preview_cont.appendChild(img_preview);
+                        var img_p_div = document.createElement('div');
+                        //img_p_div.innerHTML = '<div onclick="file_img.drop_img(this);">удалить</div>';
+                        img_p_div.className = 'img_preview_div';
+                        img_p_div.setAttribute('img_src', data.file);
+                        img_preview_cont.appendChild(img_p_div);
 
-                        load_imgs.init([img_preview]);
-
-
-                        /*
-                         var img_preview = new Image();
-                         img_preview.setAttribute('style', 'opacity: 0;');
-                         img_preview.src = this.api_url_info + data.file;
-                         img_preview.onload = function () {
-                         this.setAttribute('style', 'opacity: 1;');
-                         };
-                         img_preview.onclick = function () {
-                         modal.show_img(this.src);
-                         };
-                         
-                         img_preview_cont.appendChild(img_preview);
-                         */
+                        var img_preview = new Image();
+                        img_preview.setAttribute('style', 'opacity: 0;');
+                        img_preview.src = this.api_url_info + data.file;
+                        img_preview.onload = function () {
+                                this.setAttribute('style', 'opacity: 1;');
+                        };
+                        img_preview.onclick = function () {
+                                modal.show_img(this.src);
+                        };
+                        img_p_div.appendChild(img_preview);
                 }
         },
         drop_init: function (elem) {
