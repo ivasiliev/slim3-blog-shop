@@ -98,7 +98,7 @@ var posts = {
                                         }
                                 };
 
-                                params.selector = '[' + obj.tagname + '="post_content"]';
+                                params.selector = '[' + obj.tagname + '="main_content"]';
                                 tinymce.init(params);
                         }
                 });
