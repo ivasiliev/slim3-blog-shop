@@ -79,6 +79,15 @@ var posts = {
                 var self = this;
                 modal.show(data, true, function () {
                         var obj = self;
+                        var main_photo = document.querySelector('[formelem="main_photo"]');
+                        if (main_photo){
+                                main_photo.innerHTML = file_img.create_load_elem('Главное изображение', 'obj.tagname="main_photo"', null, false);
+                        }
+                        var photolist = document.querySelector('[formelem="photolist"]');
+                        if (photolist){
+                                photolist.innerHTML = file_img.create_load_elem('Изображения для записи (используйте адреса загруженных для вставки)', 'obj.tagname="main_photo"', null, true);
+                        }
+                        
                         if (typeof tinymce !== 'undefined') {
                                 var params = {
                                         selector: '',
