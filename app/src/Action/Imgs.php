@@ -99,7 +99,11 @@ final class Imgs extends DataService {
                 } else {
                         $result = $data;
                 }
-                return $response->withJson($result);
+                if ($args["local"]) {
+                        return $result;
+                } else {
+                        return $response->withJson($result);
+                }
         }
 
         public function __createPhotosArr(\Slim\Http\Request $request, \Slim\Http\Response $response, $args) {
