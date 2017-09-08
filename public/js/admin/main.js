@@ -305,7 +305,7 @@ var file_img = {
         api_url_create: '/api/img/save',
         api_url_info: '/api/img/get?img=',
         api_url_drop: '/api/img/drop',
-        uploaded_preview_target: '.uploaded_photo_preview',
+        //uploaded_preview_target: '.uploaded_photo_preview',
         create_load_elem: function (title, target_tag, params, multi) {
                 var file_tags = this._file_tags(params);
                 var str = '';
