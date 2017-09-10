@@ -88,16 +88,17 @@ final class Imgs extends DataService {
 	}
 
 	public function GetList(\Slim\Http\Request $request, \Slim\Http\Response $response, $args) {
+		if (!($this->userdata && isset($this->userdata["id"]))) {
+			// need login
+			return array();
+		}
+		$user_id = $this->userdata["id"];
 		$data = $this->getImgsData();
 		$result = array();
-		if (isset($args["user_id"])) {
-			foreach ($data as $key => $value) {
-				if ($value["user"] === $args["user_id"]) {
-					$result[$key] = $value;
-				}
+		foreach ($data as $key => $value) {
+			if ($value["user"] === $user_id) {
+				$result[$key] = $value;
 			}
-		} else {
-			$result = $data;
 		}
 		if ($args["local"]) {
 			return $result;
@@ -371,10 +372,7 @@ final class Imgs extends DataService {
 	//----------------------------------------------------------------------
 
 	public function FormView(Request $request, Response $response, $args) {
-		$data = $this->GetList($request, $response, array(
-		    "user_id" => $this->userdata["id"],
-		    "local" => true
-		));
+		$data = $this->GetList($request, $response, array("local" => true));
 
 		$this->view->render($response, 'admin/imgs/form.twig', array(
 		    "img_path" => Settings::IMGS_USERPATH,
