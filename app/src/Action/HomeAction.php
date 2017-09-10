@@ -13,13 +13,11 @@ final class HomeAction {
 
         private $view;
         private $logger;
-        private $path;
         private $user;
 
         public function __construct(Twig $view, LoggerInterface $logger) {
                 $this->view = $view;
                 $this->logger = $logger;
-                $this->path = __DIR__ . "/../../../public/css/photo/";
                 $this->user = new Auth($this->view, $this->logger);
         }
 

@@ -49,6 +49,7 @@ $app->get('/api/img/get[/]', 'App\Action\Imgs:Get');
 $app->get('/api/img/getlist[/]', 'App\Action\Imgs:GetList');
 $app->get('/api/img/getlist/{user_id}[/]', 'App\Action\Imgs:GetList');
 $app->get('/api/img/info[/]', 'App\Action\Imgs:GetList');
+$app->get('/api/img/form/view[/]', 'App\Action\Imgs:FormView');
 $app->get('/api/img/geturl[/]', 'App\Action\Imgs:GetUrl');
 $app->get('/api/img/list/init[/]', 'App\Action\Imgs:__createPhotosArr');
 

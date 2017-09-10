@@ -11,27 +11,27 @@ use App\Action\Auth;
 
 class AdminAction {
 
-        private $view;
-        private $logger;
-        private $user;
-        private $userdata;
+	private $view;
+	private $logger;
+	private $user;
+	private $userdata;
 
-        public function __construct(Twig $view, LoggerInterface $logger) {
-                $this->view = $view;
-                $this->logger = $logger;
-                $this->user = new Auth($this->view, $this->logger);
-                $this->userdata = $this->user->info();
-                if (!$this->userdata) {
-                        header('Location: /login');
-                        exit;
-                }
-        }
+	public function __construct(Twig $view, LoggerInterface $logger) {
+		$this->view = $view;
+		$this->logger = $logger;
+		$this->user = new Auth($this->view, $this->logger);
+		$this->userdata = $this->user->info();
+		if (!$this->userdata) {
+			header('Location: /login');
+			exit;
+		}
+	}
 
-        public function __invoke(Request $request, Response $response, $args) {
-                $this->view->render($response, 'admin/main.twig', array(
-                    "user" => $this->userdata
-                ));
-                return $response;
-        }
+	public function __invoke(Request $request, Response $response, $args) {
+		$this->view->render($response, 'admin/main.twig', array(
+		    "user" => $this->userdata
+		));
+		return $response;
+	}
 
 }
