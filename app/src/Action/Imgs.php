@@ -375,6 +375,9 @@ final class Imgs extends DataService {
 		    "user_id" => $this->userdata["id"],
 		    "local" => true
 		));
+		
+		print_r($data);
+		exit;
 
 		$this->view->render($response, 'admin/imgs/form.twig', array(
 		    "imgs" => $data
