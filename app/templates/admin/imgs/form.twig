@@ -1,6 +1,10 @@
 <div class="modal_close_but">+</div>
 <div class="modal_header">Пользовательские изображения</div>
 <div class="modal_inputs">
-	{{ dump('imgs') }}
+</div>
+<div class="modal_imgs_list">
+	{% for key, img in imgs %}
+		<img src="{{ img_path }}{{ key }}.{{ img.type }}" alt="" />
+	{% endfor %}
 </div>
 {#<button onclick="users.save(this);">Сохранить</button>#}
