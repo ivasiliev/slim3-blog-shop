@@ -581,8 +581,8 @@ var data_proto = {
 
                 return cont.parentNode.parentNode;
         },
-        
-        get_subcontent_elem: function(){
+
+        get_subcontent_elem: function () {
                 return document.querySelector(this.list_subcont_path);
         },
 
@@ -641,6 +641,54 @@ var data_proto = {
         },
         check_val: function (val) {
                 return val && val.value;
+        },
+        open_form: function (id) {
+                var self = this;
+                this.send('GET', null, this.api_url_form + (id ? id : ''), null, null, function (data, elem) {
+                        var obj = self;
+                        obj.open_form_modal(data, elem);
+                });
+        },
+
+        open_form_modal: function (data, elem) {
+                modal.show(data);
+        },
+
+        save: function (elem) {
+                var cont = elem.parentNode.parentNode;
+                if (elem) {
+                        menu_action(elem);
+                }
+                var form = this.create_reqdata(cont);
+                if (form) {
+                        this.send('POST', form, this.api_url_save, this.get_subcontent_elem(), cont);
+                }
+        },
+
+        drop: function (id) {
+                if (confirm("Вы уверены в удалении?")) {
+                        this.send('GET', null, this.api_url_drop + id, this.get_subcontent_elem());
+                }
+        }
+};
+
+var user_imgs = {
+        __proto__: data_proto,
+
+        api_url_form: '/api/img/getlist',
+        api_url_save: '',
+        api_url_info: '',
+        api_url_drop: '',
+
+        open_form_modal: function (data, elem) {
+                var self = this;
+                modal.show(data, true, function () {
+                        var obj = self;
+                        var photolist = document.querySelector('[formelem="photolist"]');
+                        if (photolist) {
+                                photolist.innerHTML = file_img.create_load_elem('Загрузка изображений', obj.tagname + '="main_photo"', null, true);
+                        }
+                });
         }
 };
 
