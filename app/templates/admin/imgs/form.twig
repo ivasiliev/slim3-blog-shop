@@ -17,7 +17,10 @@
         {% for key, img in imgs %}
                 {#<img src="{{ img_path }}{{ key }}_480.{{ img.type }}" alt="" />#}
                 <div class="img_elem_show" data-img="{{ img.url }}">
-                        <span></span>
+                        <div>
+                                <font>URL изобр.:</font>
+                                <span>/userimgs/{{ img.url }}</span>
+                        </div>
                 </div>
         {% endfor %}
 </div>
