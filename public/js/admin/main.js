@@ -58,7 +58,7 @@ var load_imgs = {
                         if (e.target === this) {
                                 var fileinfo = this.getAttribute('data-img').split('.');
                                 var cw = load_imgs._get_cw(document.body.clientWidth);
-                                var curr_src = '/css/photo/' + fileinfo[0] + cw + '.' + fileinfo[1];
+                                var curr_src = '/userimgs/' + fileinfo[0] + cw + '.' + fileinfo[1];
                                 modal.show_img(curr_src, fileinfo[0]);
                         }
                 };
@@ -684,6 +684,9 @@ var user_imgs = {
                 var self = this;
                 modal.show(data, true, function () {
                         var obj = self;
+
+                        load_imgs.init();
+
                         var photolist = document.querySelector('[formelem="photolist"]');
                         if (photolist) {
                                 photolist.innerHTML = file_img.create_load_elem('Загрузка изображений', obj.tagname + '="main_photo"', null, true);
