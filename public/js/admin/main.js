@@ -450,6 +450,7 @@ var file_img = {
                         var img_preview = document.createElement('div');
                         img_preview.className = 'img_elem_show';
                         img_preview.setAttribute('data-img', data.file);
+                        img_preview.innerHTML = '<div><font>URL изобр.:</font><span>/userimgs/' + data.file + '</span></div>';
                         img_preview_cont.appendChild(img_preview);
 
                         load_imgs.init([img_preview]);
