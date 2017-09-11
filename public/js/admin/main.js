@@ -54,6 +54,7 @@ var load_imgs = {
                         var target = elem;
                         target.setAttribute('style', "background-image: url('" + this.src + "'); transition: opacity 0.25s ease-in;");
                 };
+                /*
                 elem.onclick = function (e) {
                         if (e.target === this) {
                                 var fileinfo = this.getAttribute('data-img').split('.');
@@ -62,6 +63,7 @@ var load_imgs = {
                                 modal.show_img(curr_src, fileinfo[0]);
                         }
                 };
+                */
                 imgBg.src = curr_src;
         },
         _get_cw: function (width) {
