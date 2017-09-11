@@ -7,15 +7,18 @@
                 <span>Название<font class="required">*</font></span>
                 <input type="text" formdata="name" data-required="required" value="{% if data.name %}{{ data.name }}{% endif %}">
         </label>
-        {# main photo #}
-        <div formelem="main_photo"></div>
-        {# photolist #}
-        <div formelem="photolist" onclick="user_imgs.open_form();">Выбрать изображения для вставки...</div>
         {# short entry text #}
         <label class="inputs_cont">
                 <span>Вступление (краткий текст)</span>
                 <textarea formdata="short_content">{% if data.content.short %}{{ data.content.short }}{% endif %}</textarea>
         </label>
+        {# main photo #}
+        <label class="inputs_cont">
+                <span>Главное изображение<font class="required">*</font></span>
+                <input type="text" formdata="main_img" data-required="required" value="{% if data.main_img %}{{ data.main_img }}{% endif %}">
+        </label>
+        {# photolist #}
+        <div formelem="photolist" onclick="user_imgs.open_form();">Выбрать изображения для вставки...</div>
         {# post body #}
         <label class="inputs_cont">
                 <span>Содержание</span>
