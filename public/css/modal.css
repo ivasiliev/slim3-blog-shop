@@ -336,3 +336,24 @@ button.modal_button:hover {
         border: solid 1px #d0d0cf;
         text-align: right;
 }
+
+.imgs_elem_cont {
+        font-size: 0;
+}
+
+.img_elem_show {
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        background-color: transparent;
+        width: 19%;
+        padding-top: 19%;
+        margin: 0.5%;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        cursor: pointer;
+        transition: opacity 0s ease-in;
+        z-index: 2;
+}
