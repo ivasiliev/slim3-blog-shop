@@ -55,15 +55,15 @@ var load_imgs = {
                         target.setAttribute('style', "background-image: url('" + this.src + "'); transition: opacity 0.25s ease-in;");
                 };
                 /*
-                elem.onclick = function (e) {
-                        if (e.target === this) {
-                                var fileinfo = this.getAttribute('data-img').split('.');
-                                var cw = load_imgs._get_cw(document.body.clientWidth);
-                                var curr_src = '/userimgs/' + fileinfo[0] + cw + '.' + fileinfo[1];
-                                modal.show_img(curr_src, fileinfo[0]);
-                        }
-                };
-                */
+                 elem.onclick = function (e) {
+                 if (e.target === this) {
+                 var fileinfo = this.getAttribute('data-img').split('.');
+                 var cw = load_imgs._get_cw(document.body.clientWidth);
+                 var curr_src = '/userimgs/' + fileinfo[0] + cw + '.' + fileinfo[1];
+                 modal.show_img(curr_src, fileinfo[0]);
+                 }
+                 };
+                 */
                 imgBg.src = curr_src;
         },
         _get_cw: function (width) {
@@ -307,7 +307,7 @@ var file_img = {
         api_url_create: '/api/img/save',
         api_url_info: '/api/img/get?img=',
         api_url_drop: '/api/img/drop',
-        //uploaded_preview_target: '.uploaded_photo_preview',
+        uploaded_preview_target: '.uploaded_photo_preview',
         create_load_elem: function (title, target_tag, params, multi) {
                 var file_tags = this._file_tags(params);
                 var str = '';
@@ -431,7 +431,7 @@ var file_img = {
                 console.log(data);
                 var multi = elem.getAttribute('multi');
                 var input = elem.querySelector('input[type="hidden"]');
-                if (this.uploaded_preview_target) {
+                if (this.uploaded_preview_target && document.querySelector(this.uploaded_preview_target)) {
                         var img_preview_cont = document.querySelector(this.uploaded_preview_target);
                 } else {
                         var img_preview_cont = elem.querySelector('.img_upload_preview');
