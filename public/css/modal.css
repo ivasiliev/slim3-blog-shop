@@ -368,3 +368,19 @@ button.modal_button:hover {
         cursor: pointer;
         vertical-align: middle;
 }
+
+.img_elem_show div {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        color: #fff;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+        padding: 20px 10px;
+        font-size: 16px;
+}
+
+.img_elem_show div>font {
+        display: block;
+        font-size: 14px;
+}
