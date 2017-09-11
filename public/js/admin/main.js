@@ -675,9 +675,9 @@ var data_proto = {
 var user_imgs = {
         __proto__: data_proto,
 
-        api_url_form: '/api/img/getlist',
+        api_url_form: '/api/img/form/view',
+        api_url_info: '/api/img/getlist',
         api_url_save: '',
-        api_url_info: '',
         api_url_drop: '',
 
         open_form_modal: function (data, elem) {
