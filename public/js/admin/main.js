@@ -6,6 +6,19 @@ function menu_action(elem) {
         elem.classList.add('active');
 }
 
+function selectText(elem) {
+        if (document.selection) {
+                var range = document.body.createTextRange();
+                range.moveToElementText(elem);
+                range.select();
+        } else if (window.getSelection) {
+                var range = document.createRange();
+                range.selectNode(elem);
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(range);
+        }
+}
+
 var loader = {
         show: function (main) {
                 var cont = document.createElement('div');
@@ -450,7 +463,7 @@ var file_img = {
                         var img_preview = document.createElement('div');
                         img_preview.className = 'img_elem_show';
                         img_preview.setAttribute('data-img', data.file);
-                        img_preview.innerHTML = '<div><font>URL изобр.:</font><span>/userimgs/' + data.file + '</span></div>';
+                        img_preview.innerHTML = '<div><font>URL изобр.:</font><span onclick="selectText(this);">/userimgs/' + data.file + '</span></div>';
                         img_preview_cont.appendChild(img_preview);
 
                         load_imgs.init([img_preview]);
