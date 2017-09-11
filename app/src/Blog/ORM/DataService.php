@@ -15,11 +15,11 @@ class DataService extends BaseDataService {
         private $logger;
 
         public function __construct(Twig $view, LoggerInterface $logger) {
-		parent::__construct($view, $logger);
+                parent::__construct($view, $logger);
                 $this->view = $view;
                 $this->logger = $logger;
         }
-	
+
         /**
          * @return array full main data array
          */
@@ -33,6 +33,10 @@ class DataService extends BaseDataService {
          */
         public function getPostsData($id = 0) {
                 return $this->__getData(Settings::POSTS, $id);
+        }
+
+        public function savePostsData($data) {
+                return $this->__saveDatafile(Settings::POSTS, $data);
         }
 
         /**
@@ -58,7 +62,7 @@ class DataService extends BaseDataService {
         public function getCategoryData($id = 0) {
                 return $this->__getData(Settings::CATEGORY, $id);
         }
-        
+
         public function saveCategoryData($data) {
                 return $this->__saveDatafile(Settings::CATEGORY, $data);
         }

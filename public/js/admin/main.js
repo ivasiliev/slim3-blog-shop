@@ -712,7 +712,7 @@ var user_imgs = {
 
                         load_imgs.init();
 
-                        var photolist = document.querySelector('[formelem="photolist"]');
+                        var photolist = document.querySelector('[imgsload="photolist"]');
                         if (photolist) {
                                 photolist.innerHTML = file_img.create_load_elem('Загрузка изображений', obj.tagname + '="main_photo"', null, true);
                         }
