@@ -93,9 +93,9 @@ var posts = {
                                         menubar: false,
                                         gecko_spellcheck: true,
                                         toolbar_items_size: 'small',
-                                        document_base_url: '/',
+                                        document_base_url: 'http://5.u0138138.z8.ru/',
                                         relative_urls: true,
-                                        convert_urls: false,
+                                        //convert_urls: false,
                                         setup: function (editor) {
                                                 editor.on("change keyup", function (e) {
                                                         //console.log('saving');
