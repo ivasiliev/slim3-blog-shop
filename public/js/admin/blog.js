@@ -93,7 +93,9 @@ var posts = {
                                         menubar: false,
                                         gecko_spellcheck: true,
                                         toolbar_items_size: 'small',
+                                        document_base_url: '/',
                                         relative_urls: true,
+                                        convert_urls: false,
                                         setup: function (editor) {
                                                 editor.on("change keyup", function (e) {
                                                         //console.log('saving');
