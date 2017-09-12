@@ -169,12 +169,14 @@ final class BaseAction extends DataService {
                 $path_arr[] = $curr_id;
 
                 $path_to_content = $this->posts_path;
+                // create main posts dir if it not exists
+                $this->create_dir_if_need($path_to_content);
                 foreach ($path_arr as $value) {
                         // create dir in needed
-                        $this->create_dir_if_need($path_to_content);
                         $path_to_content .= $value . "/";
+                        $this->create_dir_if_need($path_to_content);
                 }
-                
+
                 // create or update main content file main_content.html
                 file_put_contents($path_to_content . "main_content.html", $params["main_content"]);
 
@@ -188,7 +190,7 @@ final class BaseAction extends DataService {
                     "modify_dt" => 0,
                     "path" => $path_to_content,
                 );
-                
+
                 $list = $this->getPostsData();
                 $list[$curr_id] = $elem;
 
