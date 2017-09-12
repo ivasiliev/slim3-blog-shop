@@ -93,7 +93,7 @@ var posts = {
                                         menubar: false,
                                         gecko_spellcheck: true,
                                         toolbar_items_size: 'small',
-                                        document_base_url: 'http://5.u0138138.z8.ru/',
+                                        document_base_url: 'http://5.u0138138.z8.ru/userimgs/',
                                         relative_urls: false,
                                         remove_script_host: false,
                                         //convert_urls: false,
