@@ -80,10 +80,10 @@ var posts = {
                 modal.show(data, true, function () {
                         var obj = self;
                         var main_photo = document.querySelector('[formelem="main_photo"]');
-                        if (main_photo){
-                                main_photo.innerHTML = file_img.create_load_elem('Главное изображение', obj.tagname+'="main_photo"', null, false);
+                        if (main_photo) {
+                                main_photo.innerHTML = file_img.create_load_elem('Главное изображение', obj.tagname + '="main_photo"', null, false);
                         }
-                        
+
                         if (typeof tinymce !== 'undefined') {
                                 var params = {
                                         selector: '',
@@ -94,7 +94,8 @@ var posts = {
                                         gecko_spellcheck: true,
                                         toolbar_items_size: 'small',
                                         document_base_url: 'http://5.u0138138.z8.ru/',
-                                        relative_urls: true,
+                                        relative_urls: false,
+                                        remove_script_host: false,
                                         //convert_urls: false,
                                         setup: function (editor) {
                                                 editor.on("change keyup", function (e) {
