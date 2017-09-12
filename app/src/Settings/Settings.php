@@ -25,6 +25,11 @@ final class Settings {
 	//----------------------------------------------------------------------
 	const IMGS_PATH = __DIR__ . "/../../../public/userimgs/";
 	const IMGS_USERPATH = "/userimgs/";
+	//----------------------------------------------------------------------
+	// Posts files path
+	//----------------------------------------------------------------------
+	const POSTS_PATH = __DIR__ . "/../../../public/posts/";
+	const POSTS_USERPATH = "/posts/";
 
 	public function __construct() {
 		

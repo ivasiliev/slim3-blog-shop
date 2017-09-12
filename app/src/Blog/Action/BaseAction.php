@@ -136,6 +136,9 @@ final class BaseAction extends DataService {
 
         public function AdminPostsSave(Request $request, Response $response, $args) {
                 $params = $request->getParsedBody();
+                
+                return $response->withJson($params);
+                
                 if (!$params) {
                         return $response->withStatus(400, "empty request");
                 }
