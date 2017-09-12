@@ -10,7 +10,7 @@
         {# short entry text #}
         <label class="inputs_cont">
                 <span>Вступление (краткий текст)</span>
-                <textarea formdata="short_content">{% if data.content.short %}{{ data.content.short }}{% endif %}</textarea>
+                <textarea formdata="short_content">{% if data.short_content %}{{ data.short_content }}{% endif %}</textarea>
         </label>
         {# main photo #}
         <label class="inputs_cont">
@@ -22,7 +22,10 @@
         {# post body #}
         <label class="inputs_cont">
                 <span>Содержание</span>
-                <textarea formdata="main_content" class="post_content">{% if data.content.main %}{{ data.content.main }}{% endif %}</textarea>
+                {#<textarea formdata="main_content" class="post_content">{% if data.content.main %}{{ data.content.main }}{% endif %}</textarea>#}
+                <textarea formdata="main_content" class="post_content">
+                        {% if data.path %} {% include data.path~'main_content.html' %} {% endif %}
+                </textarea>
         </label>
         {# secret post body #}
         {#<label class="inputs_cont">

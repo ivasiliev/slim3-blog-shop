@@ -133,7 +133,7 @@ final class BaseAction extends DataService {
 
         public function AdminPostsForm(Request $request, Response $response, $args) {
                 if (isset($args["curr_id"]) && $args["curr_id"] !== "") {
-                        $data = $this->getCategoryData($args["curr_id"]);
+                        $data = $this->getPostsData($args["curr_id"]);
                 } else {
                         $data = array();
                 }
