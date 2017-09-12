@@ -24,7 +24,7 @@
                 <span>Содержание</span>
                 {#<textarea formdata="main_content" class="post_content">{% if data.content.main %}{{ data.content.main }}{% endif %}</textarea>#}
                 <textarea formdata="main_content" class="post_content">
-                        {% if data.path %} {% include data.path~'main_content.html' %} {% endif %}
+                        {% if data.main_content %} {{ data.main_content }} {% endif %}
                 </textarea>
         </label>
         {# secret post body #}

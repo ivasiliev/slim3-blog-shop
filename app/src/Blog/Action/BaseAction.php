@@ -134,6 +134,7 @@ final class BaseAction extends DataService {
         public function AdminPostsForm(Request $request, Response $response, $args) {
                 if (isset($args["curr_id"]) && $args["curr_id"] !== "") {
                         $data = $this->getPostsData($args["curr_id"]);
+                        $data["main_content"] = file_get_contents($data["path"] . "main_content.html");
                 } else {
                         $data = array();
                 }
