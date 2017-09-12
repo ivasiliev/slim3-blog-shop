@@ -93,7 +93,7 @@ var posts = {
                                         menubar: false,
                                         gecko_spellcheck: true,
                                         toolbar_items_size: 'small',
-                                        image_prepend_url: 'http://5.u0138138.z8.ru/userimgs/',
+                                        relative_urls: true,
                                         setup: function (editor) {
                                                 editor.on("change keyup", function (e) {
                                                         //console.log('saving');
