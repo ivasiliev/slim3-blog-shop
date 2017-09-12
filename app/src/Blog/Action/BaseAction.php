@@ -122,6 +122,19 @@ final class BaseAction extends DataService {
         //----------------------------------------------------------------------
         // posts
         //----------------------------------------------------------------------
+                
+        public function CurrPostPage(Request $request, Response $response, $args) {
+                if (isset($args["curr_id"]) && $args["curr_id"] !== "") {
+                        $data = $this->getPostsData($args["curr_id"]);
+                        $data["main_content"] = file_get_contents($data["path"] . "main_content.html");
+                } else {
+                        $data = array();
+                }
+                $this->view->render($response, 'blog/curr_post', array(
+                    "data" => $data
+                ));
+                return $response;
+        }
 
         public function AdminPostsView(Request $request, Response $response, $args) {
                 $list = $this->getPostsData();

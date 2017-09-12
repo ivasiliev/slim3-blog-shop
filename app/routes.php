@@ -60,7 +60,7 @@ $app->get('/api/img/list/init[/]', 'App\Action\Imgs:__createPhotosArr');
 $app->get('/blog[/]', 'App\Action\HomeAction:BlogPage')
         ->setName('blogpage');
 
-$app->get('/blog/c/{curr_id}[/]', 'App\Action\HomeAction:BlogCurrPage')
+$app->get('/blog/c/{curr_id}[/]', 'App\Blog\Action\BaseAction:CurrPostPage')
         ->setName('blogpage');
 
 // api

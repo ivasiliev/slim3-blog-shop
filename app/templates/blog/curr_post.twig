@@ -1,0 +1,19 @@
+{% extends "base.twig" %}
+
+{% block title %}{{ data.name }}{% endblock %}
+
+{% block container %}
+	<div class="cont">
+		{% include 'header.twig' %}
+                <div class="post_view_container">
+                        {{ data.main_content|raw }}
+                </div>
+	</div>
+{% endblock %}
+
+{% block styles %}
+	{#<link href='/css/blog/main.css' rel='stylesheet' type='text/css'>#}
+{% endblock %}
+{% block scripts %}
+	<script async type="text/javascript" src="/js/main.js"></script>
+{% endblock %}

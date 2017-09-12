@@ -18,7 +18,7 @@
                                         <td>{{ curr.dt_create }}</td>
                                         <td>{{ curr.dt_modific }}</td>
                                         <td style="text-align: right;">
-                                                <i class="fa fa-eye"></i>
+                                                <a href="/blog/c/{{ curr.id }}" target="_blank"><i class="fa fa-eye"></i></a>
                                                 <i class="fa fa-edit" onclick="posts.open_form('{{ curr.id }}');"></i>
                                                 <i class="fa fa-trash" onclick="posts.drop('{{ curr.id }}');"></i>
                                         </td>
