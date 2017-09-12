@@ -8,16 +8,24 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 use App\Action\Imgs;
 use App\Blog\ORM\DataService;
+use App\Settings\Settings;
+use App\Action\Auth;
 
 final class BaseAction extends DataService {
 
         private $view;
         private $logger;
+        private $posts_path;
+        private $user;
+        private $userdata;
 
         public function __construct(Twig $view, LoggerInterface $logger) {
                 parent::__construct($view, $logger);
                 $this->view = $view;
                 $this->logger = $logger;
+                $this->posts_path = Settings::POSTS_PATH;
+                $this->user = new Auth($this->view, $this->logger);
+                $this->userdata = $this->user->info();
         }
 
         /**
@@ -39,6 +47,7 @@ final class BaseAction extends DataService {
 
         //----------------------------------------------------------------------
         // categories
+        //----------------------------------------------------------------------
 
         public function AdminCategoriesView(Request $request, Response $response, $args) {
                 $categories = $this->getCategoryData();
@@ -111,8 +120,8 @@ final class BaseAction extends DataService {
         }
 
         //----------------------------------------------------------------------
-        //----------------------------------------------------------------------
         // posts
+        //----------------------------------------------------------------------
 
         public function AdminPostsView(Request $request, Response $response, $args) {
                 $list = $this->getPostsData();
@@ -124,23 +133,23 @@ final class BaseAction extends DataService {
 
         public function AdminPostsForm(Request $request, Response $response, $args) {
                 if (isset($args["curr_id"]) && $args["curr_id"] !== "") {
-                        $list = $this->getCategoryData($args["curr_id"]);
+                        $data = $this->getCategoryData($args["curr_id"]);
                 } else {
-                        $list = array();
+                        $data = array();
                 }
                 $this->view->render($response, 'admin/blog/posts_form.twig', array(
-                    "data" => $list
+                    "data" => $data
                 ));
                 return $response;
         }
 
         public function AdminPostsSave(Request $request, Response $response, $args) {
                 $params = $request->getParsedBody();
-                
-                return $response->withJson($params);
-                
                 if (!$params) {
                         return $response->withStatus(400, "empty request");
+                }
+                if (!$this->userdata) {
+                        return $response->withStatus(400, "unauthorized");
                 }
 
                 $curr_id = null;
@@ -151,15 +160,35 @@ final class BaseAction extends DataService {
                 if (!$curr_id) {
                         $curr_id = uniqid();
                 }
+
+                $create_dt = time();
+                $path_arr = array();
+                $path_arr[] = date("Y", $create_dt);
+                $path_arr[] = date("m", $create_dt);
+                $path_arr[] = date("d", $create_dt);
+                $path_arr[] = $curr_id;
+
+                $path_to_content = $this->posts_path;
+                foreach ($path_arr as $value) {
+                        // create dir in needed
+                        $this->create_dir_if_need($path_to_content);
+                        $path_to_content .= $value . "/";
+                }
+                
+                // create or update main content file main_content.html
+                file_put_contents($path_to_content . "main_content.html", $params["main_content"]);
+
                 $elem = array(
                     "id" => $curr_id,
+                    "user_id" => $this->userdata["id"],
                     "name" => $params["name"],
-                    "descr" => $params["descr"],
+                    "short_content" => $params["short_content"],
+                    "main_img" => $params["main_img"],
+                    "create_dt" => $create_dt,
+                    "modify_dt" => 0,
+                    "path" => $path_to_content,
                 );
                 
-                // here create dir if needed - /posts/year/month/day/post_id/                
-                $this->create_dir_if_need($dir);
-
                 $list = $this->getPostsData();
                 $list[$curr_id] = $elem;
 
