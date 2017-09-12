@@ -89,7 +89,7 @@ var posts = {
                                         selector: '',
                                         height: 500,
                                         plugins: 'lists advlist image imagetools code textcolor',
-                                        toolbar: 'undo redo | fontsizeselect forecolor backcolor | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist | image | code | preview',
+                                        toolbar: 'undo redo | fontsizeselect forecolor backcolor | h2 h3 blockquote | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist | image | code',
                                         menubar: false,
                                         gecko_spellcheck: true,
                                         toolbar_items_size: 'small',

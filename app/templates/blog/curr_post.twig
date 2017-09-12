@@ -3,8 +3,9 @@
 {% block title %}{{ data.name }}{% endblock %}
 
 {% block container %}
+        {% include 'header.twig' %}
+        <div class="">
 	<div class="cont">
-		{% include 'header.twig' %}
                 <div class="post_view_container">
                         {{ data.main_content|raw }}
                 </div>
