@@ -130,7 +130,7 @@ final class BaseAction extends DataService {
                 } else {
                         $data = array();
                 }
-                $this->view->render($response, 'blog/curr_post', array(
+                $this->view->render($response, 'blog/curr_post.twig', array(
                     "data" => $data
                 ));
                 return $response;
