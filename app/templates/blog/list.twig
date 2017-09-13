@@ -1,7 +1,7 @@
 {% if posts and posts|length > 0 %}
         {% for curr in posts %}
                 <div class="record_box">
-                        <div class="record_preview_img" style="background-image: url({{ curr.main_img }}}});">
+                        <div class="record_preview_img" style="background-image: url({{ curr.main_img }});">
                                 <div>
                                         <span>
                                                 <a href="/blog/c/{{ curr.id }}">{{ curr.name }}</a>
