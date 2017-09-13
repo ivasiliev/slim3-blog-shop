@@ -8,27 +8,30 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 use App\Action\Imgs;
 use App\Action\Auth;
+use App\Blog\Action\BaseAction;
 
 final class HomeAction {
 
         private $view;
         private $logger;
         private $user;
+        private $blog;
 
         public function __construct(Twig $view, LoggerInterface $logger) {
                 $this->view = $view;
                 $this->logger = $logger;
                 $this->user = new Auth($this->view, $this->logger);
+                $this->blog = new BaseAction($view, $logger);
         }
 
         public function __invoke(Request $request, Response $response, $args) {
                 $this->logger->info("Home page action dispatched");
 
-                $data = json_decode(file_get_contents(__DIR__ . "/json/main.json"), true);
+                $posts = $this->blog->getPostsData();
 
                 $this->view->render($response, 'main.twig', array(
                     "nav_current" => "home",
-                    "posts" => array("list" => array(1, 2, 3, 4, 5, 6, 7, 8, 9))
+                    "posts" => $posts
                 ));
                 return $response;
         }

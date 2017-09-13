@@ -5,8 +5,9 @@
 {% block container %}
 	<div class="cont">
 		{% include 'header.twig' %}
-		<div class="records_cont_results">
-			{% include 'blog/list.twig' with records %}
+		<div class="posts_cont_results">
+                        {{ dump() }}
+			{% include 'blog/list.twig' with posts %}
 		</div>
 	</div>
 {% endblock %}
