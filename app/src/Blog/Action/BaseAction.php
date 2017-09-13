@@ -127,11 +127,7 @@ final class BaseAction extends DataService {
                 if (isset($args["curr_id"]) && $args["curr_id"] !== "") {
                         $data = $this->getPostsData($args["curr_id"]);
                         $data["main_content"] = file_get_contents($data["path"] . "main_content.html");
-                        $data["userdata"] = $this->user->getUsersData($data["id"]);
-                        
-                        print($data["user_id"]."<br>");
-                        print_r($this->user->getUsersData($data["user_id"]));
-                        exit;
+                        $data["userdata"] = $this->user->getUsersData($data["user_id"]);
                 } else {
                         $data = array();
                 }

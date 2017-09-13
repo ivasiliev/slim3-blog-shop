@@ -181,13 +181,17 @@ h2 {
         right: 0;
 }
 
-.bvh_user_nav>span {
+.bvh_user_nav>a {
+        display: inline-block;
+        padding-bottom: 5px;
+        border-bottom: solid 2px #fff;
         margin-right: 2%;
         cursor: pointer;
 }
 
-.bvh_user_nav>span:hover {
+.bvh_user_nav>a:hover {
         color: #000;
+        border-bottom: solid 2px #000;
 }
 
 .post_view_container {
