@@ -151,6 +151,7 @@ h2 {
 .bvh_username {
         font-size: 28px;
         letter-spacing: 1.5px;
+        margin-left: 20%;
 }
 
 .bvh_userphoto {
@@ -168,7 +169,6 @@ h2 {
 
 .bvh_data .cont {
         padding: 40px 0;
-        padding-left: 20%;
 }
 
 .bvh_user_nav {
@@ -188,4 +188,8 @@ h2 {
 
 .bvh_user_nav>span:hover {
         color: #000;
+}
+
+.post_view_container {
+        margin-bottom: 10%;
 }
