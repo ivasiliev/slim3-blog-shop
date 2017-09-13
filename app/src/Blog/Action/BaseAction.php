@@ -129,8 +129,8 @@ final class BaseAction extends DataService {
                         $data["main_content"] = file_get_contents($data["path"] . "main_content.html");
                         $data["userdata"] = $this->user->getUsersData($data["id"]);
                         
-                        print($data["id"]."<br>");
-                        print_r($this->user->getUsersData($data["id"]));
+                        print($data["user_id"]."<br>");
+                        print_r($this->user->getUsersData($data["user_id"]));
                         exit;
                 } else {
                         $data = array();
