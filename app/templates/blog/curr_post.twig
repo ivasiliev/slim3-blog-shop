@@ -4,17 +4,31 @@
 
 {% block container %}
         {% include 'header.twig' %}
-        <div class=""></div>
-	<div class="cont">
+        <div class="blog_view_header" style="background-image: url({{ data.main_img }});">
+                <div class="bvh_shadow"></div>
+                <div class="bvh_data">
+                        <div class="cont">
+                                <div class="bvh_userphoto"></div>
+                                <span class="bvh_username">username</span>
+                                <div class="bvh_user_nav">
+                                        <span>О себе</span>
+                                        <span>Новое в блоге</span>
+                                        <span>Посты</span>
+                                </div>
+                        </div>
+                </div>
+        </div>
+        <div class="cont">
+                <h2>data.name</h2>
                 <div class="post_view_container">
                         {{ data.main_content|raw }}
                 </div>
-	</div>
+        </div>
 {% endblock %}
 
 {% block styles %}
-	{#<link href='/css/blog/main.css' rel='stylesheet' type='text/css'>#}
+        {#<link href='/css/blog/main.css' rel='stylesheet' type='text/css'>#}
 {% endblock %}
 {% block scripts %}
-	<script async type="text/javascript" src="/js/main.js"></script>
+        <script async type="text/javascript" src="/js/main.js"></script>
 {% endblock %}

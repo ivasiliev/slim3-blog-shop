@@ -107,3 +107,85 @@
         overflow: hidden;
         text-overflow: ellipsis;
 }
+
+.blog_view_header {
+        width: 100%;
+        padding-bottom: 35%;
+        margin-bottom: 10%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+}
+
+h2 {
+        display: block;
+        width: 100%;
+        font-size: 50px;
+        text-align: center;
+        line-height: 80px;
+        margin: 50px 0;
+        font-weight: 700;
+}
+
+.bvh_shadow {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.15);
+}
+
+.bvh_data {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        color: #fff;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+        z-index: 2;
+}
+
+.bvh_username {
+        font-size: 28px;
+        letter-spacing: 1.5px;
+}
+
+.bvh_userphoto {
+        position: absolute;
+        z-index: 3;
+        width: 16%;
+        padding-bottom: 16%;
+        bottom: 0;
+        margin-bottom: -8%;
+        left: 0;
+        border-radius: 50%;
+        border: solid 1px #fff;
+        background-color: #dadada;
+}
+
+.bvh_data .cont {
+        padding: 40px 0;
+        padding-left: 20%;
+}
+
+.bvh_user_nav {
+        position: absolute;
+        z-index: 2;
+        top: 100%;
+        color: rgba(0, 0, 0, 0.55);
+        margin-top: 40px;
+        left: 20%;
+        right: 0;
+}
+
+.bvh_user_nav>span {
+        margin-right: 2%;
+        cursor: pointer;
+}
+
+.bvh_user_nav>span:hover {
+        color: #000;
+}
