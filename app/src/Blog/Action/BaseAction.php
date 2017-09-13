@@ -128,6 +128,10 @@ final class BaseAction extends DataService {
                         $data = $this->getPostsData($args["curr_id"]);
                         $data["main_content"] = file_get_contents($data["path"] . "main_content.html");
                         $data["userdata"] = $this->user->getUsersData($data["id"]);
+                        
+                        print($data["id"]."<br>");
+                        print_r($this->user->getUsersData($data["id"]));
+                        exit;
                 } else {
                         $data = array();
                 }
