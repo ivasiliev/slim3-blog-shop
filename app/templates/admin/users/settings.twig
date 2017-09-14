@@ -1,30 +1,31 @@
 <div class="modal_close_but">+</div>
-<div class="modal_header">{% if data and data.id %}Редактирование записи{% else %}Новая запись{% endif %}</div>
+<div class="modal_header">Настройки</div>
 <div class="modal_inputs">
         {# current id #}
-        <input type="hidden" formdata="curr_id" value="{% if data.id %}{{ data.id }}{% endif %}">
+        <input type="hidden" formdata="curr_id" value="{{ data.id }}">
         <label class="inputs_cont">
-                <span>Название<font class="required">*</font></span>
+                <span>Имя<font class="required">*</font></span>
                 <input type="text" formdata="name" data-required="required" value="{% if data.name %}{{ data.name }}{% endif %}">
-        </label>
-        {# short entry text #}
-        <label class="inputs_cont">
-                <span>Вступление (краткий текст)</span>
-                <textarea formdata="short_content">{% if data.short_content %}{{ data.short_content }}{% endif %}</textarea>
         </label>
         {# main photo #}
         <label class="inputs_cont">
                 <div class="show_imgs_button" onclick="user_imgs.open_form();"><i class="fa fa-picture-o" aria-hidden="true"></i><font>менеджер изображений</font></div>
-                <span>Главное изображение<font class="required">*</font></span>
+                <span>Фото<font class="required">*</font></span>
                 <input type="text" formdata="main_img" data-required="required" value="{% if data.main_img %}{{ data.main_img }}{% endif %}">
+        </label>
+        {# bg photo #}
+        <label class="inputs_cont">
+                <div class="show_imgs_button" onclick="user_imgs.open_form();"><i class="fa fa-picture-o" aria-hidden="true"></i><font>менеджер изображений</font></div>
+                <span>Изображение на фон<font class="required">*</font></span>
+                <input type="text" formdata="bg_img" data-required="required" value="{% if data.bg_img %}{{ data.bg_img }}{% endif %}">
         </label>
         {# post body #}
         <label class="inputs_cont">
                 <div class="show_imgs_button" onclick="user_imgs.open_form();"><i class="fa fa-picture-o" aria-hidden="true"></i><font>менеджер изображений</font></div>
-                <span>Содержание</span>
+                <span>О себе</span>
                 {#<textarea formdata="main_content" class="post_content">{% if data.content.main %}{{ data.content.main }}{% endif %}</textarea>#}
                 <textarea formdata="main_content" class="post_content">
-                        {% if data.main_content %} {{ data.main_content }} {% endif %}
+                        {% if data.about %} {{ data.about }} {% endif %}
                 </textarea>
         </label>
         {# secret post body #}

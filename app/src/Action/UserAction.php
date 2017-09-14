@@ -55,44 +55,43 @@ final class UserAction extends DataService {
                 }
                 return $response->withJson(array("result" => 400, "content" => "unknown"));
         }
-        
+
         //----------------------------------------------------------------------
         // admin methods
         //----------------------------------------------------------------------
-        
+
         public function AdminView(Request $request, Response $response, $args) {
                 $data = $this->getUsersData();
                 $this->view->render($response, 'admin/users/main.twig', array(
-                    "categories"=>$data
+                    "categories" => $data
                 ));
                 return $response;
         }
-        
+
         public function AdminForm(Request $request, Response $response, $args) {
-                if (isset($args["curr_id"]) && $args["curr_id"] !== ""){
+                if (isset($args["curr_id"]) && $args["curr_id"] !== "") {
                         $data = $this->getUsersData($args["curr_id"]);
-                }
-                else {
+                } else {
                         $data = array();
                 }
                 $this->view->render($response, 'admin/users/form.twig', array(
-                    "data"=>$data
+                    "data" => $data
                 ));
                 return $response;
         }
-        
+
         public function AdminSave(Request $request, Response $response, $args) {
                 $params = $request->getParsedBody();
-                if (!$params){
+                if (!$params) {
                         return $response->withStatus(400, "empty request");
                 }
-                
+
                 $curr_id = null;
-                if (isset($params["curr_id"]) && $params["curr_id"]){
+                if (isset($params["curr_id"]) && $params["curr_id"]) {
                         $curr_id = $params["curr_id"];
                 }
-                
-                if (!$curr_id){
+
+                if (!$curr_id) {
                         $curr_id = uniqid();
                 }
                 $elem = array(
@@ -100,35 +99,50 @@ final class UserAction extends DataService {
                     "name" => $params["name"],
                     "descr" => $params["descr"],
                 );
-                
+
                 $list = $this->getCategoryData();
                 $list[$curr_id] = $elem;
-                
+
                 // save datafile
                 $this->saveCategoryData($list);
-                
+
                 // return rendered data
                 return $this->AdminView($request, $response, $args);
         }
-        
+
         public function AdminDrop(Request $request, Response $response, $args) {
-                if (!(isset($args["curr_id"]) && $args["curr_id"] !== "")){
+                if (!(isset($args["curr_id"]) && $args["curr_id"] !== "")) {
                         return $response->withStatus(400, "empty request");
                 }
-                
+
                 $curr_id = $args["curr_id"];
-                
+
                 $list = $this->getCategoryData();
-                if (isset($list[$curr_id])){
+                if (isset($list[$curr_id])) {
                         // remove current data
                         unset($list[$curr_id]);
                 }
-                
+
                 // save datafile
                 $this->saveCategoryData($list);
-                
+
                 // return rendered data
                 return $this->AdminView($request, $response, $args);
+        }
+
+        public function AdminSettingsForm(Request $request, Response $response, $args) {
+                if (isset($args["curr_id"]) && $args["curr_id"] !== "") {
+                        $data = $this->getUsersData($args["curr_id"]);
+                } else {
+                        $data = array();
+                }
+                if (!$data) {
+                        return $response->withJson(array("result" => 400, "content" => "user not found"));
+                }
+                $this->view->render($response, 'admin/users/settings.twig', array(
+                    "data" => $data
+                ));
+                return $response;
         }
 
 }

@@ -8,12 +8,20 @@ var users = {
         tagname: "users_data",
         add_tagname: "users_add_data",
         update_tagname: "users_upd_data",
-        
+
         arr: [],
 
         open_form: function (id) {
                 var self = this;
                 this.send('GET', null, this.api_url_form + (id ? id : ''), null, null, function (data, elem) {
+                        var obj = self;
+                        obj.open_form_modal(data, elem);
+                });
+        },
+
+        open_settings: function (id) {
+                var self = this;
+                this.send('GET', null, this.api_url_form + id, null, null, function (data, elem) {
                         var obj = self;
                         obj.open_form_modal(data, elem);
                 });
@@ -39,5 +47,5 @@ var users = {
                         this.send('GET', null, this.api_url_drop + id, this.get_subcontent_elem());
                 }
         }
-        
+
 };
