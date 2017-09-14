@@ -45,6 +45,19 @@ final class BaseAction extends DataService {
                 return $response;
         }
 
+        public function UserPage(Request $request, Response $response, $args) {
+                if (isset($args["curr_id"]) && $args["curr_id"] !== "") {
+                        $data = $this->user->getUsersData($args["curr_id"]);
+                } else {
+                        $data = array();
+                }
+                $this->view->render($response, 'blog/userpage.twig', array(
+                    "site_section" => "blog",
+                    "data" => $data
+                ));
+                return $response;
+        }
+
         //----------------------------------------------------------------------
         // categories
         //----------------------------------------------------------------------

@@ -9,11 +9,11 @@
                 <div class="bvh_data">
                         <div class="cont">
                                 <div class="bvh_userphoto"></div>
-                                <span class="bvh_username"><a>{{ data.userdata.settings.name }}</a></span>
+                                <span class="bvh_username"><a href="/blog/{{ data.userdata.id }}">{{ data.userdata.settings.name }}</a></span>
                                 <div class="bvh_user_nav">
-                                        <a>О себе</a>
-                                        <a>Новое в блоге</a>
-                                        <a>Посты</a>
+                                        <a href="/blog/{{ data.userdata.id }}#about">О себе</a>
+                                        <a href="/blog/{{ data.userdata.id }}#new">Новое в блоге</a>
+                                        <a href="/blog/{{ data.userdata.id }}#all">Все записи</a>
                                 </div>
                         </div>
                 </div>
