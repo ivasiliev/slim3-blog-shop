@@ -30,7 +30,8 @@ final class HomeAction {
                 $posts = $this->blog->getPostsData();
 
                 $this->view->render($response, 'main.twig', array(
-                    "nav_current" => "home",
+                    "site_section" => "blog",
+                    "nav_current" => "new",
                     "posts" => $posts
                 ));
                 return $response;
@@ -46,6 +47,7 @@ final class HomeAction {
         public function LoginView(Request $request, Response $response, $args) {
                 $this->user->logout();
                 $this->view->render($response, 'login.twig', array(
+                    "site_section" => "login",
                     "nav_current" => ""
                 ));
                 return $response;

@@ -1,9 +1,15 @@
 <div class="header">
         <div class="cont table">
                 <div class="menu_but" onclick="menu_action('open');"><i class="fa fa-bars"></i></div>
+                <div class="logo" title="На главную">
+                        <a href="/">
+                                evtifeev
+                                <font>{{ site_section }}</font>
+                        </a>
+                </div>
                 <div class="menu">
                         <div class="nav">
-                                <a{% if nav_current == "home" %} class="active"{% else %} href="/"{% endif %}>Главная</a>
+                                {#<a{% if nav_current == "home" %} class="active"{% else %} href="/"{% endif %}>Главная</a>#}
                                 <a{% if nav_current == "categories" %} class="active"{% else %} href="/"{% endif %}>Статьи</a>
                                 <a{% if nav_current == "authors" %} class="active"{% else %} href="/"{% endif %}>Авторы</a>
                                 <a{% if nav_current == "shop" %} class="active"{% else %} href="/shop"{% endif %}>Магазин</a>
