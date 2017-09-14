@@ -94,17 +94,39 @@ final class UserAction extends DataService {
                 if (!$curr_id) {
                         $curr_id = uniqid();
                 }
-                $elem = array(
-                    "id" => $curr_id,
-                    "name" => $params["name"],
-                    "descr" => $params["descr"],
-                );
 
-                $list = $this->getCategoryData();
+                // get all users list
+                $list = $this->getUsersData();
+
+                if (isset($list[$curr_id])) {
+                        $elem = $list[$curr_id];
+                        if (isset($params["email"])){
+                                $elem["login"] = $params["email"];
+                                $elem["settings"]["email"] = $params["email"];
+                        }
+                        if (isset($params["name"])){
+                                $elem["settings"]["name"] = $params["name"];
+                        }
+                        if (isset($params["descr"])){
+                                $elem["settings"]["descr"] = $params["descr"];
+                        }
+                        if (isset($params["bg_img"])){
+                                $elem["settings"]["bg_img"] = $params["bg_img"];
+                        }
+                        if (isset($params["photo"])){
+                                $elem["settings"]["photo"] = $params["photo"];
+                        }
+                } else if (isset($params["email"]) && $params["email"] !== "" && isset($params["pass"]) && $params["pass"] !== "" && isset($params["name"]) && $params["name"] !== "") {
+                        $elem = Settings::UserBaseData($curr_id, $params["email"], $params["pass"], $params["name"]);
+                }
+                else {
+                        return $response->withJson(array("result"=>400,"content"=>"user not found"));
+                }
+
                 $list[$curr_id] = $elem;
 
                 // save datafile
-                $this->saveCategoryData($list);
+                $this->saveUsersData($list);
 
                 // return rendered data
                 return $this->AdminView($request, $response, $args);
