@@ -22,7 +22,7 @@ var users = {
 
         open_settings: function (id) {
                 var self = this;
-                this.send('GET', null, this.api_url_form + id, null, null, function (data, elem) {
+                this.send('GET', null, this.api_url_settings + id, null, null, function (data, elem) {
                         var obj = self;
                         obj.open_form_modal(data, elem);
                 });
