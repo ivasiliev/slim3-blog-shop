@@ -32,6 +32,7 @@ $app->get('/api/stub[/]', 'App\Action\HomeAction:StubView');
 // USERS routes
 //------------------------------------------------------------------------------
 $app->get('/api/users/info[/]', 'App\Action\UserAction:AdminView');
+$app->get('/api/users/settings[/]', 'App\Action\UserAction:AdminSettingsForm');
 $app->get('/api/users/form[/]', 'App\Action\UserAction:AdminForm');
 $app->get('/api/users/form/{curr_id}[/]', 'App\Action\UserAction:AdminForm');
 $app->post('/api/users/save[/]', 'App\Action\UserAction:AdminSave');

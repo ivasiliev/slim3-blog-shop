@@ -1,6 +1,7 @@
 var users = {
         __proto__: data_proto,
         api_url_form: '/api/users/form/',
+        api_url_settings: '/api/users/settings/',
         api_url_save: '/api/users/save',
         api_url_info: '/api/users/info',
         api_url_drop: '/api/users/drop/',
