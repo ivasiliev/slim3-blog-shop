@@ -22,7 +22,7 @@ $app->post('/api/regclient[/]', 'App\Action\UserAction:RegClient');
 // ADMIN routes
 //------------------------------------------------------------------------------
 
-$app->get('/account', App\Action\AdminAction::class)
+$app->get('/account[/]', App\Action\AdminAction::class)
         ->setName('adminpage');
 
 // admin stub
