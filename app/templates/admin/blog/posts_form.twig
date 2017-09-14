@@ -14,6 +14,7 @@
         </label>
         {# main photo #}
         <label class="inputs_cont">
+                <div class="show_imgs_button" onclick="user_imgs.open_form();"><i class="fa fa-picture-o" aria-hidden="true"></i><font>менеджер изображений</font></div>
                 <span>Главное изображение<font class="required">*</font></span>
                 <input type="text" formdata="main_img" data-required="required" value="{% if data.main_img %}{{ data.main_img }}{% endif %}">
         </label>
@@ -21,6 +22,7 @@
         <div formelem="photolist" onclick="user_imgs.open_form();">Выбрать изображения для вставки...</div>
         {# post body #}
         <label class="inputs_cont">
+                <div class="show_imgs_button" onclick="user_imgs.open_form();"><i class="fa fa-picture-o" aria-hidden="true"></i><font>менеджер изображений</font></div>
                 <span>Содержание</span>
                 {#<textarea formdata="main_content" class="post_content">{% if data.content.main %}{{ data.content.main }}{% endif %}</textarea>#}
                 <textarea formdata="main_content" class="post_content">
