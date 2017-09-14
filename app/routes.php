@@ -58,8 +58,8 @@ $app->get('/api/img/list/init[/]', 'App\Action\Imgs:__createPhotosArr');
 // BLOG module routes
 //------------------------------------------------------------------------------
 // view
-$app->get('/blog[/]', 'App\Action\HomeAction:BlogPage');
-$app->get('/blog/{curr_id}[/]', 'App\Action\HomeAction:UserPage');
+$app->get('/blog[/]', App\Blog\Action\BaseAction::class);
+$app->get('/blog/{curr_id}[/]', 'App\Blog\Action\BaseAction:UserPage');
 
 $app->get('/blog/posts/{curr_id}[/]', 'App\Blog\Action\BaseAction:CurrPostPage');
 
