@@ -127,8 +127,6 @@ final class UserAction extends DataService {
 
                 // save datafile
                 $this->saveUsersData($list);
-                
-                return $response->withJson($elem);
 
                 // return rendered data
                 return $this->AdminView($request, $response, $args);
