@@ -122,7 +122,7 @@ final class BaseAction extends DataService {
         //----------------------------------------------------------------------
         // posts
         //----------------------------------------------------------------------
-                
+
         public function CurrPostPage(Request $request, Response $response, $args) {
                 if (isset($args["curr_id"]) && $args["curr_id"] !== "") {
                         $data = $this->getPostsData($args["curr_id"]);
@@ -132,6 +132,7 @@ final class BaseAction extends DataService {
                         $data = array();
                 }
                 $this->view->render($response, 'blog/curr_post.twig', array(
+                    "site_section" => "blog",
                     "data" => $data
                 ));
                 return $response;
