@@ -71,8 +71,12 @@
         cursor: pointer;
         padding: 10px 0;
         line-height: 20px;
-        color: #26b7aa !important;
+        color: rgba(0, 0, 0, 0.55) !important;
         border-top: solid 1px #bbbbbb;
+}
+
+.record_preview_subcont a.link_to_record:hover {
+        color: rgba(0, 0, 0, 0.8) !important;
 }
 
 .record_preview_subcont .keyskills {
