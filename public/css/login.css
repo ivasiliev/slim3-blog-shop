@@ -12,6 +12,7 @@
 	border: solid 1px #cccccc;
 	margin: 5px 0px;
 	color: #64656e;
+        position: relative;
 }
 
 .inputs_cont span {
