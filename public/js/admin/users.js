@@ -6,7 +6,6 @@ var users = {
         api_url_info: '/api/users/info',
         api_url_drop: '/api/users/drop/',
         arr: [],
-        tagname: "users_data",
         add_tagname: "users_add_data",
         update_tagname: "users_upd_data",
 
