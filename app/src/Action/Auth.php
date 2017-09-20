@@ -123,6 +123,7 @@ final class Auth extends DataService {
         public function logout() {
                 $s_id = $this->getUserSessionID();
                 $this->dropSession($s_id);
+                $this->checkValidSessions();
         }
 
         public function drop() {
