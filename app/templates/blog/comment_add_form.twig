@@ -1,10 +1,10 @@
 <div class="add_comment">
-        {% if data.userdata %}
+        {% if data.userdata.id %}
+                <textarea placeholder="Добавить комментарий"></textarea>
+                <button type="button">отправить</button>
+        {% else %}
                 <div class="comment_need_auth">
                         <span>Войдите, чтобы оставить комментарий</span>
                 </div>
-        {% else %}
-                <textarea placeholder="Добавить комментарий"></textarea>
-                <button type="button">отправить</button>
         {% endif %}        
 </div>
