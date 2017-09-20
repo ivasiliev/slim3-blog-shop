@@ -139,6 +139,16 @@ final class Auth extends DataService {
                 unset($u_sessions);
         }
 
+        public function checkValidSessions() {
+                $u_sessions = $this->getUsersSessions();
+                foreach ($u_sessions as $key => $value) {
+                        if ($value["time_start"] + Settings::SESSION_COOKIE_LIFETIME < time()) {
+                                unset($u_sessions[$key]);
+                        }
+                }
+                $this->saveUsersSessions($u_sessions);
+        }
+
         public function getUserSessionID() {
                 $user_session = filter_input(INPUT_COOKIE, Settings::SESSIONCOOKIE);
                 if (!$user_session) {
