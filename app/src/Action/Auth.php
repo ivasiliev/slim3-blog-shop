@@ -123,7 +123,6 @@ final class Auth extends DataService {
         public function logout() {
                 $s_id = $this->getUserSessionID();
                 $this->dropSession($s_id);
-                $this->checkValidSessions();
         }
 
         public function drop() {
@@ -136,12 +135,15 @@ final class Auth extends DataService {
                         unset($u_sessions[$s_id]);
                         $this->saveUsersSessions($u_sessions);
                 }
+                $this->checkValidSessions($u_sessions);
                 setcookie(Settings::SESSIONCOOKIE, "", time() - 1);
-                unset($u_sessions);
+                //unset($u_sessions);
         }
 
-        public function checkValidSessions() {
-                $u_sessions = $this->getUsersSessions();
+        public function checkValidSessions($u_sessions = array()) {
+                if (!$u_sessions) {
+                        $u_sessions = $this->getUsersSessions();
+                }
                 foreach ($u_sessions as $key => $value) {
                         if ($value["time_start"] + Settings::SESSION_COOKIE_LIFETIME < time()) {
                                 unset($u_sessions[$key]);
