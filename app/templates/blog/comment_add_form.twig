@@ -1,5 +1,6 @@
 <div class="add_comment">
         {% if data.userdata.id %}
+                <input type="hidden" data_userid="{{ data.userdata.id }}">
                 <textarea placeholder="Добавить комментарий"></textarea>
                 <button type="button">отправить</button>
         {% else %}
