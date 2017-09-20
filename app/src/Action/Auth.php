@@ -121,11 +121,30 @@ final class Auth extends DataService {
         }
 
         public function logout() {
-                setcookie(Settings::SESSIONCOOKIE, "", time() - 1);
+                $s_id = $this->getUserSessionID();
+                $this->dropSession($s_id);
         }
 
         public function drop() {
                 
+        }
+
+        public function dropSession($s_id) {
+                $u_sessions = $this->getUsersSessions();
+                if (isset($u_sessions)) {
+                        unset($u_sessions[$s_id]);
+                        $this->saveUsersSessions($u_sessions);
+                }
+                setcookie(Settings::SESSIONCOOKIE, "", time() - 1);
+                unset($u_sessions);
+        }
+
+        public function getUserSessionID() {
+                $user_session = filter_input(INPUT_COOKIE, Settings::SESSIONCOOKIE);
+                if (!$user_session) {
+                        return session_id();
+                }
+                return $user_session;
         }
 
 }
