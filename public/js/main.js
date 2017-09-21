@@ -484,6 +484,57 @@ var regclient = {
         }
 };
 
+var comments = {
+        api_url_create: '/api/comments/create/',
+        api_url_update: '/api/comments/update/',
+        api_url_info: '/api/comments/info/',
+        api_url_drop: '/api/comments/drop/',
+        arr: [],
+        tagname: "comment_data",
+        check: function () {
+                this.send('POST', this.create_reqdata(this.tagname), this.api_url_create);
+        },
+        create_reqdata: function (tagname) {
+                var form = new FormData();
+
+                var arr = document.querySelectorAll('[' + tagname + ']');
+                for (var x = 0; x < arr.length; x++) {
+                        form.append(arr[x].getAttribute(tagname), (arr[x].getAttribute('type') && arr[x].getAttribute('type') === 'file' ? arr[x].file[0] : arr[x].value));
+                }
+
+                return form;
+        },
+        send: function (method, form, backend) {
+                var self = this;
+                var xhr = new XMLHttpRequest();
+                xhr.open(method, backend, true);
+                xhr.onload = xhr.onerror = function () {
+                        if (Number(this.status) === 200) {
+                                var data = JSON.parse(this.responseText);
+                                if (data[0] === false) {
+                                        alert('error answer');
+                                        return false;
+                                }
+                        } else {
+                                console.log("error " + this.status);
+                                alert('error request: ' + this.status);
+                        }
+
+                        self.send_after(data.content);
+                };
+                xhr.send(form);
+        },
+        send_after: function (data) {
+                if (data.type === 'success') {
+                        location.href = this.api_url_account;
+                        return;
+                } else if (data.type === 'error') {
+                        alert(data.message);
+                }
+        }
+};
+
+
 function createCookie(name, value, days) {
         var expires = "";
         if (days) {

@@ -66,6 +66,10 @@ $container[App\Blog\Action\BaseAction::class] = function ($c) {
     return new App\Blog\Action\BaseAction($c->get('view'), $c->get('logger'));
 };
 
+$container[App\Blog\Action\CommentAction::class] = function ($c) {
+    return new App\Blog\Action\CommentAction($c->get('view'), $c->get('logger'));
+};
+
 $container[App\Action\UserAction::class] = function ($c) {
     return new App\Action\UserAction($c->get('view'), $c->get('logger'));
 };

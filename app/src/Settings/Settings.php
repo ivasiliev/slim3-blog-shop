@@ -30,6 +30,11 @@ final class Settings {
 	//----------------------------------------------------------------------
 	const POSTS_PATH = __DIR__ . "/../../../public/posts/";
 	const POSTS_USERPATH = "/posts/";
+	//----------------------------------------------------------------------
+	// Comments files path
+	//----------------------------------------------------------------------
+	const COMMENTS_PATH = __DIR__ . "/../../../public/comments/";
+	const COMMENTS_USERPATH = "/comments/";
 
 	public function __construct() {
 		

@@ -65,18 +65,24 @@ $app->get('/blog/posts/{curr_id}[/]', 'App\Blog\Action\BaseAction:CurrPostPage')
 
 // api
 $app->get('/api/blog/info[/]', 'App\Blog\Action\BaseAction:AdminMainView');
-
+// categories
 $app->get('/api/blog/categories/info[/]', 'App\Blog\Action\BaseAction:AdminCategoriesView');
 $app->get('/api/blog/categories/form[/]', 'App\Blog\Action\BaseAction:AdminCategoriesForm');
 $app->get('/api/blog/categories/form/{curr_id}[/]', 'App\Blog\Action\BaseAction:AdminCategoriesForm');
 $app->post('/api/blog/categories/save[/]', 'App\Blog\Action\BaseAction:AdminCategoriesSave');
 $app->get('/api/blog/categories/drop/{curr_id}[/]', 'App\Blog\Action\BaseAction:AdminCategoriesDrop');
-
+// posts
 $app->get('/api/blog/posts/info[/]', 'App\Blog\Action\BaseAction:AdminPostsView');
 $app->get('/api/blog/posts/form[/]', 'App\Blog\Action\BaseAction:AdminPostsForm');
 $app->get('/api/blog/posts/form/{curr_id}[/]', 'App\Blog\Action\BaseAction:AdminPostsForm');
 $app->post('/api/blog/posts/save[/]', 'App\Blog\Action\BaseAction:AdminPostsSave');
 $app->get('/api/blog/posts/drop/{curr_id}[/]', 'App\Blog\Action\BaseAction:AdminPostsDrop');
+// comments
+$app->get('/api/blog/comments/info[/]', 'App\Blog\Action\CommentAction:Info');
+$app->get('/api/blog/comments/drop[/]', 'App\Blog\Action\CommentAction:Drop');
+$app->get('/api/blog/comments/form[/]', 'App\Blog\Action\CommentAction:Form');
+$app->get('/api/blog/comments/form/{curr_id}[/]', 'App\Blog\Action\CommentAction:Form');
+$app->post('/api/comments/save[/]', 'App\Blog\Action\CommentAction:Save');
 
 //------------------------------------------------------------------------------
 // SHOP module routes
