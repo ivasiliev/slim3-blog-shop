@@ -140,13 +140,14 @@ final class BaseAction extends DataService {
                 if (isset($args["curr_id"]) && $args["curr_id"] !== "") {
                         $data = $this->getPostsData($args["curr_id"]);
                         $data["main_content"] = file_get_contents($data["path"] . "main_content.html");
-                        $data["userdata"] = $this->user->getUsersData($data["user_id"]);
+                        $data["author"] = $this->user->getUsersData($data["user_id"]);
                 } else {
                         $data = array();
                 }
                 $this->view->render($response, 'blog/curr_post.twig', array(
                     "site_section" => "blog",
-                    "data" => $data
+                    "data" => $data,
+                    "userdata" => $this->userdata
                 ));
                 return $response;
         }

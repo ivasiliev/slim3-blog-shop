@@ -1,7 +1,7 @@
 <div class="add_comment">
-        {{ dump(data.userdata) }}
-        {% if data.userdata.id %}
-                <input type="hidden" data_userid="{{ data.userdata.id }}">
+        {{ dump(userdata) }}
+        {% if userdata.id and userdata.id %}
+                <input type="hidden" data_userid="{{ userdata.id }}">
                 <textarea placeholder="Добавить комментарий"></textarea>
                 <button type="button">отправить</button>
         {% else %}
