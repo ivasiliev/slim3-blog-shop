@@ -1,4 +1,5 @@
 <div class="add_comment">
+        {{ dump(data.userdata) }}
         {% if data.userdata.id %}
                 <input type="hidden" data_userid="{{ data.userdata.id }}">
                 <textarea placeholder="Добавить комментарий"></textarea>
