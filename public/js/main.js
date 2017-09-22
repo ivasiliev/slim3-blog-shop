@@ -496,7 +496,11 @@ var comments = {
         cont: ".comments_wrap",
 
         save: function (elem) {
-                this.send('POST', this.create_reqdata(elem), this.api_url_save);
+                var self = this;
+                this.send('POST', this.create_reqdata(elem), this.api_url_save, function (data) {
+                        var obj = self;
+                        obj.info();
+                });
         },
         info: function () {
                 var postId = document.querySelector('input[item="postId"]').value;
@@ -597,7 +601,7 @@ var comments = {
                 str += '<div class="com_box_header" id="comment_' + data.id + '">';
                 str += '<div' + (data.user && data.user.img ? ' style="background-image: url(/userimgs/' + data.user.img + ');"' : '') + '></div>'; // userphoto
                 str += '<span>' + (data.user && data.user.name ? data.user.name : 'unknown') + '</span>'; // username
-                str += '<font>' + data.create_dt + '</font>'; // comment datetime
+                str += '<font>' + getCurrDate(data.create_dt) + '</font>'; // comment datetime
                 str += '</div>';
 
                 // comment body
@@ -619,4 +623,13 @@ function createCookie(name, value, days) {
                 expires = "; expires=" + date.toUTCString();
         }
         document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+function getCurrDate(dt) {
+        var a = new Date(dt * 1000);
+        return addZero(a.getDate()) + '.' + addZero(a.getMonth() + 1) + '.' + a.getFullYear() + ' ' + addZero(a.getHours()) + ':' + addZero(a.getMinutes());
+}
+
+function addZero(n) {
+        return Number(n) > 9 ? n : '0' + n;
 }
