@@ -594,13 +594,13 @@ var comments = {
 
                 // header
                 str += '<div class="com_box_header" id="comment_' + data.id + '">';
-                str += '<div></div>'; // userphoto
-                str += '<span></span>'; // username
-                str += '<font></font>'; // comment datetime
+                str += '<div' + (data.user && data.user.img ? ' style="background-image: url(/userimgs/' + data.user.img + ');"' : '') + '></div>'; // userphoto
+                str += '<span>' + (data.user && data.user.name ? data.user : 'unknown') + '</span>'; // username
+                str += '<font>' + data.create_dt + '</font>'; // comment datetime
                 str += '</div>';
 
                 // comment body
-                str += '<div class="comment_txt"></div>';
+                str += '<div class="comment_txt">' + data.message + '</div>';
 
                 // it commented because we need have childs container in recursive func
                 //str += '<div>';
