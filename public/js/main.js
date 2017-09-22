@@ -494,8 +494,8 @@ var comments = {
         list: ".comments_list",
         cont: ".comments_wrap",
 
-        save: function () {
-                this.send('POST', this.create_reqdata(this.tagname), this.api_url_create);
+        save: function (elem) {
+                this.send('POST', this.create_reqdata(elem), this.api_url_save);
         },
         info: function () {
                 var postId = document.querySelector('input[item="postId"]').value;
@@ -503,6 +503,9 @@ var comments = {
         },
         create_reqdata: function (elem) {
                 var form = new FormData();
+
+                var postId = document.querySelector('input[item="postId"]').value;
+                form.append("postId", postId);
 
                 if (!elem) {
                         elem = document.querySelector(this.cont);
