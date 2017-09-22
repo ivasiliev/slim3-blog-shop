@@ -379,6 +379,7 @@ var groups = {
 
 window.onload = function () {
         //load_imgs.init();
+        comments.info();
 };
 
 
