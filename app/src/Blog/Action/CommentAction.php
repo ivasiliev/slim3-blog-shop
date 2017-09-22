@@ -81,7 +81,7 @@ final class CommentAction extends DataService {
                 $this->saveCommentData($list);
 
                 // return success status
-                return $response->withStatus(200, "success");
+                return $response->withJson(array("result" => 200, "content" => "success"));
         }
 
         public function Info(Request $request, Response $response, $args) {
