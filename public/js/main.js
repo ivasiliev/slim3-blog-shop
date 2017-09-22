@@ -491,16 +491,25 @@ var comments = {
         api_url_drop: '/api/comments/drop/',
         arr: [],
         tagname: "comment_data",
-        list: "comments_list",
+        list: ".comments_list",
+        cont: ".comments_wrap",
+
         save: function () {
                 this.send('POST', this.create_reqdata(this.tagname), this.api_url_create);
         },
-        create_reqdata: function (tagname) {
+        info: function () {
+                var postId = document.querySelector('input[item="postId"]').value;
+                this.send('GET', null, this.api_url_info + postId);
+        },
+        create_reqdata: function (elem) {
                 var form = new FormData();
 
-                var arr = document.querySelectorAll('[' + tagname + ']');
+                if (!elem) {
+                        elem = document.querySelector(this.cont);
+                }
+                var arr = elem.querySelectorAll('[' + this.tagname + ']');
                 for (var x = 0; x < arr.length; x++) {
-                        form.append(arr[x].getAttribute(tagname), (arr[x].getAttribute('type') && arr[x].getAttribute('type') === 'file' ? arr[x].file[0] : arr[x].value));
+                        form.append(arr[x].getAttribute(this.tagname), (arr[x].getAttribute('type') && arr[x].getAttribute('type') === 'file' ? arr[x].file[0] : arr[x].value));
                 }
 
                 return form;
@@ -545,7 +554,7 @@ var comments = {
                 xhr.send(form);
         },
         send_after: function (data) {
-                
+                console.log(data);
         }
 };
 
