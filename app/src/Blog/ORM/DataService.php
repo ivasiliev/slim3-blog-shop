@@ -47,6 +47,10 @@ class DataService extends BaseDataService {
                 return $this->__getData(Settings::COMMENTS, $id);
         }
 
+        public function saveCommentData($data) {
+                return $this->__saveDatafile(Settings::COMMENTS, $data);
+        }
+
         /**
          * @return array - if isset $id - current elem array. else - all elems array
          * @param integer $id - id elem in datafile

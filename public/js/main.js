@@ -485,13 +485,14 @@ var regclient = {
 };
 
 var comments = {
-        api_url_create: '/api/comments/create/',
-        api_url_update: '/api/comments/update/',
+        api_url_save: '/api/comments/save/',
+        api_url_form: '/api/comments/form/',
         api_url_info: '/api/comments/info/',
         api_url_drop: '/api/comments/drop/',
         arr: [],
         tagname: "comment_data",
-        check: function () {
+        list: "comments_list",
+        save: function () {
                 this.send('POST', this.create_reqdata(this.tagname), this.api_url_create);
         },
         create_reqdata: function (tagname) {
@@ -524,13 +525,27 @@ var comments = {
                 };
                 xhr.send(form);
         },
+        sendHTML: function (method, form, backend, func) {
+                var self = this;
+                var xhr = new XMLHttpRequest();
+                xhr.open(method, backend, true);
+                xhr.onload = xhr.onerror = function () {
+                        if (Number(this.status) === 200) {
+                                var data = this.responseText;
+                        } else {
+                                console.log("error " + this.status);
+                                alert('error request: ' + this.status);
+                        }
+                        if (func) {
+                                func(data);
+                        } else {
+                                self.send_after(data);
+                        }
+                };
+                xhr.send(form);
+        },
         send_after: function (data) {
-                if (data.type === 'success') {
-                        location.href = this.api_url_account;
-                        return;
-                } else if (data.type === 'error') {
-                        alert(data.message);
-                }
+                
         }
 };
 

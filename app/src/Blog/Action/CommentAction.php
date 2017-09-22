@@ -39,7 +39,7 @@ final class CommentAction extends DataService {
                 //$this->view->render($response, 'main.twig', array());
                 //return $response;
         }
-        
+
         public function Save(Request $request, Response $response, $args) {
                 $params = $request->getParsedBody();
                 if (!$params) {
@@ -57,5 +57,31 @@ final class CommentAction extends DataService {
                 if (!$curr_id) {
                         $curr_id = uniqid();
                 }
+                // create main comments dir if it not exists
+                $this->create_dir_if_need($this->comments_path);
+
+                $path_to_content = $this->comments_path . $curr_id . ".html";
+                // create or update main content file main_content.html
+                file_put_contents($path_to_content, $params["txt"]);
+
+                $elem = array(
+                    "id" => $curr_id,
+                    "user_id" => $this->userdata["id"],
+                    "parent_id" => $params["parentId"],
+                    "post_id" => $params["postId"],
+                    "create_dt" => time(),
+                    "modify_dt" => 0,
+                    "path" => $path_to_content,
+                );
+
+                $list = $this->getCommentData();
+                $list[$curr_id] = $elem;
+
+                // save datafile
+                $this->saveCommentData($list);
+
+                // return success status
+                return $response->withStatus(200, "success");
         }
+
 }
