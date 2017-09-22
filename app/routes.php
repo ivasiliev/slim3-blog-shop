@@ -83,7 +83,7 @@ $app->get('/api/blog/comments/info/{postId}[/]', 'App\Blog\Action\CommentAction:
 $app->get('/api/blog/comments/drop[/]', 'App\Blog\Action\CommentAction:Drop');
 $app->get('/api/blog/comments/form[/]', 'App\Blog\Action\CommentAction:Form');
 $app->get('/api/blog/comments/form/{curr_id}[/]', 'App\Blog\Action\CommentAction:Form');
-$app->post('/api/comments/save[/]', 'App\Blog\Action\CommentAction:Save');
+$app->post('/api/blog/comments/save[/]', 'App\Blog\Action\CommentAction:Save');
 
 //------------------------------------------------------------------------------
 // SHOP module routes
