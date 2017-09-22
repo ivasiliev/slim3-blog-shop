@@ -2,7 +2,7 @@
         {% if userdata.id and userdata.id %}
                 <input type="hidden" comment_data="parentId" value=""> {# current comment id - answer to other comment #}
                 <input type="hidden" comment_data="postId" value=""> {# current post id #}
-                <textarea placeholder="Комментарий:" comment_data="txt"></textarea>
+                <textarea placeholder="Оставьте комментарий:" comment_data="txt"></textarea>
                 <button type="button">Оставить комментарий</button>
         {% else %}
                 <div class="comment_need_auth">
