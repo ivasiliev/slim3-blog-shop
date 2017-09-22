@@ -485,10 +485,10 @@ var regclient = {
 };
 
 var comments = {
-        api_url_save: '/api/comments/save/',
-        api_url_form: '/api/comments/form/',
-        api_url_info: '/api/comments/info/',
-        api_url_drop: '/api/comments/drop/',
+        api_url_save: '/api/blog/comments/save/',
+        api_url_form: '/api/blog/comments/form/',
+        api_url_info: '/api/blog/comments/info/',
+        api_url_drop: '/api/blog/comments/drop/',
         arr: [],
         tagname: "comment_data",
         list: ".comments_list",
