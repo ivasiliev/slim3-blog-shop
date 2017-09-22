@@ -607,6 +607,8 @@ var comments = {
                 // comment body
                 str += '<div class="comment_txt">' + data.message + '</div>';
 
+                str += '<div class="comment_controls"><span>ответить</span></div>';
+
                 // it commented because we need have childs container in recursive func
                 //str += '<div>';
 
