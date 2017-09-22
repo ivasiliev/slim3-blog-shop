@@ -79,6 +79,7 @@ $app->post('/api/blog/posts/save[/]', 'App\Blog\Action\BaseAction:AdminPostsSave
 $app->get('/api/blog/posts/drop/{curr_id}[/]', 'App\Blog\Action\BaseAction:AdminPostsDrop');
 // comments
 $app->get('/api/blog/comments/info[/]', 'App\Blog\Action\CommentAction:Info');
+$app->get('/api/blog/comments/info/{postId}[/]', 'App\Blog\Action\CommentAction:Info');
 $app->get('/api/blog/comments/drop[/]', 'App\Blog\Action\CommentAction:Drop');
 $app->get('/api/blog/comments/form[/]', 'App\Blog\Action\CommentAction:Form');
 $app->get('/api/blog/comments/form/{curr_id}[/]', 'App\Blog\Action\CommentAction:Form');

@@ -84,4 +84,23 @@ final class CommentAction extends DataService {
                 return $response->withStatus(200, "success");
         }
 
+        public function Info(Request $request, Response $response, $args) {
+                $list = $this->getCommentData();
+                if (isset($args["postId"]) && $args["postId"]) {
+                        $result = array();
+                        foreach ($list as $key => $value) {
+                                if ($value["post_id"] === $args["postId"]) {
+                                        $result[$key] = $value;
+                                        $result[$key]["txt"] = file_get_contents($value["path"]);
+                                }
+                        }
+                } else {
+                        $result = $list;
+                        foreach ($result as $key => $value) {
+                                $result[$key]["txt"] = file_get_contents($value["path"]);
+                        }
+                }
+                return $response->withJson(array("result" => 200, "content" => $result));
+        }
+
 }
