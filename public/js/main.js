@@ -565,7 +565,29 @@ var comments = {
                         console.log('comments list container not found');
                         return false;
                 }
+                this.arr = data;
+                cont.innerHTML = this._buildTree();
+        },
+        _buildTree: function (parent_id) {
+                if (!parent_id) {
+                        parent_id = '';
+                }
                 var str = '';
+                for (var key in this.arr) {
+                        if (!this.arr.hasOwnProperty(key)) {
+                                continue;
+                        }
+                        if (String(parent_id) === String(arr[key].parent_id)) {
+                                str += this._getCurrContent(this.arr[key]);
+                                str += '<div class="comment_childs_list">';
+                                if (parent_id) {
+                                        str += this._buildTree(key);
+                                }
+                                str += '</div>';
+                                str += '</div>'; // close comment box div
+                        }
+                }
+                return str;
         },
         _getCurrContent: function (data) {
                 var str = '<div class="comment_box">';
@@ -580,7 +602,10 @@ var comments = {
                 // comment body
                 str += '<div class="comment_txt"></div>';
 
-                str += '<div>';
+                // it commented because we need have childs container in recursive func
+                //str += '<div>';
+
+                return str;
         }
 };
 
