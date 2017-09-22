@@ -554,7 +554,30 @@ var comments = {
                 xhr.send(form);
         },
         send_after: function (data) {
-                console.log(data);
+                this.render(data);
+        },
+        render: function (data) {
+                var cont = document.querySelector(this.list);
+                if (!cont) {
+                        console.log('comments list container not found');
+                        return false;
+                }
+                var str = '';
+        },
+        _getCurrContent: function (data) {
+                var str = '<div class="comment_box">';
+
+                // header
+                str += '<div class="com_box_header" id="comment_' + data.id + '">';
+                str += '<div></div>'; // userphoto
+                str += '<span></span>'; // username
+                str += '<font></font>'; // comment datetime
+                str += '</div>';
+
+                // comment body
+                str += '<div class="comment_txt"></div>';
+
+                str += '<div>';
         }
 };
 

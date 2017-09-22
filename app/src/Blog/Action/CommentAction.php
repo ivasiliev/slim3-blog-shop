@@ -90,17 +90,29 @@ final class CommentAction extends DataService {
                         $result = array();
                         foreach ($list as $key => $value) {
                                 if ($value["post_id"] === $args["postId"]) {
-                                        $result[$key] = $value;
-                                        $result[$key]["txt"] = file_get_contents($value["path"]);
+                                        $result[$key] = $this->_getCommentDataToView($value);
                                 }
                         }
                 } else {
-                        $result = $list;
-                        foreach ($result as $key => $value) {
-                                $result[$key]["txt"] = file_get_contents($value["path"]);
+                        foreach ($list as $key => $value) {
+                                $result[$key] = $this->_getCommentDataToView($value);
                         }
                 }
                 return $response->withJson(array("result" => 200, "content" => $result));
+        }
+
+        private function _getCommentDataToView($data = array()) {
+                if (!$data) {
+                        return $data;
+                }
+                $data["message"] = file_get_contents($data["path"]);
+                $curr_user = $this->user->getUsersData($data["user_id"]);
+                $data["user"] = array(
+                    "id" => $data["user_id"],
+                    "name" => $curr_user ? $curr_user["settings"]["name"] : "",
+                    "img" => $curr_user ? $curr_user["settings"]["photo"] : ""
+                );
+                return $data;
         }
 
 }
