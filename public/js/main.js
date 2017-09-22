@@ -577,7 +577,7 @@ var comments = {
                         if (!this.arr.hasOwnProperty(key)) {
                                 continue;
                         }
-                        if (String(parent_id) === String(arr[key].parent_id)) {
+                        if (String(parent_id) === String(this.arr[key].parent_id)) {
                                 str += this._getCurrContent(this.arr[key]);
                                 str += '<div class="comment_childs_list">';
                                 if (parent_id) {
