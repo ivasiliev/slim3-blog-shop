@@ -619,7 +619,7 @@ var comments = {
                         }
                 }
                 this.getForm(elem);
-                this.removeOtherForms();
+                //this.removeOtherForms();
         },
         renderForm: function (elem, data, parent_id) {
                 var cont = null;
