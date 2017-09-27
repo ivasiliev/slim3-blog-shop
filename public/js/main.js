@@ -582,9 +582,9 @@ var comments = {
                                 console.log(String(this.arr[key].parent_id));
                                 str += this._getCurrContent(this.arr[key]);
                                 str += '<div class="comment_childs_list">';
-                                if (parent_id) {
+                                //if (parent_id) {
                                         str += this._buildTree(key);
-                                }
+                                //}
                                 str += '</div>';
                                 str += '</div>'; // close comment box div
                         }
