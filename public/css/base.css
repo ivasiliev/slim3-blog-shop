@@ -79,7 +79,10 @@ button {
         font-size: 14px;
         text-transform: uppercase;
         cursor: pointer;
-        font-weight: 400;
+        outline: none;
+        font-weight: 700;
+        letter-spacing: 0.007px;
+        font-family: 'Roboto', sans-serif;
 }
 
 button:hover {
