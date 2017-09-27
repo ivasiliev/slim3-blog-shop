@@ -96,6 +96,10 @@ button.cancel:hover {
         color: rgba(0, 0, 0, 0.8);
 }
 
+.buttons_cont {
+        text-align: right;
+}
+
 .buttons_cont button {
         display: inline-block;
         margin-left: 20px;
