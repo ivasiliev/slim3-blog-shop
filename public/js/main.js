@@ -542,7 +542,7 @@ var comments = {
                 };
                 xhr.send(form);
         },
-        getForm: function (elem, parent_id) {
+        getForm: function (elem) {
                 var self = this;
                 var xhr = new XMLHttpRequest();
                 xhr.open('GET', this.api_url_form, true);
@@ -553,7 +553,7 @@ var comments = {
                                 console.log("error " + this.status);
                                 alert('error request: ' + this.status);
                         }
-                        self.renderForm(elem, data, parent_id);
+                        self.renderForm(elem, data);
                 };
                 xhr.send();
         },
@@ -603,19 +603,25 @@ var comments = {
                 // comment body
                 str += '<div class="comment_txt">' + data.message + '</div>';
 
-                str += '<div class="comment_controls"><span onclick="">ответить</span></div>';
+                str += '<div class="comment_controls"><span onclick="comments.showForm(this)">ответить</span></div>';
 
                 // it commented because we need have childs container in recursive func
                 //str += '<div>';
 
                 return str;
         },
-        showForm: function (elem, parent_id) {
-                this.getForm(elem, parent_id);
+        showForm: function (elem) {
+                this.getForm(elem);
         },
         renderForm: function (elem, data, parent_id) {
                 var cont = null;
-                cont = elem ? cont = elem.parentNode.parentNode : document.querySelector('.comments_list');
+                if (elem) {
+                        cont = elem.parentNode.parentNode;
+                        parent_id = cont.getAttribute('item');
+                } else {
+                        cont = document.querySelector('.comments_list');
+                        parent_id = '';
+                }
                 if (cont) {
                         cont.innerHTML += data;
                         var parent_input = cont.querySelector('[comment_data="parentId"]');
