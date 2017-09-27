@@ -611,10 +611,10 @@ var comments = {
                 return str;
         },
         showForm: function (elem) {
-                if (elem){
+                if (elem) {
                         var cont = elem.parentNode.parentNode;
                         var form = cont.querySelector('.add_comment');
-                        if (form){
+                        if (form) {
                                 return true;
                         }
                 }
@@ -626,6 +626,7 @@ var comments = {
                 if (elem) {
                         cont = elem.parentNode.parentNode;
                         parent_id = cont.getAttribute('item');
+                        console.log(cont);
                 } else {
                         cont = document.querySelector('.comments_list');
                         parent_id = '';
@@ -641,6 +642,9 @@ var comments = {
                 for (var x = 0; x < arr.length; x++) {
                         arr[x].parentNode.removeChild(arr[x]);
                 }
+        },
+        removeForm: function (elem) {
+                elem.parentNode.removeChild(elem);
         }
 };
 

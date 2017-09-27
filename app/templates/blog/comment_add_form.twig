@@ -2,7 +2,10 @@
         {% if userdata.id and userdata.id %}
                 <input type="hidden" comment_data="parentId" value=""> {# current comment id - answer to other comment #}
                 <textarea placeholder="Оставьте комментарий:" comment_data="txt"></textarea>
-                <button type="button" onclick="comments.save(this.parentNode);">Оставить комментарий</button>
+                <div class="buttons_cont">
+                        <button class="cancel" type="button" onclick="comments.removeForm(this.parentNode.parentNode);">Отмена</button>
+                        <button type="button" onclick="comments.save(this.parentNode.parentNode);">Оставить комментарий</button>
+                </div>
         {% else %}
                 <div class="comment_need_auth">
                         <span>Войдите, чтобы оставить комментарий</span>
