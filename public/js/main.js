@@ -611,6 +611,13 @@ var comments = {
                 return str;
         },
         showForm: function (elem) {
+                if (elem){
+                        var cont = elem.parentNode.parentNode;
+                        var form = cont.querySelector('.add_comment');
+                        if (form){
+                                return true;
+                        }
+                }
                 this.getForm(elem);
                 this.removeOtherForms();
         },
