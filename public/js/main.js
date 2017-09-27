@@ -591,10 +591,10 @@ var comments = {
                 return str;
         },
         _getCurrContent: function (data) {
-                var str = '<div class="comment_box">';
+                var str = '<div class="comment_box" id="comment_' + data.id + '" item="' + data.id + '">';
 
                 // header
-                str += '<div class="com_box_header" id="comment_' + data.id + '" item="' + data.id + '">';
+                str += '<div class="com_box_header">';
                 str += '<div' + (data.user && data.user.img ? ' style="background-image: url(/userimgs/' + data.user.img + ');"' : '') + '></div>'; // userphoto
                 str += '<span>' + (data.user && data.user.name ? data.user.name : 'unknown') + '</span>'; // username
                 str += '<font>' + getCurrDate(data.create_dt) + '</font>'; // comment datetime
