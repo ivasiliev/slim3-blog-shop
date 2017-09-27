@@ -612,6 +612,7 @@ var comments = {
         },
         showForm: function (elem) {
                 this.getForm(elem);
+                this.removeOtherForms();
         },
         renderForm: function (elem, data, parent_id) {
                 var cont = null;
@@ -626,6 +627,12 @@ var comments = {
                         cont.innerHTML += data;
                         var parent_input = cont.querySelector('[comment_data="parentId"]');
                         parent_input.value = parent_id;
+                }
+        },
+        removeOtherForms: function () {
+                var arr = document.querySelectorAll('.comments_list .add_comment');
+                for (var x = 0; x < arr.length; x++) {
+                        arr[x].parentNode.removeChild(arr[x]);
                 }
         }
 };
