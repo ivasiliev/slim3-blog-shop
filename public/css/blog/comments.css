@@ -86,3 +86,7 @@
 .comment_controls span:hover {
         color: #000;
 }
+
+.comment_box>.add_comment {
+        margin-left: 50px;
+}
