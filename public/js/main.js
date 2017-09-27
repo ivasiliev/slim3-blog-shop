@@ -542,10 +542,10 @@ var comments = {
                 };
                 xhr.send(form);
         },
-        sendHTML: function (method, form, backend, func) {
+        getForm: function (elem, parent_id) {
                 var self = this;
                 var xhr = new XMLHttpRequest();
-                xhr.open(method, backend, true);
+                xhr.open('GET', this.api_url_form, true);
                 xhr.onload = xhr.onerror = function () {
                         if (Number(this.status) === 200) {
                                 var data = this.responseText;
@@ -553,13 +553,9 @@ var comments = {
                                 console.log("error " + this.status);
                                 alert('error request: ' + this.status);
                         }
-                        if (func) {
-                                func(data);
-                        } else {
-                                self.send_after(data);
-                        }
+                        self.renderForm(elem, data, parent_id);
                 };
-                xhr.send(form);
+                xhr.send();
         },
         send_after: function (data) {
                 this.render(data);
@@ -615,7 +611,16 @@ var comments = {
                 return str;
         },
         showForm: function (elem, parent_id) {
-
+                this.getForm(elem, parent_id);
+        },
+        renderForm: function (elem, data, parent_id) {
+                var cont = null;
+                cont = elem ? cont = elem.parentNode.parentNode : document.querySelector('.comments_list');
+                if (cont) {
+                        cont.innerHTML += data;
+                        var parent_input = cont.querySelector('[comment_data="parentId"]');
+                        parent_input.value = parent_id;
+                }
         }
 };
 

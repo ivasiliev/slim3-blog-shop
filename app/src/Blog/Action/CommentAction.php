@@ -101,6 +101,21 @@ final class CommentAction extends DataService {
                 return $response->withJson(array("result" => 200, "content" => $result));
         }
 
+        public function Form(Request $request, Response $response, $args) {
+                if (isset($args["curr_id"]) && $args["curr_id"] !== "") {
+                        $data = $this->getPostsData($args["curr_id"]);
+                        $data["message"] = file_get_contents($data["path"]);
+                } else {
+                        $data = array();
+                }
+                $this->view->render($response, 'blog/comment_add_form.twig', array(
+                    "site_section" => "blog",
+                    "data" => $data,
+                    "userdata" => $this->userdata
+                ));
+                return $response;
+        }
+
         private function _getCommentDataToView($data = array()) {
                 if (!$data) {
                         return $data;
