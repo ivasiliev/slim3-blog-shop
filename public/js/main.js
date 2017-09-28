@@ -641,14 +641,13 @@ var comments = {
                         }
                 }
                 this.getForm(elem);
-                //this.removeOtherForms();
         },
         renderForm: function (elem, data, parent_id) {
                 var cont = null;
                 if (elem) {
                         cont = elem.parentNode.parentNode;
                         parent_id = cont.getAttribute('item');
-                        console.log(cont);
+                        //console.log(cont);
                 } else {
                         cont = document.querySelector('.comments_list');
                         parent_id = '';

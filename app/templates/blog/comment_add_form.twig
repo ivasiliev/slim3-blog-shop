@@ -3,7 +3,9 @@
                 <input type="hidden" comment_data="parentId" value=""> {# current comment id - answer to other comment #}
                 <textarea placeholder="Оставьте комментарий:" comment_data="txt"></textarea>
                 <div class="buttons_cont">
-                        <button class="cancel" type="button" onclick="comments.removeForm(this.parentNode.parentNode);">Отмена</button>
+                        {% if not main_comment_field %}
+                                <button class="cancel" type="button" onclick="comments.removeForm(this.parentNode.parentNode);">Отмена</button>
+                        {% endif %}
                         <button type="button" onclick="comments.save(this.parentNode.parentNode);">Оставить комментарий</button>
                 </div>
         {% else %}

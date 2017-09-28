@@ -24,6 +24,7 @@
                 <div class="post_view_container">
                         {{ data.main_content|raw }}
                 </div>
+                {% set main_comment_field = 'true' %}
                 {% include 'blog/comments.twig' %}
         </div>
 {% endblock %}
