@@ -499,7 +499,7 @@ var comments = {
                 var self = this;
                 this.send('POST', this.create_reqdata(elem), this.api_url_save, function (data) {
                         var obj = self;
-                        if (data){
+                        if (data) {
                                 obj.arr[data.id] = data;
                                 obj.render(); // re-render comments
                         }
@@ -580,21 +580,26 @@ var comments = {
                 }
                 cont.innerHTML = this._buildTree();
         },
-        _buildTree: function (parent_id) {
+        _buildTree: function (parent_id, order) {
                 if (!parent_id) {
                         parent_id = '';
                 }
+                if (!order) {
+                        order = '';
+                }
                 var str = '';
+                var num = 0;
                 for (var key in this.arr) {
                         if (!this.arr.hasOwnProperty(key)) {
                                 continue;
                         }
                         if (String(parent_id) === String(this.arr[key].parent_id)) {
-                                console.log(String(this.arr[key].parent_id));
-                                str += this._getCurrContent(this.arr[key]);
+                                num++;
+                                //console.log(String(this.arr[key].parent_id));
+                                str += this._getCurrContent(this.arr[key], order, num);
                                 str += '<div class="comment_childs_list">';
                                 //if (parent_id) {
-                                str += this._buildTree(key);
+                                str += this._buildTree(key, order ? order + '.' + num : num);
                                 //}
                                 str += '</div>';
                                 str += '</div>'; // close comment box div
@@ -602,7 +607,7 @@ var comments = {
                 }
                 return str;
         },
-        _getCurrContent: function (data) {
+        _getCurrContent: function (data, order, num) {
                 var str = '<div class="comment_box" id="comment_' + data.id + '" item="' + data.id + '">';
 
                 // header
@@ -610,6 +615,9 @@ var comments = {
                 str += '<div' + (data.user && data.user.img ? ' style="background-image: url(/userimgs/' + data.user.img + ');"' : '') + '></div>'; // userphoto
                 str += '<span>' + (data.user && data.user.name ? data.user.name : 'unknown') + '</span>'; // username
                 str += '<font>' + getCurrDate(data.create_dt) + '</font>'; // comment datetime
+                if (order) {
+                        str += '<font>' + order + '.' + num + '</font>'; // comment order
+                }
                 str += '</div>';
 
                 // comment body
