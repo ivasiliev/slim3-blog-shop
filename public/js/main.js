@@ -566,7 +566,11 @@ var comments = {
                         console.log('comments list container not found');
                         return false;
                 }
-                this.arr = data;
+                if (!data) {
+                        data = this.arr;
+                } else {
+                        this.arr = data;
+                }
                 cont.innerHTML = this._buildTree();
         },
         _buildTree: function (parent_id) {
@@ -583,7 +587,7 @@ var comments = {
                                 str += this._getCurrContent(this.arr[key]);
                                 str += '<div class="comment_childs_list">';
                                 //if (parent_id) {
-                                        str += this._buildTree(key);
+                                str += this._buildTree(key);
                                 //}
                                 str += '</div>';
                                 str += '</div>'; // close comment box div
