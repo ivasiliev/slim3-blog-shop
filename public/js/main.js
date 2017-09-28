@@ -499,7 +499,11 @@ var comments = {
                 var self = this;
                 this.send('POST', this.create_reqdata(elem), this.api_url_save, function (data) {
                         var obj = self;
-                        obj.info();
+                        if (data){
+                                obj.arr[data.id] = data;
+                                obj.render(); // re-render comments
+                        }
+                        //obj.info();
                 });
         },
         info: function () {
@@ -538,7 +542,7 @@ var comments = {
                                 alert('error request: ' + this.status);
                         }
                         if (func) {
-                                func(data);
+                                func(data.content);
                         } else {
                                 self.send_after(data.content);
                         }

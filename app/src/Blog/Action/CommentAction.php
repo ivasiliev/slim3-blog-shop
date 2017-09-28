@@ -81,7 +81,7 @@ final class CommentAction extends DataService {
                 $this->saveCommentData($list);
 
                 // return success status
-                return $response->withJson($this->_getCommentDataToView($elem));
+                return $response->withJson(array("result" => 200, "content" => $this->_getCommentDataToView($elem)));
         }
 
         public function Info(Request $request, Response $response, $args) {
@@ -121,6 +121,7 @@ final class CommentAction extends DataService {
                         return $data;
                 }
                 $data["message"] = file_get_contents($data["path"]);
+                unset($data["path"]); // remove path because it may see user
                 $curr_user = $this->user->getUsersData($data["user_id"]);
                 $data["user"] = array(
                     "id" => $data["user_id"],
