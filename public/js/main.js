@@ -522,7 +522,7 @@ var comments = {
 
                 return form;
         },
-        send: function (method, form, backend) {
+        send: function (method, form, backend, func) {
                 var self = this;
                 var xhr = new XMLHttpRequest();
                 xhr.open(method, backend, true);
@@ -537,8 +537,11 @@ var comments = {
                                 console.log("error " + this.status);
                                 alert('error request: ' + this.status);
                         }
-
-                        self.send_after(data.content);
+                        if (func) {
+                                func(data);
+                        } else {
+                                self.send_after(data.content);
+                        }
                 };
                 xhr.send(form);
         },
