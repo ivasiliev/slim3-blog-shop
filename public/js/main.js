@@ -499,12 +499,17 @@ var comments = {
                 var self = this;
                 this.send('POST', this.create_reqdata(elem), this.api_url_save, function (data) {
                         var obj = self;
+                        var c_elem = elem;
                         if (data) {
                                 obj.arr[data.id] = data;
                                 obj.render(); // re-render comments
                         }
+                        if (c_elem && c_elem.getAttribute('comment_filed') === 'main') {
+                                c_elem.value = '';
+                        }
                         //obj.info();
                 });
+
         },
         info: function () {
                 var postId = document.querySelector('input[item="postId"]');

@@ -1,4 +1,4 @@
-<div class="add_comment">
+<div class="add_comment"{% if main_comment_field %} comment_filed="main"{% endif %}>
         {% if userdata.id and userdata.id %}
                 <input type="hidden" comment_data="parentId" value=""> {# current comment id - answer to other comment #}
                 <textarea placeholder="Оставьте комментарий:" comment_data="txt"></textarea>
