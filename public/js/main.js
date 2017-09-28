@@ -507,8 +507,10 @@ var comments = {
                 });
         },
         info: function () {
-                var postId = document.querySelector('input[item="postId"]').value;
-                this.send('GET', null, this.api_url_info + postId);
+                var postId = document.querySelector('input[item="postId"]');
+                if (postId) {
+                        this.send('GET', null, this.api_url_info + postId.value);
+                }
         },
         create_reqdata: function (elem) {
                 var form = new FormData();
