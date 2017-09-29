@@ -526,7 +526,9 @@ var comments = {
                                 var c_elem = elem;
                                 if (data === 'success') {
                                         delete obj.arr[c_id];
-                                        c_elem && c_elem.parentNode ? c_elem.parentNode.removeChild(c_elem) : false;
+                                        if (c_elem && c_elem.parentNode.parentNode.parentNode) {
+                                                c_elem.parentNode.parentNode.parentNode.removeChild(c_elem.parentNode.parentNode);
+                                        }
                                 } else {
                                         console.log(data);
                                 }
