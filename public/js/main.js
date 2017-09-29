@@ -665,8 +665,12 @@ var comments = {
                 }
                 if (cont) {
                         cont.innerHTML += data;
-                        var parent_input = cont.querySelector('[comment_data="parentId"]');
-                        parent_input.value = parent_id;
+                        var curr_input = cont.querySelector('[comment_data="curr_id"]');
+                        if (!curr_input.value) {
+                                // if type is not edit
+                                var parent_input = cont.querySelector('[comment_data="parentId"]');
+                                parent_input.value = parent_id;
+                        }
                         var target = cont.querySelector('.add_comment');
                         target.scrollIntoViewIfNeeded();
                 }
