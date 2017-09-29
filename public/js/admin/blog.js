@@ -88,8 +88,8 @@ var posts = {
                                 var params = {
                                         selector: '',
                                         height: 500,
-                                        plugins: 'lists advlist image imagetools code textcolor',
-                                        toolbar: 'undo redo | fontsizeselect forecolor backcolor | h2 h3 blockquote | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist | image | code',
+                                        plugins: 'lists advlist image imagetools code textcolor link',
+                                        toolbar: 'undo redo | fontsizeselect forecolor backcolor | h2 h3 blockquote | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist | image link | code',
                                         menubar: false,
                                         gecko_spellcheck: true,
                                         toolbar_items_size: 'small',
