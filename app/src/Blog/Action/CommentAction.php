@@ -126,7 +126,8 @@ final class CommentAction extends DataService {
                 $data["user"] = array(
                     "id" => $data["user_id"],
                     "name" => $curr_user ? $curr_user["settings"]["name"] : "",
-                    "img" => $curr_user ? $curr_user["settings"]["photo"] : ""
+                    "img" => $curr_user ? $curr_user["settings"]["photo"] : "",
+                    "owner" => $this->userdata && $this->userdata["id"] == $data["user_id"] ? true : false
                 );
                 return $data;
         }
