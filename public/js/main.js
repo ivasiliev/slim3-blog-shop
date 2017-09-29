@@ -517,15 +517,16 @@ var comments = {
                         this.send('GET', null, this.api_url_info + postId.value);
                 }
         },
-        drop: function (id) {
+        drop: function (elem, id) {
                 if (id) {
                         var self = this;
                         this.send('GET', null, this.api_url_drop + id, function (data) {
                                 var obj = self;
                                 var c_id = id;
+                                var c_elem = elem;
                                 if (data === 'success') {
                                         delete obj.arr[c_id];
-                                        obj.render();
+                                        c_elem && c_elem.parentNode ? c_elem.parentNode.removeChild(c_elem) : false;
                                 } else {
                                         console.log(data);
                                 }
