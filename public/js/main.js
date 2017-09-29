@@ -559,7 +559,7 @@ var comments = {
         getForm: function (elem, curr_id) {
                 var self = this;
                 var xhr = new XMLHttpRequest();
-                xhr.open('GET', this.api_url_form, true);
+                xhr.open('GET', this.api_url_form + (curr_id ? curr_id : ''), true);
                 xhr.onload = xhr.onerror = function () {
                         if (Number(this.status) === 200) {
                                 var data = this.responseText;
