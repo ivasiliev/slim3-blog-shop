@@ -661,6 +661,8 @@ var comments = {
                         cont.innerHTML += data;
                         var parent_input = cont.querySelector('[comment_data="parentId"]');
                         parent_input.value = parent_id;
+                        var target = cont.querySelector('.add_comment');
+                        target.scrollIntoViewIfNeeded();
                 }
         },
         removeOtherForms: function () {
