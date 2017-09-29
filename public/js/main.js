@@ -556,10 +556,10 @@ var comments = {
                 };
                 xhr.send(form);
         },
-        getForm: function (elem) {
+        getForm: function (elem, curr_id) {
                 var self = this;
                 var xhr = new XMLHttpRequest();
-                xhr.open('GET', this.api_url_form, true);
+                xhr.open('GET', this.api_url_form + curr_id ? curr_id : '', true);
                 xhr.onload = xhr.onerror = function () {
                         if (Number(this.status) === 200) {
                                 var data = this.responseText;
@@ -637,7 +637,7 @@ var comments = {
 
                 return str;
         },
-        showForm: function (elem) {
+        showForm: function (elem, curr_id) {
                 if (elem) {
                         var cont = elem.parentNode.parentNode;
                         var form = cont.querySelector('.add_comment');
@@ -645,7 +645,7 @@ var comments = {
                                 return true;
                         }
                 }
-                this.getForm(elem);
+                this.getForm(elem, curr_id);
         },
         renderForm: function (elem, data, parent_id) {
                 var cont = null;
