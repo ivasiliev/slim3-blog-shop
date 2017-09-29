@@ -631,7 +631,7 @@ var comments = {
                 str += '<div class="comment_txt">' + data.message + '</div>';
 
                 str += '<div class="comment_controls">';
-                str += '<span onclick="comments.showForm(this)">ответить</span></div>';
+                str += '<span onclick="comments.showForm(this)">ответить</span>';
                 if (data.user && data.user.hasOwnProperty('owner') && JSON.parse(data.user.owner)) {
                         str += '<i class="fa fa-pencil" aria-hidden="true" onclick=""></i>';
                         str += '<i class="fa fa-trash-o" aria-hidden="true"></i>';
