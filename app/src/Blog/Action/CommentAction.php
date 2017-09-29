@@ -103,14 +103,13 @@ final class CommentAction extends DataService {
 
         public function Form(Request $request, Response $response, $args) {
                 if (isset($args["curr_id"]) && $args["curr_id"] !== "") {
-                        $data = $this->getPostsData($args["curr_id"]);
-                        $data["message"] = file_get_contents($data["path"]);
+                        $data = $this->_getCommentDataToView($this->getCommentData($args["curr_id"]));
                 } else {
                         $data = array();
                 }
                 $this->view->render($response, 'blog/comment_add_form.twig', array(
                     "site_section" => "blog",
-                    "data" => $data,
+                    "comment" => $data,
                     "userdata" => $this->userdata
                 ));
                 return $response;

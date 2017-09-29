@@ -630,7 +630,13 @@ var comments = {
                 // comment body
                 str += '<div class="comment_txt">' + data.message + '</div>';
 
-                str += '<div class="comment_controls"><span onclick="comments.showForm(this)">ответить</span></div>';
+                str += '<div class="comment_controls">';
+                str += '<span onclick="comments.showForm(this)">ответить</span></div>';
+                if (data.user && data.user.hasOwnProperty('owner') && JSON.parse(data.user.owner)) {
+                        str += '<i class="fa fa-pencil" aria-hidden="true" onclick=""></i>';
+                        str += '<i class="fa fa-trash-o" aria-hidden="true"></i>';
+                }
+                str += '</div>';
 
                 // it commented because we need have childs container in recursive func
                 //str += '<div>';

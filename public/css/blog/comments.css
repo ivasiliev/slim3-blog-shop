@@ -77,10 +77,12 @@
         margin-left: 50px;
 }
 
-.comment_controls span {
+.comment_controls>* {
         cursor: pointer;
         color: rgba(0, 0, 0, 0.55);
         margin-right: 20px;
+        display: inline-block;
+        vertical-align: middle;
 }
 
 .comment_controls span:hover {
