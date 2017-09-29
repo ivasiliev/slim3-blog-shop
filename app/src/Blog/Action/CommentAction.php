@@ -85,22 +85,17 @@ final class CommentAction extends DataService {
         }
 
         public function Drop(Request $request, Response $response, $args) {
-                $params = $request->getParsedBody();
-                if (!$params) {
-                        return $response->withStatus(400, "empty request");
-                }
                 if (!$this->userdata) {
                         return $response->withStatus(400, "unauthorized");
                 }
 
-                if (isset($params["curr_id"]) && $params["curr_id"]) {
-                        $curr_id = $params["curr_id"];
+                if (isset($args["curr_id"]) && $args["curr_id"]) {
+                        $curr_id = $args["curr_id"];
                 } else {
                         return $response->withStatus(400, "current id not send");
                 }
 
                 $list = $this->getCommentData();
-
                 if ($list[$curr_id]["user_id"] === $this->userdata["id"]) {
                         unlink($list[$curr_id]["path"]); // remove comment message
                         unset($list[$curr_id]);
