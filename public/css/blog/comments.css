@@ -85,7 +85,7 @@
         vertical-align: middle;
 }
 
-.comment_controls span:hover {
+.comment_controls>*:hover {
         color: #000;
 }
 
