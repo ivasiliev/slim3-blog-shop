@@ -84,6 +84,37 @@ final class CommentAction extends DataService {
                 return $response->withJson(array("result" => 200, "content" => $this->_getCommentDataToView($elem)));
         }
 
+        public function Drop(Request $request, Response $response, $args) {
+                $params = $request->getParsedBody();
+                if (!$params) {
+                        return $response->withStatus(400, "empty request");
+                }
+                if (!$this->userdata) {
+                        return $response->withStatus(400, "unauthorized");
+                }
+
+                if (isset($params["curr_id"]) && $params["curr_id"]) {
+                        $curr_id = $params["curr_id"];
+                } else {
+                        return $response->withStatus(400, "current id not send");
+                }
+
+                $list = $this->getCommentData();
+
+                if ($list[$curr_id]["user_id"] === $this->userdata["id"]) {
+                        unlink($list[$curr_id]["path"]); // remove comment message
+                        unset($list[$curr_id]);
+                        // save datafile
+                        $this->saveCommentData($list);
+                } else {
+                        // user is not owner of this comment
+                        return $response->withStatus(400, "fuck off");
+                }
+
+                // return success status
+                return $response->withJson(array("result" => 200, "content" => $this->_getCommentDataToView($elem)));
+        }
+
         public function Info(Request $request, Response $response, $args) {
                 $list = $this->getCommentData();
                 if (isset($args["postId"]) && $args["postId"]) {

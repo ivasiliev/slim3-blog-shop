@@ -517,6 +517,21 @@ var comments = {
                         this.send('GET', null, this.api_url_info + postId.value);
                 }
         },
+        drop: function (id) {
+                if (id) {
+                        var self = this;
+                        this.send('GET', null, this.api_url_drop + id, function (data) {
+                                var obj = self;
+                                var c_id = id;
+                                if (data === 'success') {
+                                        delete obj.arr[c_id];
+                                        obj.render();
+                                } else {
+                                        console.log(data);
+                                }
+                        });
+                }
+        },
         create_reqdata: function (elem) {
                 var form = new FormData();
 
