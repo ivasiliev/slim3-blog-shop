@@ -85,9 +85,10 @@ var posts = {
                         }
 
                         if (typeof tinymce !== 'undefined') {
+                                var c_height = Math.round(document.body.clientHeight * 0.9);
                                 var params = {
                                         selector: '',
-                                        min_height: '300',
+                                        min_height: c_height,
                                         plugins: 'lists advlist image imagetools code textcolor link',
                                         toolbar: 'undo redo | fontsizeselect forecolor backcolor | h2 h3 blockquote | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist | image link | code',
                                         menubar: false,
