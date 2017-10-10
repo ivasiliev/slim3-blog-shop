@@ -229,7 +229,7 @@ button.modal_button:hover {
 
 .inputs_cont textarea {
         width: 100%;
-        min-height: 150px;
+        height: 90%;
         border: none;
         font-size: 14px;
         font-family: inherit;
