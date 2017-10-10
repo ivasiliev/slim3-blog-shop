@@ -3,6 +3,15 @@
 <div class="modal_inputs">
         {# current id #}
         <input type="hidden" formdata="curr_id" value="{% if data.id %}{{ data.id }}{% endif %}">
+        {# post body #}
+        <label class="inputs_cont">
+                <div class="show_imgs_button" onclick="user_imgs.open_form();"><i class="fa fa-picture-o" aria-hidden="true"></i><font>менеджер изображений</font></div>
+                <span>Содержание</span>
+                {#<textarea formdata="main_content" class="post_content">{% if data.content.main %}{{ data.content.main }}{% endif %}</textarea>#}
+                <textarea formdata="main_content" class="post_content">
+                        {% if data.main_content %} {{ data.main_content }} {% endif %}
+                </textarea>
+        </label>
         <label class="inputs_cont">
                 <span>Название<font class="required">*</font></span>
                 <input type="text" formdata="name" data-required="required" value="{% if data.name %}{{ data.name }}{% endif %}">
@@ -17,15 +26,6 @@
                 <div class="show_imgs_button" onclick="user_imgs.open_form();"><i class="fa fa-picture-o" aria-hidden="true"></i><font>менеджер изображений</font></div>
                 <span>Главное изображение<font class="required">*</font></span>
                 <input type="text" formdata="main_img" data-required="required" value="{% if data.main_img %}{{ data.main_img }}{% endif %}">
-        </label>
-        {# post body #}
-        <label class="inputs_cont">
-                <div class="show_imgs_button" onclick="user_imgs.open_form();"><i class="fa fa-picture-o" aria-hidden="true"></i><font>менеджер изображений</font></div>
-                <span>Содержание</span>
-                {#<textarea formdata="main_content" class="post_content">{% if data.content.main %}{{ data.content.main }}{% endif %}</textarea>#}
-                <textarea formdata="main_content" class="post_content">
-                        {% if data.main_content %} {{ data.main_content }} {% endif %}
-                </textarea>
         </label>
         {# secret post body #}
         {#<label class="inputs_cont">
