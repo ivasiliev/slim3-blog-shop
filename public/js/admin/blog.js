@@ -87,7 +87,7 @@ var posts = {
                         if (typeof tinymce !== 'undefined') {
                                 var params = {
                                         selector: '',
-                                        height: 500,
+                                        height: '90%',
                                         plugins: 'lists advlist image imagetools code textcolor link',
                                         toolbar: 'undo redo | fontsizeselect forecolor backcolor | h2 h3 blockquote | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist | image link | code',
                                         menubar: false,
