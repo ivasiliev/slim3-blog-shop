@@ -87,7 +87,7 @@ var posts = {
                         if (typeof tinymce !== 'undefined') {
                                 var params = {
                                         selector: '',
-                                        min-height: '300',
+                                        min_height: '300',
                                         plugins: 'lists advlist image imagetools code textcolor link',
                                         toolbar: 'undo redo | fontsizeselect forecolor backcolor | h2 h3 blockquote | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist | image link | code',
                                         menubar: false,
