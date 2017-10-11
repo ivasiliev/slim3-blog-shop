@@ -378,6 +378,7 @@ var groups = {
 };
 
 window.onload = function () {
+        document.body.className = 'animate';
         //load_imgs.init();
         comments.info();
 };

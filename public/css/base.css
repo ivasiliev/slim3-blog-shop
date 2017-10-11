@@ -11,7 +11,7 @@ html, body {
         background: #fff;
 }
 
-body * {
+body.animate * {
         transition-timing-function: ease-in;
         transition-duration: 0.2s;
 }

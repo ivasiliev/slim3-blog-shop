@@ -85,7 +85,7 @@ var posts = {
                         }
 
                         if (typeof tinymce !== 'undefined') {
-                                var c_height = Math.round(document.body.clientHeight * 0.9);
+                                var c_height = Math.round(document.body.clientHeight * 0.8);
                                 var params = {
                                         selector: '',
                                         min_height: c_height,
