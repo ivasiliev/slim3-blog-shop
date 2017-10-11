@@ -618,6 +618,7 @@ var data_proto = {
                 var xhr = new XMLHttpRequest();
                 xhr.open(method, backend, true);
                 xhr.onload = xhr.onerror = function () {
+                        console.log(this.responseType);
                         console.log(this.getResponseHeader('content-type'));
                         loader.remove();
                         if (Number(this.status) === 200) {

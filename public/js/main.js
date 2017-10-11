@@ -390,6 +390,7 @@ window.onload = function () {
 var login = {
         api_url_create: '/api/checklogin',
         api_url_info: '',
+        api_url_form: '/api/blog/posts/form/',
         api_url_account: '/account',
         arr: [],
         tagname: "login_data",
