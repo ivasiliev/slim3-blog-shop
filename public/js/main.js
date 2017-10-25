@@ -437,7 +437,7 @@ var login = {
         }
     },
     show: function () {
-        this.send('GET', this.api_url_form);
+        this.load_form('GET', this.api_url_form);
     },
     load_form: function (method, backend) {
         var self = this;
