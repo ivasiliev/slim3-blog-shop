@@ -56,6 +56,7 @@ final class HomeAction {
         public function RegView(Request $request, Response $response, $args) {
                 $this->user->logout();
                 $this->view->render($response, 'reg.twig', array(
+                    "site_section" => "registration",
                     "nav_current" => ""
                 ));
                 return $response;
