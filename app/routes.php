@@ -14,7 +14,8 @@ $app->get('/', App\Action\HomeAction::class)
 $app->get('/login[/]', 'App\Action\HomeAction:LoginView');
 $app->get('/reg[/]', 'App\Action\HomeAction:RegView');
 
-$app->post('/api/checklogin[/]', 'App\Action\UserAction:LoginCheck');
+$app->post('/api/login/check[/]', 'App\Action\UserAction:LoginCheck');
+$app->get('/api/login/form[/]', 'App\Action\UserAction:ShowForm');
 $app->post('/api/regclient[/]', 'App\Action\UserAction:RegClient');
 
 
