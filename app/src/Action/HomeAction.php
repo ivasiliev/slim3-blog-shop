@@ -12,54 +12,60 @@ use App\Blog\Action\BaseAction;
 
 final class HomeAction {
 
-        private $view;
-        private $logger;
-        private $user;
-        private $blog;
+    private $view;
+    private $logger;
+    private $user;
+    private $userdata;
+    private $blog;
 
-        public function __construct(Twig $view, LoggerInterface $logger) {
-                $this->view = $view;
-                $this->logger = $logger;
-                $this->user = new Auth($this->view, $this->logger);
-                $this->blog = new BaseAction($view, $logger);
-        }
+    public function __construct(Twig $view, LoggerInterface $logger) {
+        $this->view = $view;
+        $this->logger = $logger;
+        $this->user = new Auth($this->view, $this->logger);
+        $this->userdata = $this->user->info();
+        $this->blog = new BaseAction($view, $logger);
+    }
 
-        public function __invoke(Request $request, Response $response, $args) {
-                $this->logger->info("Home page action dispatched");
+    public function __invoke(Request $request, Response $response, $args) {
+        $this->logger->info("Home page action dispatched");
 
-                $posts = $this->blog->getPostsData();
+        $posts = $this->blog->getPostsData();
 
-                $this->view->render($response, 'main.twig', array(
-                    "site_section" => "blog",
-                    "nav_current" => "new",
-                    "posts" => $posts
-                ));
-                return $response;
-        }
+        $this->view->render($response, 'main.twig', array(
+            "user" => $this->userdata,
+            "site_section" => "blog",
+            "nav_current" => "new",
+            "posts" => $posts
+        ));
+        return $response;
+    }
 
-        public function StubView(Request $request, Response $response, $args) {
-                $this->view->render($response, 'stub.twig', array(
-                    "nav_current" => ""
-                ));
-                return $response;
-        }
+    public function StubView(Request $request, Response $response, $args) {
+        $this->view->render($response, 'stub.twig', array(
+            "user" => $this->userdata,
+            "nav_current" => ""
+        ));
+        return $response;
+    }
 
-        public function LoginView(Request $request, Response $response, $args) {
-                $this->user->logout();
-                $this->view->render($response, 'login.twig', array(
-                    "site_section" => "login",
-                    "nav_current" => ""
-                ));
-                return $response;
-        }
+    public function LoginView(Request $request, Response $response, $args) {
+        $this->user->logout();
+        $this->view->render($response, 'login.twig', array(
+            "user" => $this->userdata,
+            "site_section" => "login",
+            "nav_current" => ""
+        ));
+        return $response;
+    }
 
-        public function RegView(Request $request, Response $response, $args) {
-                $this->user->logout();
-                $this->view->render($response, 'reg.twig', array(
-                    "site_section" => "registration",
-                    "nav_current" => ""
-                ));
-                return $response;
-        }
+    public function RegView(Request $request, Response $response, $args) {
+        $this->user->logout();
+        $this->view->render($response, 'reg.twig', array(
+            "user" => $this->userdata,
+            "site_section" => "registration",
+            "nav_current" => ""
+        ));
+        return $response;
+    }
 
 }

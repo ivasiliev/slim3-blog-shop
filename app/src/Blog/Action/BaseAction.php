@@ -36,7 +36,9 @@ final class BaseAction extends DataService {
          * @return Response - Twig
          */
         public function __invoke(Request $request, Response $response, $args) {
-                $this->view->render($response, 'main.twig', array());
+                $this->view->render($response, 'main.twig', array(
+                    "user" => $this->userdata
+                ));
                 return $response;
         }
 
@@ -52,6 +54,7 @@ final class BaseAction extends DataService {
                         $data = array();
                 }
                 $this->view->render($response, 'blog/userpage.twig', array(
+                    "user" => $this->userdata,
                     "site_section" => "blog",
                     "data" => $data
                 ));
