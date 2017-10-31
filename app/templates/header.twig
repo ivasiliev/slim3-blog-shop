@@ -20,30 +20,21 @@
                 <div class="search_cont"></div>
                 <i class="fa fa-search"></i>
             </div>
-            {% if user %}
-                <div class="userdata">
-                    <div class="userinfo">{{ user.settings.name }}</div>
-                    <a href="/login" class="log_button">
-                        <i onclick="" class="fa fa-sign-out"></i>
-                    </a>
-                </div>
-            {% else %}
-                <div class="userdata">
-                    {% if not (site_section == 'login' or site_section == 'registration') %}
-                        {% if user %}
-                            <div class="userinfo" onclick="users.open_menu('{{ user.id }}');" userid="{{ user.id }}">{{ user.settings.name }}</div>
-                            <a href="/login" class="log_button">
-                                <i onclick="" class="fa fa-sign-out"></i>
-                            </a>
-                        {% else %}
-                            <div class="userinfo"></div>
-                            <a href="javascript:void(0)" onclick="login.show();" class="log_button">
-                                <i class="fa fa-sign-in"></i>
-                            </a>
-                        {% endif %}
+            <div class="userdata">
+                {% if not (site_section == 'login' or site_section == 'registration') %}
+                    {% if user %}
+                        <div class="userinfo" onclick="users.open_menu('{{ user.id }}');">{{ user.settings.name }}</div>
+                        <a href="/login" class="log_button">
+                            <i onclick="" class="fa fa-sign-out"></i>
+                        </a>
+                    {% else %}
+                        <div class="userinfo"></div>
+                        <a href="javascript:void(0)" onclick="login.show();" class="log_button">
+                            <i class="fa fa-sign-in"></i>
+                        </a>
                     {% endif %}
-                </div>
-            {% endif %}
+                {% endif %}
+            </div>
         </div>
     </div>
 </div>
