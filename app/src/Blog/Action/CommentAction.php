@@ -136,7 +136,7 @@ final class CommentAction extends DataService {
                 $this->view->render($response, 'blog/comment_add_form.twig', array(
                     "site_section" => "blog",
                     "comment" => $data,
-                    "userdata" => $this->userdata
+                    "user" => $this->userdata
                 ));
                 return $response;
         }

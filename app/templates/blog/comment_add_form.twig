@@ -1,5 +1,5 @@
 <div class="add_comment"{% if main_comment_field %} comment_filed="main"{% endif %}>
-        {% if userdata.id and userdata.id %}
+        {% if user and user.id %}
                 <input type="hidden" comment_data="parentId" value="{% if comment.parent_id %}{{ comment.parent_id }}{% endif %}"> {# current comment id - answer to other comment #}
                 <input type="hidden" comment_data="curr_id" value="{% if comment.id %}{{ comment.id }}{% endif %}"> {# current comment id #}
                 <textarea placeholder="Оставьте комментарий:" comment_data="txt">{% if comment.message %}{{ comment.message }}{% endif %}</textarea>
