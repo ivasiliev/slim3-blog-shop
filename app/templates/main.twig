@@ -3,17 +3,33 @@
 {% block title %}Главная{% endblock %}
 
 {% block container %}
-	<div class="cont">
-		{% include 'header.twig' %}
-		<div class="posts_cont_results">
-			{% include 'blog/list.twig' %}
-		</div>
-	</div>
+    <div class="cont">
+        {% include 'header.twig' %}
+        <div class="main_content table">
+            <div class="table-row right_column">
+                <h3></h3>
+                <div class="posts_cont_results">
+                    {% include 'blog/list.twig' %}
+                </div>
+            </div>
+            <div class="table-row left_column">
+                <div class="box">
+                    <div class="popular">популярное</div>
+                </div>
+                <div class="box">
+                    <div class="categories"></div>
+                </div>
+                <div class="box">
+                    <div class="vk_widget"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block styles %}
-	{#<link href='/css/blog/main.css' rel='stylesheet' type='text/css'>#}
+    {#<link href='/css/blog/main.css' rel='stylesheet' type='text/css'>#}
 {% endblock %}
 {% block scripts %}
-	<script async type="text/javascript" src="/js/main.js"></script>
+    <script async type="text/javascript" src="/js/main.js"></script>
 {% endblock %}
