@@ -1,25 +1,32 @@
 {% if posts and posts|length > 0 %}
-        {% for curr in posts %}
-                <div class="record_box">
-                        <div class="record_preview_img" style="background-image: url(/userimgs/{{ curr.main_img }});">
-                                <div>
-                                        <span>
-                                                <a href="/blog/posts/{{ curr.id }}">{{ curr.name }}</a>
-                                        </span>
-                                        <font></font>
-                                </div>
-                        </div>
-                        <div class="record_preview_subcont">
-                                <div class="ages">
-                                        {{ curr.create_dt|date("d.m.Y") }}
-                                </div>
-                                <div class="keyskills">
-                                        {{ curr.short_content }}
-                                </div>
-                                <a href="/blog/posts/{{ curr.id }}" class="link_to_record">подробнее</a>
-                        </div>
+    {% for curr in posts %}
+        <div class="record_box">
+            <div class="record_preview_img" style="background-image: url(/userimgs/{{ curr.main_img }});">
+                <div>
+                    <span>
+                        <a href="/blog/posts/{{ curr.id }}">{{ curr.name }}</a>
+                    </span>
+                    <font></font>
                 </div>
-        {% endfor %}
+            </div>
+            <div class="record_preview_subcont">
+                <div class="ages">
+                    <span>
+                        <i class='fa fa-user-circle-o'></i>
+                        <a href="blog/{{ curr.author.id }}">{{ curr.author.settings.name }}</a>
+                    </span>
+                    <font>
+                    <i class='fa fa-clock-o'></i>
+                    {{ curr.create_dt|date("d.m.Y") }}
+                    </font>
+                </div>
+                <div class="keyskills">
+                    {{ curr.short_content }}
+                </div>
+                <a href="/blog/posts/{{ curr.id }}" class="link_to_record">подробнее</a>
+            </div>
+        </div>
+    {% endfor %}
 {% else %}
-        <h4>К сожалению, в блоге пока нет записей</h4>
+    <h4>К сожалению, в блоге пока нет записей</h4>
 {%endif%}
