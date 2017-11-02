@@ -378,7 +378,9 @@ var groups = {
 };
 
 window.onload = function () {
-    document.body.className = 'animate';
+    setTimeout(function () {
+        document.body.className = 'animate';
+    }, 300);
     //load_imgs.init();
     comments.info();
 };
