@@ -461,6 +461,7 @@ var login = {
         xhr.send();
     },
     show_form: function (data) {
+        data = '<div class="modal_close_but">+</div>' + data;
         var m = modal.show(data);
     }
 };
