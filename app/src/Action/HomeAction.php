@@ -30,16 +30,25 @@ final class HomeAction {
         $this->logger->info("Home page action dispatched");
 
         $posts = $this->blog->getPostsData();
+        $categories = $this->blog->getCategoryData();
+
+        $popular = array();
 
         foreach ($posts as $key => $value) {
             $posts[$key]["author"] = $this->user->getUsersData($value["user_id"]);
+            $popular[] = array(
+                "id" => $posts[$key]["id"],
+                "name" => $posts[$key]["name"]
+            );
         }
 
         $this->view->render($response, 'main.twig', array(
             "user" => $this->userdata,
             "site_section" => "blog",
             "nav_current" => "new",
-            "posts" => $posts
+            "posts" => $posts,
+            "popular" => $popular,
+            "categories" => $categories
         ));
         return $response;
     }
