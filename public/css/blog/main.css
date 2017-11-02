@@ -1,6 +1,5 @@
 .main_content .right_column {
     width: 75%;
-    overflow-x: hidden;
 }
 
 .main_content .left_column {
@@ -34,6 +33,12 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.24), 0 0 4px rgba(0, 0, 0, 0.12);
     vertical-align: top;
     position: relative;
+    top: 0;
+}
+
+.record_box:hover {
+    top: -5px;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.5);
 }
 
 .records_cont_results {
