@@ -62,6 +62,7 @@ a {
 }
 .table-cell {
     display: table-cell;
+    vertical-align: top;
 }
 h4 {
         font-size: 20px;
