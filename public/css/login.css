@@ -1,7 +1,7 @@
 .login_cont {
     width: 80%;
     max-width: 500px;
-    margin: 70px auto;
+    margin: 0px auto 30px;
 }
 
 .inputs_cont {
@@ -37,4 +37,8 @@
     text-align: center;
     margin-bottom: 25px;
     font-weight: 400;
+}
+
+.login_wrap {
+    margin: 70px 0 30px;
 }
