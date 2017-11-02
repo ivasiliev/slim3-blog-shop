@@ -96,3 +96,8 @@
 .comment_childs_list {
         margin-left: 50px;
 }
+
+.comment_need_auth font {
+    text-decoration: underline;
+    cursor: pointer;
+}
