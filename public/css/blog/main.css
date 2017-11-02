@@ -243,3 +243,7 @@ h2 {
     font-size: 0;
     width: 102%;
 }
+
+.record_preview_subcont .ages>font {
+    float: right;
+}
