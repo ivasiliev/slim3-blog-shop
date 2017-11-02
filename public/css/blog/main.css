@@ -247,3 +247,21 @@ h2 {
 .record_preview_subcont .ages>font {
     float: right;
 }
+
+.links_list {
+    padding: 10px 0;
+}
+
+.links_list a {
+    display: block;
+    margin-bottom: 7px;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.55);
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 0, 0, 0);
+}
+
+.links_list a:hover {
+    color: rgba(0, 0, 0, 0.8);
+    text-decoration-color: rgba(0, 0, 0, 0.8);
+}
