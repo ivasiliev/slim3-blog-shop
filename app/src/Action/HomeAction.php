@@ -33,6 +33,8 @@ final class HomeAction {
 
         foreach ($posts as $value) {
             $value["author"] = $this->user->getUsersData($value["user_id"]);
+            print(json_encode($value));
+            exit;
         }
 
         $this->view->render($response, 'main.twig', array(
