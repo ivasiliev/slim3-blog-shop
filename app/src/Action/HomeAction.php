@@ -31,6 +31,12 @@ final class HomeAction {
 
         $posts = $this->blog->getPostsData();
 
+        foreach ($posts as $value) {
+            $value["author"] = $this->user->getUsersData($value["user_id"]);
+            print_r($value);
+            exit;
+        }
+
         $this->view->render($response, 'main.twig', array(
             "user" => $this->userdata,
             "site_section" => "blog",
