@@ -67,6 +67,7 @@ $app->get('/blog/posts/{curr_id}[/]', 'App\Blog\Action\BaseAction:CurrPostPage')
 // api
 $app->get('/api/blog/info[/]', 'App\Blog\Action\BaseAction:AdminMainView');
 // categories
+$app->get('/categories/{curr_id}[/]', 'App\Blog\Action\BaseAction:AdminCategoriesView');
 $app->get('/api/blog/categories/info[/]', 'App\Blog\Action\BaseAction:AdminCategoriesView');
 $app->get('/api/blog/categories/form[/]', 'App\Blog\Action\BaseAction:AdminCategoriesForm');
 $app->get('/api/blog/categories/form/{curr_id}[/]', 'App\Blog\Action\BaseAction:AdminCategoriesForm');
