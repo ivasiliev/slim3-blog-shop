@@ -31,8 +31,8 @@ final class HomeAction {
 
         $posts = $this->blog->getPostsData();
 
-        foreach ($posts as $value) {
-            $value["author"] = $this->user->getUsersData($value["user_id"]);
+        foreach ($posts as $key => $value) {
+            $posts[$key]["author"] = $this->user->getUsersData($value["user_id"]);
         }
 
         $this->view->render($response, 'main.twig', array(
