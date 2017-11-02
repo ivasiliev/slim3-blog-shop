@@ -430,7 +430,12 @@ var login = {
     },
     send_after: function (data) {
         if (data.type === 'success') {
-            location.href = this.api_url_account;
+            var elem = document.querySelector('[login_target="account"]');
+            if (elem) {
+                location.href = this.api_url_account;
+            } else {
+                location.reload();
+            }
             return;
         } else if (data.type === 'error') {
             alert(data.message);
