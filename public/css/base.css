@@ -60,6 +60,9 @@ a {
 .table-row {
         display: table-row;
 }
+.table-cell {
+    display: table-cell;
+}
 h4 {
         font-size: 20px;
         text-align: center;
