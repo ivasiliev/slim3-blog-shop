@@ -23,7 +23,6 @@
                 <option value="{{ curr.id }}"{% if curr.id == data.category %} selected="selected"{% endif %}>{{ curr.name }}</option>
             {% endfor %}
         </select>
-        <input type="text" formdata="name" data-required="required" value="{% if data.name %}{{ data.category }}{% endif %}">
     </label>
     {# short entry text #}
     <label class="inputs_cont">
