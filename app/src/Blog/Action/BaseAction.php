@@ -170,8 +170,12 @@ final class BaseAction extends DataService {
                 } else {
                         $data = array();
                 }
+                
+                $categories = $this->getCategoryData();
+                
                 $this->view->render($response, 'admin/blog/posts_form.twig', array(
-                    "data" => $data
+                    "data" => $data,
+                    "categories" => $categories
                 ));
                 return $response;
         }
