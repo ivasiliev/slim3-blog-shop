@@ -24,7 +24,7 @@
                 {% if not (site_section == 'login' or site_section == 'registration') %}
                     {% if user %}
                         <div class="userinfo">
-                            <a href="/account">{{ user.settings.name }}</a>
+                            <a href="/account" title="перейти в личный кабинет">{{ user.settings.name }}</a>
                         </div>
                         <a href="/login" class="log_button">
                             <i onclick="" class="fa fa-sign-out"></i>
