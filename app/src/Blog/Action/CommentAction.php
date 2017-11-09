@@ -156,5 +156,80 @@ final class CommentAction extends DataService {
                 );
                 return $data;
         }
+        
+        
+        //----------------------------------------------------------------------
+        // admin
+        //----------------------------------------------------------------------
+
+        public function AdminView(Request $request, Response $response, $args) {
+                $comments = $this->getCommentData();
+                $this->view->render($response, 'admin/blog/comments.twig', array(
+                    "comments" => $comments
+                ));
+                return $response;
+        }
+
+        public function AdminForm(Request $request, Response $response, $args) {
+                if (isset($args["curr_id"]) && $args["curr_id"] !== "") {
+                        $categories = $this->getCategoryData($args["curr_id"]);
+                } else {
+                        $categories = array();
+                }
+                $this->view->render($response, 'admin/blog/categories_form.twig', array(
+                    "data" => $categories
+                ));
+                return $response;
+        }
+
+        public function AdminSave(Request $request, Response $response, $args) {
+                $params = $request->getParsedBody();
+                if (!$params) {
+                        return $response->withStatus(400, "empty request");
+                }
+
+                $curr_id = null;
+                if (isset($params["curr_id"]) && $params["curr_id"]) {
+                        $curr_id = $params["curr_id"];
+                }
+
+                if (!$curr_id) {
+                        $curr_id = uniqid();
+                }
+                $elem = array(
+                    "id" => $curr_id,
+                    "name" => $params["name"],
+                    "descr" => $params["descr"],
+                );
+
+                $list = $this->getCategoryData();
+                $list[$curr_id] = $elem;
+
+                // save datafile
+                $this->saveCategoryData($list);
+
+                // return rendered data
+                return $this->AdminCategoriesView($request, $response, $args);
+        }
+
+        public function AdminDrop(Request $request, Response $response, $args) {
+                if (!(isset($args["curr_id"]) && $args["curr_id"] !== "")) {
+                        return $response->withStatus(400, "empty request");
+                }
+
+                $curr_id = $args["curr_id"];
+
+                $list = $this->getCategoryData();
+                if (isset($list[$curr_id])) {
+                        // remove current data
+                        unset($list[$curr_id]);
+                }
+
+                // save datafile
+                $this->saveCategoryData($list);
+
+                // return rendered data
+                return $this->AdminCategoriesView($request, $response, $args);
+        }
 
 }
