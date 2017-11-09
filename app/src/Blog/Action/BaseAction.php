@@ -221,6 +221,7 @@ final class BaseAction extends DataService {
                     "id" => $curr_id,
                     "user_id" => $this->userdata["id"],
                     "name" => $params["name"],
+                    "category" => $params["category"],
                     "short_content" => $params["short_content"],
                     "main_img" => $params["main_img"],
                     "create_dt" => $create_dt,

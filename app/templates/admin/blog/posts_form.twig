@@ -18,7 +18,7 @@
     </label>
     <label class="inputs_cont">
         <span>Категория<font class="required">*</font></span>
-        <select formdata="name" data-required="required">
+        <select formdata="category" data-required="required">
             {% for curr in categories %}
                 <option value="{{ curr.id }}"{% if curr.id == data.category %} selected="selected"{% endif %}>{{ curr.name }}</option>
             {% endfor %}
