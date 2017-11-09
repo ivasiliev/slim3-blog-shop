@@ -61,6 +61,8 @@ $app->get('/api/img/list/init[/]', 'App\Action\Imgs:__createPhotosArr');
 // view
 $app->get('/blog[/]', App\Blog\Action\BaseAction::class);
 $app->get('/blog/{curr_id}[/]', 'App\Blog\Action\BaseAction:UserPage');
+$app->get('/blog/{curr_id}/about[/]', 'App\Blog\Action\BaseAction:UserPage');
+$app->get('/blog/{curr_id}/posts[/]', 'App\Blog\Action\BaseAction:UserPage');
 
 $app->get('/blog/posts/{curr_id}[/]', 'App\Blog\Action\BaseAction:CurrPostPage');
 
