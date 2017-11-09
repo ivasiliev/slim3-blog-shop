@@ -66,6 +66,14 @@ class DataService extends BaseDataService {
         public function getCategoryData($id = 0) {
                 return $this->__getData(Settings::CATEGORY, $id);
         }
+        
+        public function getCategoryName($id = 0, $categories = array()) {
+            if (!$categories){
+                $categories = $this->__getData(Settings::CATEGORY);
+            }
+            return array_key_exists($id, $categories) ? $categories[$id]["name"] : "";
+            
+        }
 
         public function saveCategoryData($data) {
                 return $this->__saveDatafile(Settings::CATEGORY, $data);
