@@ -36,6 +36,9 @@ final class HomeAction {
 
         foreach ($posts as $key => $value) {
             $posts[$key]["author"] = $this->user->getUsersData($value["user_id"]);
+            if (isset($posts[$key]["category"]) && $posts[$key]["category"]) {
+                $posts[$key]["category_name"] = array_key_exists($posts[$key]["category"], $categories) ? $categories[$posts[$key]["category"]]["name"] : "";
+            }
             $popular[] = array(
                 "id" => $posts[$key]["id"],
                 "name" => $posts[$key]["name"]

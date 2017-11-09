@@ -6,7 +6,11 @@
                     <span>
                         <a href="/blog/posts/{{ curr.id }}">{{ curr.name }}</a>
                     </span>
-                    <font></font>
+                    <font>
+                    {% if curr.category and curr.category_name %}
+                        <a href="/category/{{ curr.category }}">{{ curr.category_name }}</a>
+                    {% endif %}
+                    </font>
                 </div>
             </div>
             <div class="record_preview_subcont">
